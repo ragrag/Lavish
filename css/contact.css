@@ -1,0 +1,377 @@
+
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	line-height: 23px;
+	font-weight: 400;
+	background: #FFFFFF;
+	color: #1e1e27;
+}
+div
+{
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+p
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	line-height: 1.7;
+	font-weight: 500;
+	color: #51545f;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+p::selection
+{
+	background: #fde0db;
+}
+h1{font-size: 72px;}
+h4{font-size: 24px;}
+h1, h4
+{
+	font-family: 'Poppins', sans-serif;
+	color: #282828;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+h1::selection,
+h4::selection
+{
+
+}
+::-webkit-input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 500;
+	color: #777777 !important;
+}
+:-moz-placeholder /* older Firefox*/
+{
+	font-size: 16px !important;
+	font-weight: 500;
+	color: #777777 !important;
+}
+::-moz-placeholder /* Firefox 19+ */
+{
+	font-size: 16px !important;
+	font-weight: 500;
+	color: #777777 !important;
+}
+:-ms-input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 500;
+	color: #777777 !important;
+}
+::input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 500;
+	color: #777777 !important;
+}
+.trans_300
+{
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+/*********************************
+Breadcrumbs
+*********************************/
+
+.breadcrumbs
+{
+	width: 100%;
+	height: 60px;
+	border-bottom: solid 1px #ebebeb;
+	margin-bottom: 79px;
+}
+.breadcrumbs ul li
+{
+	display: inline-block;
+	margin-right: 17px;
+}
+.breadcrumbs ul li.active a
+{
+	color: #b9b4c7;
+}
+.breadcrumbs ul li i
+{
+	margin-right: 17px;
+}
+.breadcrumbs ul li a
+{
+	color: #51545f;
+}
+
+/*********************************
+Contact Us
+*********************************/
+
+.contact_contents
+{
+	padding-right: 30px;
+}
+.contact_contents h1,
+.follow_us_contents h1,
+.get_in_touch_contents h1
+{
+	font-size: 40px;
+	font-weight: 500;
+}
+.contact_contents p,
+.get_in_touch_contents p
+{
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 0px;
+}
+.contact_contents div
+{
+	margin-top: 22px;
+}
+.contact_contents div:first-of-type
+{
+	margin-top: 39px;
+}
+
+/*********************************
+ Follow Us
+*********************************/
+
+.follow_us_contents
+{
+	margin-top: 32px;
+}
+.social
+{
+	margin-top: 20px;
+}
+.social li
+{
+	margin-right: 12px;
+}
+.social li:last-child
+{
+	margin-right: 0px;
+}
+.social li a
+{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.social li a i
+{
+	color: #FFFFFF;
+}
+.social li:hover a
+{
+	transform: translateY(-5px);
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+}
+
+/*********************************
+Contact Form
+*********************************/
+
+.form_input
+{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border: solid 1px #e5e5e5;
+	padding-left: 20px;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+.input_message
+{
+	width: 100%;
+	margin-bottom: 15px;
+	font-size: 16px;
+	padding-bottom: 15px;
+}
+.form_input:focus,
+#newsletter_email:focus
+{
+	border: solid 1px #7f7f7f !important;
+	box-shadow: none !important;
+}
+.message_submit_btn
+{
+	background: #1e1e27;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	width: 165px;
+	border: none;
+	height: 46px;
+	cursor: pointer;
+}
+.message_submit_btn:hover
+{
+	background: #FE7C7F !important;
+}
+
+.input_ph::-webkit-input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+.input_ph:-moz-placeholder /* older Firefox*/
+{
+	font-size: 16px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+.input_ph::-moz-placeholder /* Firefox 19+ */
+{
+	font-size: 16px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+.input_ph:-ms-input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+.input_ph::input-placeholder
+{
+	font-size: 16px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+textarea
+{
+	border: solid 1px #e5e5e5;
+	padding-left: 20px;
+	padding-top: 15px;
+}
+textarea:hover
+{
+	border-color: #7f7f7f !important;
+}
+.input_name
+{
+	margin-bottom: 19px;
+	margin-top: 31px;
+}
+
+/* News Letter */
+
+.newsletter
+{
+	width: 100%;
+	background: #f2f2f2;
+	margin-top: 81px;
+}
+.newsletter_text
+{
+	height: 120px;
+}
+.newsletter_text h4
+{
+	margin-bottom: 0px;
+	line-height: 24px;
+}
+.newsletter_text p
+{
+	margin-bottom: 0px;
+	line-height: 1.7;
+	color: #51545f;
+}
+.newsletter_form
+{
+	height: 120px;
+}
+#newsletter_email
+{
+	width: 300px;
+	height: 46px;
+	background: #FFFFFF;
+	border: none;
+	font-size: 14px;
+	padding-left: 20px;
+}
+::-webkit-input-placeholder
+{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+:-moz-placeholder 
+{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+::-moz-placeholder
+{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+:-ms-input-placeholder
+{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+::input-placeholder
+{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+.newsletter_submit_btn
+{
+	width: 160px;
+	height: 46px;
+	border: none;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.newsletter_submit_btn:hover
+{
+	background: #FE7C7F;
+}
