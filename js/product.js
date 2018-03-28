@@ -14,7 +14,7 @@ jQuery(document).ready(function($)
 	initThumbnail();
 	initQuantity();
 	initStarRating();
-	initTabs();s
+	initTabs();
 
 
 
