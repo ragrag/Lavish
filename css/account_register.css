@@ -53,8 +53,7 @@ a{
 .listItem:hover{
     color: #8C8C8C;
     background-color: black;
-    padding: 15px;
-    min-width: 100px;
+    
 }
 .align{
     display: inline;
