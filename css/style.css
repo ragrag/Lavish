@@ -81,5 +81,10 @@ float:left;
 
 
 }
+
+.container{
+	display:block;
+	margin-right:5%;
+	margin-left:5%;
 	
 	
