@@ -4,7 +4,7 @@ function validateRegisterForm() {
     var at = "@";
     
     var firstname = document.getElementById("fname").value;
-    var lastname = document.getElementById("ln").value;
+    var lastname = document.getElementById("lname").value;
     var password = document.getElementById("pass").value;
     var cpassword = document.getElementById("cpass").value;
     var email = document.getElementById("email").value;
@@ -13,7 +13,12 @@ function validateRegisterForm() {
     var billingAddress = document.getElementById("baddress").value;
     var phonenumber = document.getElementById("phonenumber").value;
     var birthdate = document.getElementById("bdate").value;
+    var termsAndConditions = document.getElementById("t&c");
     
+    if(!termsAndConditions.checked)
+    {
+    window.alert("You must agree to terms and conditions");    
+    }
     if(!firstname.match(letters)) {
     window.alert("First name must be letters");
     }
@@ -32,4 +37,17 @@ function validateRegisterForm() {
     } else {
     return true;
     } 
+}
+
+function deliveryAddress() {
+    if(!document.getElementById("baddress").readOnly)
+    {
+        document.getElementById("baddress").readOnly = true; 
+    }
+    else if(document.getElementById("baddress").readOnly)
+    {
+        document.getElementById("baddress").readOnly = false;
+    }
+    
+    
 }
