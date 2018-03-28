@@ -4,43 +4,50 @@
 		<meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Register</title>
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/footer.css">
         <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-        <script> 
-        $(function(){
-          $("#header").load("header.html"); 
-          $("#footer").load("footer.html"); 
-        });
-        </script> 
+      
+		<link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="js/register.js"></script>
         <script src="jquery-3.3.1.min.js"></script>
-        <link rel="stylesheet" href="css/StyleSheet.css" type="text/css">
+        <link rel="stylesheet" href="css/account_register.css" type="text/css">
     </head>
     <body>
-        <div id="header">
-            <header class="header-two-bars">
-                <div class="header-first-bar">
-                    <div class="header-limiter">
-                        <h1><a href="#"><img id="header_logo" src="images/logo_black.png"/></a></h1>
-                        <a href="#" class="logout-button">Login</a>
-                        <a href="#" class="logout-button">Sign Up</a>
-                    </div>
+	
+    <div id="header">
+        <header class="header-two-bars">
+
+            <div class="header-first-bar">
+
+                <div class="header-limiter">
+
+                    <h1><a href="home.html"><img id="header_logo" src="images/logo_black.png"/></a></h1>
+
+                    <a href="login.html" class="logout-button">Login</a>
+                    <a href="register.html" class="logout-button">Sign Up</a>
                 </div>
-                <div class="header-second-bar">
-                    <div class="header-limiter">
-                        <nav>
-                            <a href="#"><i class="fa fa-star-o"></i> Makeup</a>
-                            <a href="#"><i class="fa fa-star-o"></i> Skin Care</a>
-                            <a href="#"><i class="fa fa-star-o"></i> Fragrances</a>
-                        </nav>
-                    </div>
+
+            </div>
+
+            <div class="header-second-bar">
+
+                <div class="header-limiter">
+                    <nav class="navtop"><b>
+				<a href="products.html">Face</a>
+				<a href="products.html">&ensp; Lips</a>
+				<a href="products.html">&ensp; Eyes</a>
+				<a href="products.html">&ensp; Fragrances</a></b>
+                    </nav>
+
                 </div>
-            </header>
-        </div>
+
+        </header>
+ </div>
         <div>
-            <form name="registerForm">
+            <form name="registerForm" action="account.html">
                 <table>
                     <tr>
                         <td>
@@ -110,27 +117,49 @@
                 <button class="saveButton regButton" onclick="validateRegisterForm()" type="submit" value="register">Submit</button>
             </form>
         </div>
-        <footer class="footer-distributed">
-			<div class="footer-left">
-				<img id="footer_logo" src="images/logo_white.png"/>
-			</div>
-			<div class="footer-center">
-				<p class="footer-links">
-					<a href="#">About Us</a>&nbsp;
-					<a href="#">Contact Us</a>&nbsp;
-                    <a href="#">Shipping</a>&nbsp;
-                    <a href="#">Billing</a>&nbsp;
-					<a href="#">Returns & Exchange</a>
-				</p>
-				<p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="#"> Terms of Use</a> |<a href="#"> Privacy Policy</a> </p>
-			</div>
-			<div class="footer-right">
-				<div class="footer-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-instagram"></i></a>
-				</div>
-			</div>
-		</footer>
+        
+		  <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+
+                <img id="footer_logo" src="images/logo_white.png" />
+
+            </div>
+
+            <div class="footer-center">
+
+
+
+                <p class="footer-links">
+                    <a href="about.html">About Us</a> &nbsp;
+
+
+                    <a href="contact.html">Contact Us</a> &nbsp;
+                    <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
+                    <a href="returns.html">Returns & Exchange</a>
+
+                </p>
+
+                <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+
+            </div>
+
+            <div class="footer-right">
+
+
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+
+
+                </div>
+
+            </div>
+
+        </footer>
     </body>
 </html>
