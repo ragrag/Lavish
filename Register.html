@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
 		<meta charset="UTF-8">
@@ -14,7 +14,7 @@
           $("#footer").load("footer.html"); 
         });
         </script> 
-        <script type="text/javascript" src="js/register.js"></script>
+        <script src="js/register.js"></script>
         <script src="jquery-3.3.1.min.js"></script>
         <link rel="stylesheet" href="css/StyleSheet.css" type="text/css">
     </head>
@@ -40,7 +40,7 @@
             </header>
         </div>
         <div>
-            <form>
+            <form name="registerForm">
                 <table>
                     <tr>
                         <td>
@@ -107,7 +107,7 @@
                         </td>
                     </tr>
                 </table>
-                <button class="saveButton regButton" onclick="validateRegisterForm()">Submit</button>
+                <button class="saveButton regButton" onclick="validateRegisterForm()" type="submit" value="register">Submit</button>
             </form>
         </div>
         <footer class="footer-distributed">
