@@ -6,6 +6,7 @@ tr{
 }
 a{
 	text-decoration: none;
+    color: #555555;
 }
 .textbox{
     width: 400px;
