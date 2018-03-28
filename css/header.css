@@ -123,7 +123,17 @@
 	display: inline-block;
 	color: #FFFFFF;
 	text-decoration: none;
+    animation: glow 1s infinite alternate;
 }
+
+
+
+@keyframes glow {
+    to {
+        text-shadow: 0 0 17px white;
+    }
+}
+
 
 .header-two-bars .header-second-bar nav i.fa {
 	color: #ffffff;
