@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/adminstyle.css">
+</head>
+
+<body class="log-body">
+	<form id="formaction" class="login" autocomplete="off" method="post">
+		<h3 class="admin-head">Admin log in</h3>
+		<div class="in-left">
+			<input id="userN" class="inputt" type="text" name="username" placeholder='Admin name' onfocus="inpfocus(this)" onblur="inpblur(this)" 
+			 required="required">
+			<i class="fas fa-user"></i>
+		</div>
+		<div class="in-right">
+			<input id="userP" class="inputt" type="password" name="password" placeholder="password" onfocus="inpfocus(this)" onblur="inpblur(this)"
+			 required="required">
+			<i class="fas fa-unlock-alt"></i>
+		</div>
+		<input class="inputs" type="submit" name="subit" value="log in" onclick="calling()">
+
+	</form>
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/adminscript.js"></script>
+
+</body>
+
+</html>
