@@ -22,16 +22,39 @@ function check() {
 
 function LoginFormValidation() {
     var letters = /[A-Za-z]/;
-
+    var Pass1 = /[A-Za-z]/;
+    var Pass2 = /\d/;
     var Uname = document.getElementById("userN").value;
     var Upass = document.getElementById("userP").value;
-
     if (!Uname.match(letters)) {
         window.alert("Username should contain letters");
     }
+    if (!Upass.match(Pass1) || !Upass.match(Pass2)) {
+        window.alert("Passwords should not be empty");
+    }
 }
 
-function calling(){
+function AddproductFormValidation() {
+    var pName = /[A-Za-z]/;
+    var pDescription = /[A-Za-z]/;
+    var ptype = /[A-Za-z]/;
+    var pWeight = /[A-Za-z]/;
+    var pQuantity = /[A-Za-z]/;
+    var pImage1 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    var pImage2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    var pImage3 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    var Pname = document.getElementById("").value;
+    var Pdescription = document.getElementById("").value;
+    var Ptype = document.getElementById("").value;
+    var Pweight = document.getElementById("").value;
+    var Pquantity = document.getElementById("").value;
+    var Pimage1 = document.getElementById("").value;
+    var Pimage2 = document.getElementById("").value;
+    var Pimage3 = document.getElementById("").value;
+
+}
+function calling() {
     LoginFormValidation();
     check();
 
@@ -45,7 +68,7 @@ $(document).ready(function () {
             $(".popupBody").show();
             $(".pAdd").show();
             $('.fbody').css({
-                "filter":"blur(5px)"
+                "filter": "blur(5px)"
             });
             return false;
         });
@@ -54,19 +77,19 @@ $(document).ready(function () {
             $(".pAdd").hide();
             $(".popupBody").hide();
             $('.fbody').css({
-                "filter":"blur(0px)"
+                "filter": "blur(0px)"
             });
             return false;
         });
 
     });
-    $(function(){
+    $(function () {
 
         $("#EditBTN").click(function EditproductBTN() {
             $(".EditPOP").show();
             $(".pEdit").show();
             $('.fbody').css({
-                "filter":"blur(5px)"
+                "filter": "blur(5px)"
             });
             return false;
         });
@@ -75,7 +98,7 @@ $(document).ready(function () {
             $(".pEdit").hide();
             $(".EditPOP").hide();
             $('.fbody').css({
-                "filter":"blur(0px)"
+                "filter": "blur(0px)"
             });
             return false;
         });
@@ -94,7 +117,7 @@ $(document).ready(function () {
     $('.fbody').css("background-image", "url(../images/gb.jpg)");
     $('.fbody').css("background-repeat", "no-repeat, repeat");
     $('.fbody').css("background-size", "cover");
- 
+
 
     $('.log-body').css("background-image", "url(../images/gb.jpg)");
     $('.log-body').css("background-repeat", "no-repeat, repeat");
@@ -107,8 +130,8 @@ $(document).ready(function () {
     $('.managetable td').slideDown(700);
     $('.converttobtn').css("font-size", "17px");
     $('.stat').slideDown(1000);
-    $('.tazbit2').css({ "right": "0px" });
-    $('.tazbit1').css({ "left": "0px" });
+    $('.handling2').css({ "right": "0px" });
+    $('.handling1').css({ "left": "0px" });
 
 
 
