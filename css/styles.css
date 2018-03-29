@@ -2617,6 +2617,7 @@ background-color: #449d44;
     border-color:#000000;
     border-style: outset;
     display:none;
+	background-color:#FFFFFF;
     z-index: 2;
         
 }
