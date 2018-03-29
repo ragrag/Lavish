@@ -1362,11 +1362,11 @@ section
 	opacity: 0;
 	z-index: 1;
 	box-shadow: 0 15px 25px rgba(63, 78, 100, 0#products .15);
-	-webkit-transition: opacity 0#products .3s ease;
-	-moz-transition: opacity 0#products .3s ease;
-	-ms-transition: opacity 0#products .3s ease;
-	-o-transition: opacity 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product_sorting > li:hover ul
 {
@@ -1388,11 +1388,11 @@ section
 	line-height: 40px;
 	border-bottom: solid 1px #dddddd;
 	color: #51545f;
-	-webkit-transition: opacity 0#products .3s ease;
-	-moz-transition: opacity 0#products .3s ease;
-	-ms-transition: opacity 0#products .3s ease;
-	-o-transition: opacity 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product_sorting li ul li span:hover
 {
@@ -1453,11 +1453,11 @@ section
 	opacity: 0;
 	z-index: 1;
 	box-shadow: 0 15px 25px rgba(63, 78, 100, 0#products .15);
-	-webkit-transition: opacity 0#products .3s ease;
-	-moz-transition: opacity 0#products .3s ease;
-	-ms-transition: opacity 0#products .3s ease;
-	-o-transition: opacity 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .page_selection li
 {
@@ -1473,11 +1473,11 @@ section
 	line-height: 40px;
 	border-bottom: solid 1px #dddddd;
 	color: #51545f;
-	-webkit-transition: opacity 0#products .3s ease;
-	-moz-transition: opacity 0#products .3s ease;
-	-ms-transition: opacity 0#products .3s ease;
-	-o-transition: opacity 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .page_selection li a:hover
 {
@@ -1591,11 +1591,11 @@ section
 	text-align: center;
 	margin-top: 25px;
 	cursor: pointer;
-	-webkit-transition: all 0#products .3s ease;
-	-moz-transition: all 0#products .3s ease;
-	-ms-transition: all 0#products .3s ease;
-	-o-transition: all 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .filter_button:hover
 {
@@ -1699,11 +1699,11 @@ section
 	content: '';
 	border: solid 2px rgba(235,235,235,0);
 	border-radius: 3px;
-	-webkit-transition: all 0#products .3s ease;
-	-moz-transition: all 0#products .3s ease;
-	-ms-transition: all 0#products .3s ease;
-	-o-transition: all 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product-item:hover::after
 {
@@ -1827,11 +1827,11 @@ section
 	width: 100%;
 	visibility: hidden;
 	opacity: 0;
-	-webkit-transition: all 0#products .3s ease;
-	-moz-transition: all 0#products .3s ease;
-	-ms-transition: all 0#products .3s ease;
-	-o-transition: all 0#products .3s ease;
-	transition: all 0#products .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
     display: -webkit-inline-box;
 	display: -moz-inline-box;
 	display: -ms-inline-flexbox;
@@ -1982,7 +1982,7 @@ float:left;
    
     border: none;
     margin: 0;
-    padding: 0#products .4em 0#products .8em;
+    padding: 0.4em 0.8em;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
 }
@@ -1990,7 +1990,7 @@ float:left;
 
 #products .dropdown   li {
     display: block;
-    padding: 0#products .4em 0#products .8em;
+    padding: 0.4em 0.8em;
     text-decoration: none;
     background: #ffffff;
     color: #333333;
