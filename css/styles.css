@@ -2354,9 +2354,17 @@ background-color: #449d44;
 	width: 25%;
 	box-sizing: border-box;
 	float: left;
-	padding: 0px 15px;
+	padding: 0px 0px;
 	position: relative;
 }
+
+#admin .quarter p{
+	color:#FFFFFF;
+	padding-bottom : 1em;
+	padding-left:1em;
+	font-weight: bold;
+}
+
 #admin .half{
 	width: 50%;
 	box-sizing: border-box;
