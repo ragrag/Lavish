@@ -17,14 +17,12 @@
 	vertical-align: top;
 }
 
-/* left */
-
 .footer-distributed .footer-left{
 	width: 30%;
 	margin-left :3%;
 }
 
-/* Logo */
+
 
 #footer_logo 
 {
@@ -33,7 +31,7 @@
 	height: 60%;
 }
 
-/* links */
+
 
 .footer-distributed .footer-links{
 	color:  #ffffff;
@@ -81,7 +79,7 @@ p
 
 
 }
-/*Center */
+
 
 .footer-distributed .footer-center{
 	width: 35%;
