@@ -206,24 +206,24 @@
 				</table>
 			</div>
 		</div>
-
+		<!--add product form form-->
 		<div class="popupBody" style="display:none;">
 			<div class="pAdd">
 				<form>
 					<label>Product name</label>
-					<input type="text">
+					<input id ="pAddname" type="text">
 					<br>
 					<label>description</label>
-					<input type="text">
+					<input id ="pAdddescription" type="text">
 					<br>
 					<label>Type</label>
-					<input type="text">
+					<input id ="pAddtype" type="text">
 					<br>
 					<label>Weight</label>
-					<input type="text">
+					<input id ="pAddweight" type="text">
 					<br>
 					<label>Quantity</label>
-					<input type="text">
+					<input id ="pAddquantity" type="text">
 					<br>
 					<label>Image</label>
 					<input type="file">
@@ -240,8 +240,8 @@
 							<a href="#" class="btn btnBack">
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
-						<div class="btnLeft btnRight">
-							<a href="#" class="btn">Add Product</a>
+						<div class="btnLeft btnRight" >
+							<a href="#" class="btn" onclick="PopUpValidation()">Add Product</a>
 						</div>
 					</div>
 				</form>
@@ -252,28 +252,28 @@
 			<div class="pEdit">
 				<form>
 					<label>Product name</label>
-					<input id = "pAddname "type="text">
+					<input id = "pEditname "type="text">
 					<br>
 					<label>description</label>
-					<input id = "pAdddescription "type="text">
+					<input id = "pEditdescription "type="text">
 					<br>
 					<label>Type</label>
-					<input id = "pAddtype "type="text">
+					<input id = "pEdittype "type="text">
 					<br>
 					<label>Weight</label>
-					<input id = "pAddweight "type="text">
+					<input id = "pEditweight "type="text">
 					<br>
 					<label>Quantity</label>
-					<input id = "pAddquantity "type="text">
+					<input id = "pEditquantity "type="text">
 					<br>
 					<label>Image</label>
-					<input id = "pAddimage1 "type="file">
+					<input type="file">
 					<br>
 					<label>Image</label>
-					<input id = "pAddimage2 "type="file">
+					<input type="file">
 					<br>
 					<label>Image</label>
-					<input id = "pAddimage3 "type="file">
+					<input type="file">
 					<br>
 
 					<div class="ebtnAction">
@@ -282,7 +282,7 @@
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
 						<div class="ebtnLeft ebtnRight">
-							<a href="#" class="ebtn">Submit</a>
+							<a href="#" class="ebtn" onclick="PopUpValidation()">Submit</a>
 						</div>
 					</div>
 				</form>
