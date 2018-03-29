@@ -27,9 +27,11 @@ function LoginFormValidation() {
     if (!Uname.match(letters)) {
         window.alert("Username should contain letters");
     }
-    if (!Upass.match(null)) {
+
+    if (!Upass == null) {
         window.alert("Passwords should not be empty");
     }
+   
 }
 
 function PopUpValidation() {
