@@ -11,12 +11,30 @@
 }
 body
 {
+	
+ cursor:url(        http://downloads.totallyfreecursors.com/thumbnails/lpskredg-lipstickredglitter.gif
+        ) , auto;
+    
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
 	line-height: 23px;
 	font-weight: 400;
 	background: #FFFFFF;
 	color: #1e1e27;
+}
+
+a:hover
+
+
+{
+ cursor:url(http://downloads.totallyfreecursors.com/thumbnails/lipstickpinkglitter.gif), auto;
+}
+
+button:hover
+
+
+{
+ cursor:url(http://downloads.totallyfreecursors.com/thumbnails/lipstickpinkglitter.gif), auto;
 }
 
 div
