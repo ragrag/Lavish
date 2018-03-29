@@ -668,8 +668,47 @@ h1, h4
 
 /*Address Book*/
 
-#address_book 
+#address_book tr{
+    height: 100px;
+}
+#address_book td{
+    width: 800px;
+}
+#address_book table{
+    margin-left: 10%;
+}
+#address_book .listItem{
+    color: #000000;
+    background: #EEEEEE;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+#address_book .listItem:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+}
 
+#address_book .listItem a{
+    color: #000000;
+    transition-property: all;
+    transition-duration: 0.5s;
+    padding-left: 10px;
+}
+#address_book .listItem:hover a{
+    color: #FFFFFF; 
+    padding-left: 20px;
+}
+#address_book .saveButton{
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border-color: #8C8C8C;
+    background-color: #000000;
+    color: #8C8C8C;
+}
+#address_book .pad{
+    padding-left: 10px;
+}
 /* Home */
 
 
