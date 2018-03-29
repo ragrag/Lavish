@@ -38,57 +38,53 @@
                 </div>
             </header>
         </div>
-        <div id="register_account">
-            <form name="accountInfoForm">
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td ><h3>Account information</h3></td>
-                        <td><h3>Change Password</h3></td>
-                        <td style="padding-left: 10px;"><h3>My Account</h3></td>
+        <div id="address_book">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td ><h3>Account information</h3></td>
+                    <td><h3>Change Password</h3></td>
+                    <td style="padding-left: 10px;"><h3>My Account</h3></td>
+                </tr>
+                <tr>
+                    <td>
+                    <div>First Name *</div>
+                        <input class="textbox" type="text" name="fname" required>
+                    </td>
+                    <td>
+                        <div>Current Password *</div>
+                        <input class="textbox" type="text" name="cpass" required>
+                    </td>
+                    <td class="listItem">
+                        <a href="account_info.html">Account Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Last Name *</div>
+                        <input class="textbox" type="text" name="lname" required>
+                    </td>
+                    <td>
+                        <div>New Password *</div>
+                        <input class="textbox" type="text" name="npass" required>
+                    </td>
+                    <td class="listItem">
+                        <a href="address_book.html">Address Book</a>
+                    </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div>First Name *</div>
-                            <input class="textbox" type="text" name="fname" required>
-                        </td>
-                        <td>
-                            <div>Current Password *</div>
-                            <input class="textbox" type="text" name="cpass" required>
-                        </td>
-                        <td class="listItem">
-                            <a href="account_info.html">Account Information</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>Last Name *</div>
-                            <input class="textbox" type="text" name="lname" required>
-                        </td>
-                        <td>
-                            <div>New Password *</div>
-                            <input class="textbox" type="text" name="npass" required>
-                        </td>
-                        <td class="listItem">
-                            <a href="address_book.html">Address Book</a>
-                        </td>
-                        </tr>
-                    <tr>
-                        <td>
-                            <div>Email Address *</div>
-                            <input class="textbox" type="text" name="email" required>
-                        </td>
-                        <td>
-                            <div>Confirm New Password *</div>
-                            <input class="textbox" type="text" name="cnpass" required>
-                        </td>
-                        <td class="listItem">
-                            <a href="previous_orders.html">My Orders</a>
-                        </td>
-                    </tr>
-                </table>
-                <button class="saveButton regButton" type="submit" name="save" onclick="saveData()">Save</button>
-                <div id="req" class="align">* Required Field</div>
-            </form>
+                <tr>
+                    <td>
+                        <div>Email Address *</div>
+                        <input class="textbox" type="text" name="email" required>
+                    </td>
+                    <td>
+                        <div>Confirm New Password *</div>
+                        <input class="textbox" type="text" name="cnpass" required>
+                    </td>
+                    <td class="listItem">
+                        <a href="previous_orders.html">My Orders</a>
+                    </td>
+                </tr>
+            </table>
         </div>	
         <footer class="footer-distributed">
             <div class="footer-left">

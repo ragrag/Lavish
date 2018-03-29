@@ -606,9 +606,28 @@ h1, h4
 #register_account tr{
     height: 100px;
 }
-#register_account a{
-	text-decoration: none;
-    color: #555555;
+
+#register_account .listItem{
+    color: #000000;
+    background: #EEEEEE;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+#register_account .listItem:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#register_account .listItem a{
+    color: #000000;
+    transition-property: all;
+    transition-duration: 0.5s;
+    padding-left: 10px;
+}
+#register_account .listItem:hover a{
+    color: #FFFFFF; 
+    padding-left: 20px;
 }
 #register_account .textbox{
     width: 400px;
@@ -630,7 +649,6 @@ h1, h4
     border-color: #8C8C8C;
     background-color: #000000;
     color: #8C8C8C;
-    
 }
 #register_account .regButton{
     margin-left: 37%;
@@ -638,24 +656,6 @@ h1, h4
 #register_account #req{
     padding: 10%;
     display: inline;
-}
-
-#register_account .listItem{
-    transition-property: all;
-    transition-duration: 0.5s;
-    color: black;
-    background-color: #EEEEEE;
-    min-width: 270px;
-    max-width: 270px;
-    height: 20px;
-    padding-left: 10px;
-    text-decoration: none;
-}
-
-#register_account .listItem:hover{
-    color: #8C8C8C;
-    background-color: black;
-    
 }
 #register_account .align{
     display: inline;
@@ -665,6 +665,10 @@ h1, h4
     margin-left: 10%;
     table-layout: fixed;
 }
+
+/*Address Book*/
+
+#address_book 
 
 /* Home */
 
