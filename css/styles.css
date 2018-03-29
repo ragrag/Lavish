@@ -2120,29 +2120,31 @@ box-shadow: 0px 0px 3px  #337ab7;
 	text-decoration: none;
 }
 #admin .popupBody{
-	top: 7%;
+	top: 10%;
 	position: absolute;
 	padding: 20px;
 	width: 40%;
-	height: auto;
+	height: 70%;
 }
 
 #admin .EditPOP{
-	top: 7%;
+	top: 10%;
 	right: 7%;
 	position: absolute;
 	padding: 20px;
 	width: 40%;
-	height: auto;
+	height: 50%;
 }
 
 #admin pEdit{
+	top: 10%;
+	right: 10%;
 	display: none;
-	height: 50%;
+	height: 30%;
 	overflow-y: auto;
 }
 #admin .pEdit label{
-	left: 0%;
+	right: 0%;
 	display: block;
 	margin-bottom: 5px;
 }
@@ -2195,8 +2197,10 @@ box-shadow: 0px 0px 3px  #337ab7;
 }
 
 #admin .pAdd{
+	top: 10%;
+	left: 10%;
 	display: none;
-	height: 50%;
+	height: 110%;
 	overflow-y: auto;
 }
 #admin .pAdd label{
