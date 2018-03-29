@@ -4,4 +4,6 @@ tr:nth-child(even) {
 
 table{
     width:500px;
+	margin-left:35%;
+	margin-top:5%;
     text-align:center;}
