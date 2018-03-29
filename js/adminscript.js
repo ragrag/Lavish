@@ -52,8 +52,7 @@ $(document).ready(function () {
 
         $(".btnBack").click(function CancelproductBTN() {
             $(".pAdd").hide();
-            $(".OFlow").show();
-            $("#AddProductBTN").show();
+            $(".popupBody").hide();
             $('.fbody').css({
                 "filter":"blur(0px)"
             });
@@ -65,7 +64,7 @@ $(document).ready(function () {
 
         $("#EditBTN").click(function EditproductBTN() {
             $(".EditPOP").show();
-            $(".pAdd").show();
+            $(".pEdit").show();
             $('.fbody').css({
                 "filter":"blur(5px)"
             });
@@ -74,8 +73,7 @@ $(document).ready(function () {
 
         $(".ebtnBack").click(function CancelEditBTN() {
             $(".pEdit").hide();
-            $(".OFlow").show();
-            $("#AddProductBTN").show();
+            $(".EditPOP").hide();
             $('.fbody').css({
                 "filter":"blur(0px)"
             });
