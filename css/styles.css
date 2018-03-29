@@ -2612,31 +2612,44 @@ background-color: #449d44;
      text-decoration: none;
     margin-bottom:3%;
     display:block;
+ 
+    align-items: center;
+    margin-left: 10%;
+    margin-top:10%;
 }
 
 
 #header .signIn{
     position:absolute;
     margin-left:40%;
-    width:15%;
+    width:20%;
+    height:80%;
+    margin-top: 20%;
     border-radius:3px;
     border-color:#000000;
     border-style: outset;
     display:none;
-	background-color:#999999;
+	background-color:#ffffff;
     z-index: 2;
         
 }
 
 #header .logIn {
-  background: #000000;
+  background-color:red;
   color:white;
   text-align: center;
   text-decoration: none;
   display: block;
   border-radius: 3px;
   font-size: 16px;
-    width:100%;  } 
+    width:50%; 
+    box-shadow: 3px 4px 0px 0px #899599;
+    -moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:18px;
+	border:1px solid red;
+
+} 
 
 
 .header-two-bars{
