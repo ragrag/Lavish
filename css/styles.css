@@ -1281,17 +1281,17 @@ h1, h4
     background-color: #f2f2f2
 }
 
-#previous_orders .table{
-    width:500px;
-	margin-left:35%;
-	margin-top:5%;
-    text-align:center;
+#previous_orders #account_panal
+{
+	margin-left:60%;
+	
 }
+
 #previous_orders .td{
     width: 500px;
 }
 #previous_orders .tr{
-    height: 100px;
+    height: 50px;
 }
 
 #previous_orders .listItem{
@@ -1300,7 +1300,13 @@ h1, h4
     transition-property: all;
     transition-duration: 0.5s;
 }
+#previous_orders #order_table
+{
+	margin-left : 40%;
+	margin-top:5%;
+	position:absolute;
 
+}
 #previous_orders .listItem:hover{
     color: #FFFFFF;
     background-color: #000000;
@@ -1314,7 +1320,7 @@ h1, h4
 }
 #previous_orders .listItem:hover a{
     color: #FFFFFF; 
-    padding-left: 20px;
+
 }
 
 
@@ -2617,7 +2623,7 @@ background-color: #449d44;
     border-color:#000000;
     border-style: outset;
     display:none;
-	background-color:#FFFFFF;
+	background-color:#999999;
     z-index: 2;
         
 }
