@@ -22,36 +22,45 @@ function check() {
 
 function LoginFormValidation() {
     var letters = /[A-Za-z]/;
-    var Pass1 = /[A-Za-z]/;
-    var Pass2 = /\d/;
     var Uname = document.getElementById("userN").value;
     var Upass = document.getElementById("userP").value;
     if (!Uname.match(letters)) {
         window.alert("Username should contain letters");
     }
-    if (!Upass.match(Pass1) || !Upass.match(Pass2)) {
+
+    if (!Upass == null) {
         window.alert("Passwords should not be empty");
     }
+   
 }
 
-function AddproductFormValidation() {
-    var pName = /[A-Za-z]/;
-    var pDescription = /[A-Za-z]/;
-    var ptype = /[A-Za-z]/;
-    var pWeight = /[A-Za-z]/;
-    var pQuantity = /[A-Za-z]/;
-    var pImage1 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-    var pImage2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-    var pImage3 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+function PopUpValidation() {
+    var checking = /[A-Za-z]/;
 
-    var Pname = document.getElementById("").value;
-    var Pdescription = document.getElementById("").value;
-    var Ptype = document.getElementById("").value;
-    var Pweight = document.getElementById("").value;
-    var Pquantity = document.getElementById("").value;
-    var Pimage1 = document.getElementById("").value;
-    var Pimage2 = document.getElementById("").value;
-    var Pimage3 = document.getElementById("").value;
+    var Pname = document.getElementById("pAddname").value;
+    var Pdescription = document.getElementById("pAdddescription").value;
+    var Ptype = document.getElementById("pAddtype").value;
+    var Pweight = document.getElementById("pAddweight").value;
+    var Pquantity = document.getElementById("pAddquantity").value;
+
+
+   
+    if(!Pname.match(checking) || !Pname.match(" ")){
+        window.alert("Product name should not be empty");
+    }
+    if(!Pdescription.match(checking) || !Pdescription.match(" ")){
+        window.alert("Product description should not be empty");
+    }
+    if(!Ptype.match(checking) || !Ptype.match(" ")){
+        window.alert("Product type not be empty");
+    }
+    if(!Pweight.match(checking) || !Pweight.match(" ")){
+        window.alert("Product weight not be empty");
+    }
+    if(!Pquantity.match(checking) || !Pquantity.match(" ")){
+        window.alert("Product quantity should not be empty");
+    }
+
 
 }
 function calling() {
