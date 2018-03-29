@@ -1,5 +1,5 @@
   $('#login-btn').click(function () {
-	  alert('asda');
+
             $('.signIn').toggle();
       if ( $('.signIn').is(':visible')){
           $('.main-body').css("filter", "blur(10px)");}
