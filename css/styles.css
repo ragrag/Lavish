@@ -606,9 +606,28 @@ h1, h4
 #register_account tr{
     height: 100px;
 }
-#register_account a{
-	text-decoration: none;
-    color: #555555;
+
+#register_account .listItem{
+    color: #000000;
+    background: #EEEEEE;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+#register_account .listItem:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#register_account .listItem a{
+    color: #000000;
+    transition-property: all;
+    transition-duration: 0.5s;
+    padding-left: 10px;
+}
+#register_account .listItem:hover a{
+    color: #FFFFFF; 
+    padding-left: 20px;
 }
 #register_account .textbox{
     width: 400px;
@@ -630,7 +649,6 @@ h1, h4
     border-color: #8C8C8C;
     background-color: #000000;
     color: #8C8C8C;
-    
 }
 #register_account .regButton{
     margin-left: 37%;
@@ -638,24 +656,6 @@ h1, h4
 #register_account #req{
     padding: 10%;
     display: inline;
-}
-
-#register_account .listItem{
-    transition-property: all;
-    transition-duration: 0.5s;
-    color: black;
-    background-color: #EEEEEE;
-    min-width: 270px;
-    max-width: 270px;
-    height: 20px;
-    padding-left: 10px;
-    text-decoration: none;
-}
-
-#register_account .listItem:hover{
-    color: #8C8C8C;
-    background-color: black;
-    
 }
 #register_account .align{
     display: inline;
@@ -665,6 +665,10 @@ h1, h4
     margin-left: 10%;
     table-layout: fixed;
 }
+
+/*Address Book*/
+
+#address_book 
 
 /* Home */
 
@@ -676,13 +680,15 @@ h1, h4
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+    width:inherit;
+  
 	
 }
 
 #home .banner
 {
 	width: 100%;
-	margin-top: 30px;
+	margin-top:1%;
 }
 #home .banner_item
 {
@@ -692,20 +698,20 @@ h1, h4
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	height: 265px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+    
 }
 #home .banner_category
 {
+    
 	height: 50px;
 	background: #FFFFFF;
-	min-width: 180px;
-	padding-left: 25px;
-	padding-right: 25px;
+    margin-top: 20%;
+    margin-left: 20%;
+    width:50%;
 }
 #home .banner_category a
 {
@@ -716,7 +722,7 @@ h1, h4
 	font-weight: 600;
 	text-align: center;
 	line-height: 50px;
-	width: 100%;
+
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-ms-transition: color 0.3s ease;
@@ -729,23 +735,25 @@ h1, h4
 }
 
 #home .col{
-    width:410px;
+  
+    display: inline-block;
+    width:33.3%;
 }
 
 
 #home #slider{
     position: relative; 
     width: 100%; 
-    height: 500px; 
+     height:auto;
+    min-height:900px;
     padding: 10px; 
  
 }
 
 #home #slider > div { 
     position: absolute; 
-    top: 10px; 
-    left: 10px; 
-    right: 10px; 
+    top: 10px;  
+    right: 5px; 
     bottom :10px;
 }
 
@@ -2924,4 +2932,13 @@ footer p
 	margin-bottom: 5px;
 }
 
+
+ .banner .row {
+   
+    width:100%;
+    content: "";
+    display: table;
+    clear: both;
+    
+}
 
