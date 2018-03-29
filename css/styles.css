@@ -2550,14 +2550,27 @@ background-color: #449d44;
 #admin .lul li a:hover{/*left ul il a*/
 	color: white;
 }
-.logIn ul li{
+
+#header ul li{
      text-decoration: none;
     margin-bottom:3%;
     display:block;
 }
 
 
-.logIn {
+#header .signIn{
+    position:absolute;
+    margin-left:40%;
+    width:15%;
+    border-radius:3px;
+    border-color:#000000;
+    border-style: outset;
+    display:none;
+    z-index: 2;
+        
+}
+
+#header .logIn {
   background: #000000;
   color:white;
   text-align: center;
@@ -2565,11 +2578,8 @@ background-color: #449d44;
   display: block;
   border-radius: 3px;
   font-size: 16px;
-<<<<<<< HEAD
-	width:100%; 
- }
-=======
     width:100%;  } 
+
 
 .header-two-bars{
 	font:13px Arial, Helvetica, sans-serif;
@@ -2894,5 +2904,3 @@ footer p
     clear: both;
     
 }
-
->>>>>>> a00f269fa7ce4de116d14d0f33a22b5641eed87c
