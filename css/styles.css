@@ -1302,13 +1302,11 @@ h1, h4
 
 /*Products */
 
-
-
 #products .form-control
 {
 	color: #db5246;
 }
-section
+#products section
 {
 	display: block;
 	position: relative;
@@ -1318,7 +1316,7 @@ section
 {
 	clear: both;
 }
-#products .clearfix::before, #products .clearfix::after
+#products .clearfix::before, .clearfix::after
 {
 	content: "";
 	display: table;
@@ -1386,7 +1384,7 @@ section
 {
 	margin-top: 24px;
 }
-#products .product_sorting_container_bottom #products .product_sorting
+#products .product_sorting_container_bottom .product_sorting
 {
 	float: right;
 }
@@ -1407,13 +1405,13 @@ section
 	padding-right: 7px;
 	margin-right: 16px;
 }
-#products .product_sorting_container_bottom #products .product_sorting > li
+#products .product_sorting_container_bottom .product_sorting > li
 {
 	width: 144px;
 	margin-right: 0px;
 	padding-right: 12px;
 }
-#products .product_sorting_container_bottom #products .product_sorting li span:nth-child(2)
+#products .product_sorting_container_bottom .product_sorting li span:nth-child(2)
 {
 	margin-left: 24px;
 }
@@ -1435,12 +1433,12 @@ section
 	visibility: hidden;
 	opacity: 0;
 	z-index: 1;
-	box-shadow: 0 15px 25px rgba(63, 78, 100, 0 .15);
-	-webkit-transition: opacity 0 .3s ease;
-	-moz-transition: opacity 0 .3s ease;
-	-ms-transition: opacity 0 .3s ease;
-	-o-transition: opacity 0 .3s ease;
-	transition: all 0 .3s ease;
+	box-shadow: 0 15px 25px rgba(63, 78, 100, 0.15);
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product_sorting > li:hover ul
 {
@@ -1462,11 +1460,11 @@ section
 	line-height: 40px;
 	border-bottom: solid 1px #dddddd;
 	color: #51545f;
-	-webkit-transition: opacity 0 .3s ease;
-	-moz-transition: opacity 0 .3s ease;
-	-ms-transition: opacity 0 .3s ease;
-	-o-transition: opacity 0 .3s ease;
-	transition: all 0 .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product_sorting li ul li span:hover
 {
@@ -1485,7 +1483,7 @@ section
 	display: inline-block;
 	float: right;
 }
-#products .product_sorting_container_bottom #products .pages
+#products .product_sorting_container_bottom .pages
 {
 	float: left;
 }
@@ -1501,7 +1499,7 @@ section
 	border: solid 1px #ecedee;
 	margin-right: 16px;
 }
-#products .product_sorting_container_bottom .pages  .page_current
+#products .product_sorting_container_bottom .pages .page_current
 {
 	background: #fe4c50;
 	border: none;
@@ -1510,7 +1508,7 @@ section
 {
 	color: #51545f;
 }
-#products .product_sorting_container_bottom  .pages  .page_current span
+#products .product_sorting_container_bottom .pages .page_current span
 {
 	color: #FFFFFF;
 }
@@ -1526,12 +1524,12 @@ section
 	visibility: hidden;
 	opacity: 0;
 	z-index: 1;
-	box-shadow: 0 15px 25px rgba(63, 78, 100, 0 .15);
-	-webkit-transition: opacity 0 .3s ease;
-	-moz-transition: opacity 0 .3s ease;
-	-ms-transition: opacity 0 .3s ease;
-	-o-transition: opacity 0 .3s ease;
-	transition: all 0 .3s ease;
+	box-shadow: 0 15px 25px rgba(63, 78, 100, 0.15);
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .page_selection li
 {
@@ -1547,11 +1545,11 @@ section
 	line-height: 40px;
 	border-bottom: solid 1px #dddddd;
 	color: #51545f;
-	-webkit-transition: opacity 0 .3s ease;
-	-moz-transition: opacity 0 .3s ease;
-	-ms-transition: opacity 0 .3s ease;
-	-o-transition: opacity 0 .3s ease;
-	transition: all 0 .3s ease;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .page_selection li a:hover
 {
@@ -1603,7 +1601,10 @@ section
 {
 	margin-top: 150px;
 }
+#products .product_section
+{
 
+}
 #products .sidebar
 {
 	float: left;
@@ -1643,11 +1644,11 @@ section
 {
 	margin-right: 5px;
 }
-#slider-range
+#products #slider-range
 {
 	margin-left: 7px !important;
 }
-#amount
+#products #amount
 {
 	margin-top: 8px;
 	color: #1e1e27 !important;
@@ -1662,11 +1663,11 @@ section
 	text-align: center;
 	margin-top: 25px;
 	cursor: pointer;
-	-webkit-transition: all 0 .3s ease;
-	-moz-transition: all 0 .3s ease;
-	-ms-transition: all 0 .3s ease;
-	-o-transition: all 0 .3s ease;
-	transition: all 0 .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .filter_button:hover
 {
@@ -1770,15 +1771,15 @@ section
 	content: '';
 	border: solid 2px rgba(235,235,235,0);
 	border-radius: 3px;
-	-webkit-transition: all 0 .3s ease;
-	-moz-transition: all 0 .3s ease;
-	-ms-transition: all 0 .3s ease;
-	-o-transition: all 0 .3s ease;
-	transition: all 0 .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 #products .product-item:hover::after
 {
-	box-shadow: 0 25px 29px rgba(63, 78, 100, 0 .15);
+	box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
 	border: solid 2px rgba(235,235,235,1);
 }
 #products .product
@@ -1898,11 +1899,11 @@ section
 	width: 100%;
 	visibility: hidden;
 	opacity: 0;
-	-webkit-transiti:0 .3s ease;
-	-moz-transiti: 0 .3s ease;
-	-ms-transiti: 0 .3s ease;
-	-o-transiti: 0 .3s ease;
-	transition: 0 .3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
     display: -webkit-inline-box;
 	display: -moz-inline-box;
 	display: -ms-inline-flexbox;
@@ -2053,7 +2054,7 @@ float:left;
    
     border: none;
     margin: 0;
-    padding: 0 .4em 0 .8em;
+    padding: 0.4em 0.8em;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
 }
@@ -2061,7 +2062,7 @@ float:left;
 
 #products .dropdown   li {
     display: block;
-    padding: 0 .4em 0 .8em;
+    padding: 0.4em 0.8em;
     text-decoration: none;
     background: #ffffff;
     color: #333333;
@@ -2086,8 +2087,6 @@ float:left;
 }
 
 #products .show{ display:block;}
-
-
 
 
 /* Admin */
