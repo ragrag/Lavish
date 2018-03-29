@@ -1263,12 +1263,42 @@ h1, h4
     background-color: #f2f2f2
 }
 
-#previous_orders table{
+#previous_orders .table{
     width:500px;
 	margin-left:35%;
 	margin-top:5%;
     text-align:center;
 }
+#previous_orders .td{
+    width: 500px;
+}
+#previous_orders .tr{
+    height: 100px;
+}
+
+#previous_orders .listItem{
+    color: #000000;
+    background: #EEEEEE;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+#previous_orders .listItem:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#previous_orders .listItem a{
+    color: #000000;
+    transition-property: all;
+    transition-duration: 0.5s;
+    padding-left: 10px;
+}
+#previous_orders .listItem:hover a{
+    color: #FFFFFF; 
+    padding-left: 20px;
+}
+
 
 /*Products */
 
