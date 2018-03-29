@@ -93,16 +93,16 @@ $(document).ready(function () {
         "border-radius": "4px",
         "opacity": ".9"
     });
-    $('.fbody').css("background-image", "url(images/gb.jpg)");
+    $('.fbody').css("background-image", "url(../images/gb.jpg)");
     $('.fbody').css("background-repeat", "no-repeat, repeat");
     $('.fbody').css("background-size", "cover");
  
 
-    $('.log-body').css("background-image", "url(images/gb.jpg)");
+    $('.log-body').css("background-image", "url(../images/gb.jpg)");
     $('.log-body').css("background-repeat", "no-repeat, repeat");
     $('.log-body').css("background-size", "cover");
 
-    $('.dbody').css("background-image", "url(images/gb.jpg)");
+    $('.dbody').css("background-image", "url(../images/gb.jpg)");
     $('.dbody').css("background-repeat", "no-repeat, repeat");
     $('.dbody').css("background-size", "cover");
 
