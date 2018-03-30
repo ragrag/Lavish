@@ -1,0 +1,26 @@
+.row{
+    display:table;
+    width:100%;
+    right:5;
+}
+.column{
+    width:25%;
+    float:left;
+    text-align: center;
+}
+.column a{
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    color:#000000;
+    font-weight:700;
+    
+}
+
+.column h3:hover{
+    transform:scale(1.5);
+}
+.rowspan{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+}
