@@ -2453,6 +2453,10 @@ footer p
 /*Site Map */
 
 #sitemap .row{
+
+}
+
+#sitemap .row{
     display:table;
     width:100%;
     right:5;
@@ -2477,4 +2481,11 @@ footer p
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
+	 margin-top:2%;
+}
+
+
+#sitemap h1{
+  font-size:30px;
+  
 }
