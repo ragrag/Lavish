@@ -4,25 +4,15 @@ jQuery(document).ready(function($)
 {
 	"use strict";
 
-	/* 
-
-	 Vars 
-
-	*/
 	
 
 	initThumbnail();
 	initQuantity();
 	initStarRating();
 	initTabs();
+    initColor();
 
 
-
-	/* 
-
-	Thumbnail
-
-	*/
 
 	function initThumbnail()
 	{
@@ -34,6 +24,7 @@ jQuery(document).ready(function($)
 			thumbs.each(function()
 			{
 				var item = $(this);
+                
 				item.on('click', function()
 				{
 					thumbs.removeClass('active');
@@ -44,12 +35,39 @@ jQuery(document).ready(function($)
 			});
 		}	
 	}
+    
+    function initColor()
+	{
+        
+		if($('.single_product_thumbnails ul li').length)
+		{ 
+            var thumbs = $('.single_product_thumbnails ul li');
+			var Color = $('.product_color ul li');
+			var singleImage = $('.single_product_image_background');
 
-	/* 
+			Color.each(function()
+			{
+                 var col=$(this);
+                  
+                
+                   
+				
+        
+				col.on('click', function()
+				{
+                    var thumb = col.attr('class');
+                    var item = $('#'+thumb);
+					thumbs.removeClass('active');
+					item.addClass('active');
+					var img = item.find('img').data('image');
+					singleImage.css('background-image', 'url(' + img + ')');
+				});
+               
+			});
+            
+		}	
+	}
 
-	 Quantity
-
-	*/
 
 	function initQuantity()
 	{
@@ -75,12 +93,6 @@ jQuery(document).ready(function($)
 			});
 		}
 	}
-
-	/* 
-
-	 Star Rating
-
-	*/
 
 	function initStarRating()
 	{
@@ -113,11 +125,7 @@ jQuery(document).ready(function($)
 
 
 
-	/* 
 
-	  Tabs
-
-	*/
 
 	function initTabs()
 	{
@@ -144,18 +152,6 @@ jQuery(document).ready(function($)
 			});
 		}
 	}
-    
-    
- 
-    
-  
 
-
-
-    
-    
-    
-    
-    
     
 });
