@@ -8,14 +8,6 @@ function filterSelection(c) {
   x = document.getElementsByClassName("column");
   if (c == "all") c = "";
   for (i = 0; i < x.length; i++) {
-<<<<<<< HEAD:js/filter.js
-    RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
-  }
-}
-
-function AddClass(element, name) {
-=======
      RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1)  AddClass(x[i], "show");
   }
@@ -23,7 +15,6 @@ function AddClass(element, name) {
 
 // Show filtered elements
 function  AddClass(element, name) {
->>>>>>> 110380ae425cda7933900a0396e6f10d8232a484:js/sort.js
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
@@ -34,12 +25,8 @@ function  AddClass(element, name) {
   }
 }
 
-<<<<<<< HEAD:js/filter.js
-function RemoveClass(element, name) {
-=======
 // Hide elements that are not selected
 function  RemoveClass(element, name) {
->>>>>>> 110380ae425cda7933900a0396e6f10d8232a484:js/sort.js
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
