@@ -17,7 +17,8 @@
 
 </head>
 
-<body>
+<body class="body" style="display:none;" onload="my()">
+
 
 
     <div id="header">
@@ -27,7 +28,11 @@
 
                 <div class="header-limiter">
 
-                    <h1><a href="home.html"><img id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <h1>
+                        <a href="home.html">
+                            <img id="header_logo" src="images/logo_black.png" />
+                        </a>
+                    </h1>
 
                     <a href="#" id="login-btn" class="logout-button">Login</a>
 
@@ -36,36 +41,44 @@
             </div>
             <div class="header-second-bar">
                 <div class="header-limiter">
-                    <nav class="navtop"><b>
-                        <a href="products.html">Face</a>
-                        <a href="products.html">&ensp; Lips</a>
-                        <a href="products.html">&ensp; Eyes</a>
-                        <a href="products.html">&ensp; Fragrances</a></b>
+                    <nav class="navtop">
+                        <b>
+                            <a href="products.html">Face</a>
+                            <a href="products.html">&ensp; Lips</a>
+                            <a href="products.html">&ensp; Eyes</a>
+                            <a href="products.html">&ensp; Fragrances</a>
+                        </b>
                     </nav>
                 </div>
             </div>
         </header>
 
 
-         <div class="signIn">
+        <div class="signIn">
             <div class="form">
                 <form class="login-form" action="account_info.html">
                     <input type="text" placeholder="Email" />
                     <input type="password" placeholder="Password" />
                     <button>login</button>
-                    <p class="message">Not registered? <a href="register.html">Create an account</a></p>
+                    <p class="message">Not registered?
+                        <a href="register.html">Create an account</a>
+                    </p>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="products" class="main-body">
+    <div id="products" class="main-body" >
         <a id="backtotop"></a>
         <div class="dropdown">
             <button class="drop-button">Sort by</button>
             <ul class="dropdown-menu">
-                <li><button id="byPrice">Price</button></li>
-                <li><button id="byName">Name</button></li>
+                <li>
+                    <button id="byPrice">Price</button>
+                </li>
+                <li>
+                    <button id="byName">Name</button>
+                </li>
 
             </ul>
         </div>
@@ -73,25 +86,34 @@
         <div class="row">
             <div class="rtcolumn">
 
-                <h4>Brand</h4><br>
+                <h4>Brand</h4>
+                <br>
                 <input type="radio" name="brand" value="mac">
-                <h6 class="check_tag">MAC</h6><br>
+                <h6 class="check_tag">MAC</h6>
+                <br>
 
 
                 <label>
-          <input type="radio" name="brand" value="tarte"> <h6 class="check_tag">Tarte</h6><br>
-       
-        </label>
+                    <input type="radio" name="brand" value="tarte">
+                    <h6 class="check_tag">Tarte</h6>
+                    <br>
+
+                </label>
 
                 <label>
-          <input type="radio"  name="brand" value="nyx"> <h6 class="check_tag">NYX</h6><br>
-        </label>
+                    <input type="radio" name="brand" value="nyx">
+                    <h6 class="check_tag">NYX</h6>
+                    <br>
+                </label>
 
                 <label>
-          <input type="radio" name="brand" value="colourpop">
-            <h6 class="check_tag">Colourpop</h6><br>
-            </label>
-                <div class="filter_button" onclick="filter()"><span>filter</span></div>
+                    <input type="radio" name="brand" value="colourpop">
+                    <h6 class="check_tag">Colourpop</h6>
+                    <br>
+                </label>
+                <div class="filter_button" onclick="filter()">
+                    <span>filter</span>
+                </div>
             </div>
 
             <div class="table">
@@ -101,7 +123,9 @@
                         <div class="product-item">
                             <div class="product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -109,14 +133,18 @@
                                     <div class="product_price"> 15</div>
                                 </div>
                             </div>
-                            <div class="add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -124,14 +152,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class=" add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class=" add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column mac">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">abx lipstick
@@ -139,14 +171,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">ff
@@ -154,7 +190,9 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="black_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="black_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,7 +201,9 @@
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">a
@@ -171,14 +211,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -186,14 +230,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -201,14 +249,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -216,7 +268,9 @@
                                     <div class="product_price">18</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -225,7 +279,9 @@
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -233,14 +289,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">d
@@ -248,14 +308,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">N
@@ -263,14 +327,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">b
@@ -278,7 +346,9 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -287,7 +357,9 @@
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -295,14 +367,18 @@
                                     <div class="product_price">197</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -310,14 +386,18 @@
                                     <div class="product_price">66</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -325,14 +405,18 @@
                                     <div class="product_price">15</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                     <div class="column mac">
                         <div class="product-item">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a href="product.html"><img src="images/single_3.jpg" style="height:200px;"></a>
+                                    <a href="product.html">
+                                        <img src="images/single_3.jpg" style="height:200px;">
+                                    </a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Nyx lipstick
@@ -340,7 +424,9 @@
                                     <div class="product_price">5</div>
                                 </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            <div class="red_button add_to_cart_button">
+                                <a href="#">add to cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -357,7 +443,9 @@
         <div class="footer-left">
 
 
-            <a href="product.html"><img id="footer_logo" src="images/logo_white.png" /></a>
+            <a href="product.html">
+                <img id="footer_logo" src="images/logo_white.png" />
+            </a>
 
         </div>
 
@@ -375,7 +463,10 @@
 
             </p>
 
-            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish,
+                <a href="terms.html"> Terms of Use</a> |
+                <a href="policy.html"> Privacy Policy</a>
+            </p>
 
         </div>
 
@@ -385,9 +476,15 @@
 
             <div class="footer-icons">
 
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
 
 
             </div>
