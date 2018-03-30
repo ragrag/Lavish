@@ -2283,6 +2283,14 @@ background-color: #449d44;
 	vertical-align: top;
 }
 
+
+.footer-distributed .footer-right #site-map a{
+	color:#FFFFFF;
+	padding-left:10%;
+	
+}
+
+
 .footer-distributed .footer-left{
 	width: 30%;
 	margin-left :3%;
@@ -2347,6 +2355,7 @@ footer p
 }
 
 
+
 .footer-distributed .footer-center{
 	width: 35%;
 }
@@ -2378,7 +2387,11 @@ footer p
 }
 
 
+.footer-distributed .footer-company-name a{
+	color:  #8f9296;
 
+
+}
 
 /* Right */
 
