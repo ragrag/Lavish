@@ -4,11 +4,6 @@ jQuery(document).ready(function($)
 {
 	"use strict";
 
-	/* 
-
-	 Vars 
-
-	*/
 	
 
 	initThumbnail();
@@ -18,11 +13,6 @@ jQuery(document).ready(function($)
     initColor();
 
 
-	/* 
-
-	Thumbnail
-
-	*/
 
 	function initThumbnail()
 	{
@@ -78,11 +68,6 @@ jQuery(document).ready(function($)
 		}	
 	}
 
-	/* 
-
-	 Quantity
-
-	*/
 
 	function initQuantity()
 	{
@@ -108,12 +93,6 @@ jQuery(document).ready(function($)
 			});
 		}
 	}
-
-	/* 
-
-	 Star Rating
-
-	*/
 
 	function initStarRating()
 	{
@@ -146,11 +125,7 @@ jQuery(document).ready(function($)
 
 
 
-	/* 
 
-	  Tabs
-
-	*/
 
 	function initTabs()
 	{
@@ -177,18 +152,6 @@ jQuery(document).ready(function($)
 			});
 		}
 	}
-    
-    
- 
-    
-  
 
-
-
-    
-    
-    
-    
-    
     
 });
