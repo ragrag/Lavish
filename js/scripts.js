@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 
 /* Fade */
@@ -10,10 +8,8 @@ function fade() {
 
 
 
-  $('#login-btn').click(function () {
-=======
 $('#login-btn').click(function () {
->>>>>>> d07258cb65edee94437ad21759d9cf126c59baac
+
 
   $('.signIn').toggle();
   if ($('.signIn').is(':visible')) {
@@ -24,16 +20,9 @@ $('#login-btn').click(function () {
   }
 });
 
-<<<<<<< HEAD
-		
+
 
 		  
-  /*
-    Back to Top 
-  */
-  var btn = $('#backtotop');
-=======
->>>>>>> d07258cb65edee94437ad21759d9cf126c59baac
 
 /*
   Back to Top 
@@ -53,15 +42,5 @@ btn.on('click', function (e) {
   $('html, body').animate({ scrollTop: 0 }, '300');
 });
 
-function my() {
-  $('.body').fadeIn(1100);
-};
 
-<<<<<<< HEAD
-  btn.on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({scrollTop:0}, '300');
-  });
 
-=======
->>>>>>> d07258cb65edee94437ad21759d9cf126c59baac
