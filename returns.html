@@ -2,14 +2,14 @@
 <html>
 
 <head>
-	<title>Returns and Exchange</title>
+    <title>Returns and Exchange</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
- 
 
-    <link rel ="icon" href="images/logo_black.ico">
+
+    <link rel="icon" href="images/logo_black.ico">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="plugins/bootstrap4/bootstrap.min.css">
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -48,56 +48,48 @@
         </header>
 
 
-        <div class=signIn>
-            <form action="account_info.html">
-                <ul class="signForm">
-
-                    <li>
-                        <input type="text" name="username" placeholder="username" required="required">
-                    </li>
-                    <li>
-                        <input type="password" name="password" placeholder="password" required="required">
-                    </li>
-
-                    <li>
-                        <button class="logIn" type="submit" value="login">Log in</button>
-                    </li>
-
-                </ul>
-            </form>
+        <div class="signIn">
+            <div class="form">
+                <form class="login-form" action="account_info.html">
+                    <input type="text" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>login</button>
+                    <p class="message">Not registered? <a href="register.html">Create an account</a></p>
+                </form>
+            </div>
         </div>
     </div>
 
 
 
-        <div id="about_contact" class="container contact_container main-body">
-            <div class="row">
-                <div class="col">
+    <div id="about_contact" class="container contact_container main-body">
+        <div class="row">
+            <div class="col">
 
-                    <div class="breadcrumbs d-flex flex-row align-items-center">
-                        <ul>
-                            <li><a href="home.html">Home</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Returns</a></li>
-                        </ul>
+                <div class="breadcrumbs d-flex flex-row align-items-center">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Returns</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+
+            <div class="col-lg-6 contact_col">
+                <div class="contact_contents">
+                    <h1>Returns & Exchange</h1>
+                    <p><b>Returns</b><br>Purchased items may be returned if in factory state after 14 days of the payment.</p>
+                    <div>
+                        <p><b>Exchange</b><br>Items with defects can be exchanged after 14 days of the payment</p>
                     </div>
 
-                </div>
-            </div>
-
-
-
-
-
-            <div class="row">
-
-                <div class="col-lg-6 contact_col">
-                    <div class="contact_contents">
-                        <h1>Returns & Exchange</h1>
-                       <p><b>Returns</b><br>Purchased items may be returned if in factory state after 14 days of the payment.</p>
-						<div>
-							<p><b>Exchange</b><br>Items with defects can be exchanged after 14 days of the payment</p>
-						</div>
-            
                     <div class="follow_us_contents">
                         <h1>Follow Us</h1>
                         <ul class="social d-flex flex-row">
@@ -134,53 +126,53 @@
                 </div>
             </div>
         </div>
-		</div>
-		
-        <footer class="footer-distributed">
+    </div>
 
-            <div class="footer-left">
+    <footer class="footer-distributed">
 
-
-                <img id="footer_logo" src="images/logo_white.png" />
-
-            </div>
-
-            <div class="footer-center">
+        <div class="footer-left">
 
 
+            <img id="footer_logo" src="images/logo_white.png" />
 
-                <p class="footer-links">
-                    <a href="about.html">About Us</a> &nbsp;
+        </div>
 
-
-                    <a href="contact.html">Contact Us</a> &nbsp;
-                    <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
-                    <a href="returns.html">Returns & Exchange</a>
-
-                </p>
-
-                <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
-
-            </div>
-
-            <div class="footer-right">
+        <div class="footer-center">
 
 
 
-                <div class="footer-icons">
-
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+            <p class="footer-links">
+                <a href="about.html">About Us</a> &nbsp;
 
 
-                </div>
+                <a href="contact.html">Contact Us</a> &nbsp;
+                <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
+                <a href="returns.html">Returns & Exchange</a>
+
+            </p>
+
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+
+        </div>
+
+        <div class="footer-right">
+
+
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+
 
             </div>
 
-        </footer>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/scripts.js"></script>
+        </div>
+
+    </footer>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

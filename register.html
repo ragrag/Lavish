@@ -1,71 +1,64 @@
 <!DOCTYPE HTML>
 <html>
 
-    <head>
-		<meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Register</title>
-
-		
-        <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-        <link rel ="icon" href="images/logo_black.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
-		
-
-       
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
 
 
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/logo_black.ico">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+
+
+</head>
 
 <body>
-<div id="header">
-        <header class="header-two-bars">
 
-            <div class="header-first-bar">
 
-                <div class="header-limiter">
 
-                    <h1><a href="home.html"><img id="header_logo" src="images/logo_black.png"/></a></h1>
+    <body>
+        <div id="header">
+            <header class="header-two-bars">
 
-                    <a href="#" id="login-btn" class="logout-button">Login</a>
+                <div class="header-first-bar">
 
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <div class="header-limiter">
+
+                        <h1><a href="home.html"><img id="header_logo" src="images/logo_black.png"/></a></h1>
+
+                        <a href="#" id="login-btn" class="logout-button">Login</a>
+
+                        <a href="register.html" class="logout-button">Sign Up</a>
+                    </div>
                 </div>
-            </div>
-            <div class="header-second-bar">
-                <div class="header-limiter">
-                    <nav class="navtop"><b>
+                <div class="header-second-bar">
+                    <div class="header-limiter">
+                        <nav class="navtop"><b>
                         <a href="products.html">Face</a>
                         <a href="products.html">&ensp; Lips</a>
                         <a href="products.html">&ensp; Eyes</a>
                         <a href="products.html">&ensp; Fragrances</a></b>
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <div class=signIn>
-            <form action="account_info.html">
-                <ul class="signForm">
-
-                    <li>
-                        <input type="text" name="username" placeholder="username" required="required">
-                    </li>
-                    <li>
-                        <input type="password" name="password" placeholder="password" required="required">
-                    </li>
-
-                    <li>
-                        <button class="logIn" type="submit" value="login">Log in</button>
-                    </li>
-
-                </ul>
-            </form>
+			 <div class="signIn">
+				<div class="form">
+					<form class="login-form" action="account_info.html">
+						<input type="text" placeholder="Email" />
+						<input type="password" placeholder="Password" />
+						<button>login</button>
+						<p class="message">Not registered? <a href="register.html">Create an account</a></p>
+					</form>
+				</div>
+			</div>
         </div>
-    </div>
 
         <div id="register_account" class="main-body">
             <form name="registerForm">
@@ -182,9 +175,9 @@
             </div>
 
         </footer>
-	<script src="js/register.js"></script>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/scripts.js"></script>
-</body>
+        <script src="js/register.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 
 </html>
