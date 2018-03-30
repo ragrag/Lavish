@@ -1364,7 +1364,6 @@ h1, h4
 	left: -1px;
 	width: calc(100% + 1px);
 	height: 100%;
-	content: '';
 	border: solid 2px rgba(235,235,235,0);
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
