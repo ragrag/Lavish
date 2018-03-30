@@ -867,7 +867,7 @@ h1, h4
 #product .single_product_thumbnails ul li
 {
 	position: relative;
-	height: 136px;
+	height:inherit;
 	margin-bottom: 30px;
 	cursor: pointer;
 }
