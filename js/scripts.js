@@ -1,3 +1,14 @@
+
+
+
+/* Fade */
+
+function fade() {
+  $('.body').fadeIn(1100);
+};
+
+
+
   $('#login-btn').click(function () {
 
             $('.signIn').toggle();
@@ -8,6 +19,8 @@
           $('.main-body').css("filter", "blur(0px)");
       }
         });
+
+		
 
 		  
   /*
@@ -27,3 +40,4 @@
     e.preventDefault();
     $('html, body').animate({scrollTop:0}, '300');
   });
+
