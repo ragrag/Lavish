@@ -1538,13 +1538,12 @@ float:left;
 
 #products .product-item::after
 {
-	display: block;
+    display: block;
 	position: absolute;
 	top: 0;
 	left: -1px;
-	width: calc(100% + 1px);
 	height: 100%;
-	content:'';	
+    content:'';
 	border: solid 2px rgba(235,235,235,0);
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
@@ -1554,6 +1553,7 @@ float:left;
 	transition: all 0.3s ease;
 
 }
+
 #products .product-item:hover::after
 {
 	box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
