@@ -1,14 +1,14 @@
-.row{
+#sitemap .row{
     display:table;
     width:100%;
     right:5;
 }
-.column{
+#sitemap .column{
     width:25%;
     float:left;
     text-align: center;
 }
-.column a{
+#sitemap .column a{
     text-decoration: none;
     font-family: 'Poppins',sans-serif;
     color:#000000;
@@ -16,10 +16,10 @@
     
 }
 
-.column h3:hover{
+#sitemap .column h3:hover{
     transform:scale(1.5);
 }
-.rowspan{
+#sitemap .rowspan{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;

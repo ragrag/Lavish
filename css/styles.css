@@ -1356,28 +1356,7 @@ h1, h4
 	height: 340px;
 	cursor: pointer;
 }
-#products .product-item::after
-{
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -1px;
-	width: calc(100% + 1px);
-	height: 100%;
-	content:' ';
-	border: solid 2px rgba(235,235,235,0);
-	border-radius: 3px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-#products .product-item:hover::after
-{
-	box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
-	border: solid 2px rgba(235,235,235,1);
-}
+
 #products .product
 {
 	width: 100%;
@@ -1558,6 +1537,29 @@ float:left;
 
 #products .show{ display:block;}
 
+#products .product-item::after
+{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -1px;
+	width: calc(100% + 1px);
+	height: 100%;
+	content:'';	
+	border: solid 2px rgba(235,235,235,0);
+	border-radius: 3px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+
+}
+#products .product-item:hover::after
+{
+	box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
+	border: solid 2px rgba(235,235,235,1);
+}
 
 /* Admin */
 
@@ -2446,4 +2448,33 @@ footer p
     display: table;
     clear: both;
     
+}
+
+/*Site Map */
+
+#sitemap .row{
+    display:table;
+    width:100%;
+    right:5;
+}
+#sitemap .column{
+    width:25%;
+    float:left;
+    text-align: center;
+}
+#sitemap .column a{
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    color:#000000;
+    font-weight:700;
+    
+}
+
+#sitemap .column h3:hover{
+    transform:scale(1.5);
+}
+#sitemap .rowspan{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
 }
