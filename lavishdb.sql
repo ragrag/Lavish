@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 16, 2018 at 04:42 PM
+-- Generation Time: Apr 16, 2018 at 06:34 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -35,6 +35,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`A_id`(6)),
   UNIQUE KEY `A_id` (`A_id`(7))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`A_id`, `A_username`, `A_password`) VALUES
+('1', 'raggi', '123'),
+('2', 'ahmed', '123');
 
 -- --------------------------------------------------------
 
@@ -112,10 +120,10 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_ordere`
+-- Table structure for table `product_order`
 --
 
-CREATE TABLE IF NOT EXISTS `product_ordere` (
+CREATE TABLE IF NOT EXISTS `product_order` (
   `fk_p_id` varchar(20) NOT NULL,
   `fk_o_id` bigint(20) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -165,10 +173,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_orders`
+-- Table structure for table `user_order`
 --
 
-CREATE TABLE IF NOT EXISTS `user_orders` (
+CREATE TABLE IF NOT EXISTS `user_order` (
   `fk_u_id` varchar(20) NOT NULL,
   `fk_o_id` bigint(20) NOT NULL,
   PRIMARY KEY (`fk_u_id`,`fk_o_id`),
@@ -193,11 +201,11 @@ ALTER TABLE `colour`
   ADD CONSTRAINT `colour_ibfk_1` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`);
 
 --
--- Constraints for table `product_ordere`
+-- Constraints for table `product_order`
 --
-ALTER TABLE `product_ordere`
-  ADD CONSTRAINT `product_ordere_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`),
-  ADD CONSTRAINT `product_ordere_ibfk_1` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`);
+ALTER TABLE `product_order`
+  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`),
+  ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`);
 
 --
 -- Constraints for table `review`
@@ -207,11 +215,11 @@ ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`fk_u_id`) REFERENCES `user` (`U_id`);
 
 --
--- Constraints for table `user_orders`
+-- Constraints for table `user_order`
 --
-ALTER TABLE `user_orders`
-  ADD CONSTRAINT `user_orders_ibfk_2` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`),
-  ADD CONSTRAINT `user_orders_ibfk_1` FOREIGN KEY (`fk_u_id`) REFERENCES `user` (`U_id`);
+ALTER TABLE `user_order`
+  ADD CONSTRAINT `user_order_ibfk_2` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`),
+  ADD CONSTRAINT `user_order_ibfk_1` FOREIGN KEY (`fk_u_id`) REFERENCES `user` (`U_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
