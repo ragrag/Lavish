@@ -1,34 +1,38 @@
+
 <?php
-session_start(); // Starting Session
-$error=''; // Variable To Store Error Message
-if (isset($_POST['submit'])) {
-if (empty($_POST['username']) || empty($_POST['password'])) {
-$error = "Username or Password is invalid";
-}
-else
+session_start();
+require 'db_connect.php';
+if(isset($_POST['do_login']))
 {
-// Define $username and $password
-$username=$_POST['username'];
-$password=$_POST['password'];
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysql_connect("localhost:3306", "root", "");
-// To protect MySQL injection for Security purpose
-$username = stripslashes($username);
-$password = stripslashes($password);
-$username = mysql_real_escape_string($username);
-$password = mysql_real_escape_string($password);
-// Selecting Database
-$db = mysql_select_db("lavishdb", $connection);
-// SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from user where U_password='$password' AND U_username='$username'", $connection);
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-$_SESSION['login_user']=$username; // Initializing Session
-header("location: profile.php"); // Redirecting To Other Page
-} else {
-$error = "Username or Password is invalid";
-}
-mysql_close($connection); // Closing Connection
-}
+$connect = OpenCon();
+$email=$_POST['email'];
+$pass=$_POST['password'];
+ 
+ 
+$email = stripslashes($email);
+$pass = stripslashes($pass);
+$email = mysqli_real_escape_string($email);
+$pass = mysqli_real_escape_string($pass);
+ 
+$message = "wrong answer"; 
+ echo "<script type='text/javascript'>alert('$message');</script>";
+  echo "<script type='text/javascript'>alert('$pass');</script>";
+$query = mysqli_query($connect, "SELECT * from user WHERE U_username='$email' AND password='$pass'") or die(mysql_error());
+   
+$rows = mysqli_num_rows($query);
+
+if ($rows == 1)
+ {
+  $_SESSION['user_login']=$email;
+  echo "success";
+ }
+ else
+ {
+  echo "fail";
+  
+ }
+ 
+ CloseCon($connect);
+ exit();
 }
 ?>
