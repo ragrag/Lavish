@@ -31,7 +31,7 @@
         <header class="header-two-bars">
             <div class="header-first-bar">
                 <div class="header-limiter">
-                    <h1><a href="home.htm"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
                     <a href="register.html" class="logout-button">Sign Up</a>
                 </div>
@@ -57,8 +57,8 @@
                 <div class="col">
                     <div class="breadcrumbs d-flex flex-row align-items-center">
                         <ul>
-                            <li><a href="home.htm">Home</a></li>
-                            <li><a href="product.html"><i class="fa fa-angle-right"  ></i>Fragrances</a></li>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="product.php"><i class="fa fa-angle-right"  ></i>Fragrances</a></li>
                             <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Victoria's Secret Night</a></li>
                         </ul>
                     </div>

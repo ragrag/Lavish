@@ -28,7 +28,7 @@ CloseCon($conn);
         <header class="header-two-bars">
             <div class="header-first-bar">
                 <div class="header-limiter">
-                    <h1><a href="home.htm"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
                     <a href="register.html" class="logout-button">Sign Up</a>
                 </div>
@@ -36,10 +36,10 @@ CloseCon($conn);
             <div class="header-second-bar">
                 <div class="header-limiter">
                     <nav class="navtop"><b>
-                        <a href="products.html">Face</a>
-                        <a href="products.html">&ensp; Lips</a>
-                        <a href="products.html">&ensp; Eyes</a>
-                        <a href="products.html">&ensp; Fragrances</a></b>
+                        <a href="products.php">Face</a>
+                        <a href="products.php">&ensp; Lips</a>
+                        <a href="products.php">&ensp; Eyes</a>
+                        <a href="products.php">&ensp; Fragrances</a></b>
                     </nav>
                 </div>
             </div>
@@ -116,17 +116,17 @@ function do_login()
                     <div class="row">                        
                                 <div class="banner_item col" style="background-image:url(images/banner_1.jpg)">
                                     <div class="banner_category">
-                                        <a href="products.html">Face</a>
+                                        <a href="products.php">Face</a>
                                     </div>
                                 </div>
                             <div class="banner_item  col" style="background-image:url(images/banner_2.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.html">Eyes</a>
+                                    <a href="products.php">Eyes</a>
                                 </div>
                             </div>
                             <div class="banner_item col" style="background-image:url(images/banner_3.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.html">FRAGRANCE</a>
+                                    <a href="products.php">FRAGRANCE</a>
                                 </div>
                             </div>
                         </div>

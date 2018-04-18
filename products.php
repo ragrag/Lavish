@@ -30,7 +30,7 @@
                 <div class="header-limiter">
 
                     <h1>
-                        <a href="home.htm">
+                        <a href="home.php">
                             <img id="header_logo" src="images/logo_black.png" />
                         </a>
                     </h1>
@@ -43,10 +43,10 @@
                 <div class="header-limiter">
                     <nav class="navtop">
                         <b>
-                            <a href="products.html">Face</a>
-                            <a href="products.html">&ensp; Lips</a>
-                            <a href="products.html">&ensp; Eyes</a>
-                            <a href="products.html">&ensp; Fragrances</a>
+                            <a href="products.php">Face</a>
+                            <a href="products.php">&ensp; Lips</a>
+                            <a href="products.php">&ensp; Eyes</a>
+                            <a href="products.php">&ensp; Fragrances</a>
                         </b>
                     </nav>
                 </div>
@@ -70,7 +70,7 @@
 
 	<div  style="position:absolute;padding-top:1%;	" class="breadcrumbs d-flex flex-row align-items-center">
 		<ul>
-			<li><a href="home.htm">Home</a></li>
+			<li><a href="home.php">Home</a></li>
 			<li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Eyes</a></li>
 		</ul>
 	</div>
