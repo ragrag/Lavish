@@ -17,7 +17,12 @@
 
 <body class="body" style="display:none;" onload="fade()">
 
-
+    <?php
+        $user = 'root';
+        $password = '';
+        $db = 'lavishdb';
+        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                                        
+    ?>
 
     <div id="header">
         <header class="header-two-bars">
@@ -25,23 +30,23 @@
                 <div class="header-limiter">
 
                     <h1>
-                        <a href="home.htm">
+                        <a href="home.php">
                             <img id="header_logo" src="images/logo_black.png" />
                         </a>
                     </h1>
 
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">
                 <div class="header-limiter">
                     <nav class="navtop">
                         <b>
-                            <a href="products.html">Face</a>
-                            <a href="products.html">&ensp; Lips</a>
-                            <a href="products.html">&ensp; Eyes</a>
-                            <a href="products.html">&ensp; Fragrances</a>
+                            <a href="products.php">Face</a>
+                            <a href="products.php">&ensp; Lips</a>
+                            <a href="products.php">&ensp; Eyes</a>
+                            <a href="products.php">&ensp; Fragrances</a>
                         </b>
                     </nav>
                 </div>
@@ -56,7 +61,7 @@
                     <input type="password" placeholder="Password" />
                     <button>login</button>
                     <p class="message">Not registered?
-                        <a href="register.html">Create an account</a>
+                        <a href="register.php">Create an account</a>
                     </p>
                 </form>
             </div>
@@ -65,7 +70,7 @@
 
 	<div  style="position:absolute;padding-top:1%;	" class="breadcrumbs d-flex flex-row align-items-center">
 		<ul>
-			<li><a href="home.htm">Home</a></li>
+			<li><a href="home.php">Home</a></li>
 			<li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Eyes</a></li>
 		</ul>
 	</div>
@@ -120,7 +125,7 @@
                             <div class="product_filter">
                                 <div class="product_image">
 
-                                    <a href="product.html"><img alt="Product Image" src="images/metal_stila.jpg" ></a>
+                                    <a href="product.php?id=12" name="id"><img alt="Product Image" src="images/metal_stila.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Matte n' metal
@@ -136,7 +141,7 @@
                     <div class="column stila">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/perfect_stila.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/perfect_stila.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Perfect me, perfect hue
@@ -150,7 +155,7 @@
                         <div class="product-item">
                                 <div class="product_image">
 
-                                    <a href="product.html"><img alt="Product Image" src="images/window_stila.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/window_stila.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Window shadow
@@ -163,7 +168,7 @@
                     <div class="column stila">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/vault_stila.jpg" ></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/vault_stila.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Stellar gaze vault 
@@ -178,7 +183,7 @@
                     <div class="column colourpop">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/col_atHello.jpg" ></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/col_atHello.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">You had me at hello
@@ -191,7 +196,7 @@
                     <div class="column colourpop">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/col_endo.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/col_endo.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">In-nude-endo
@@ -204,7 +209,7 @@
                     <div class="column colourpop">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/col_lokey.jpg" ></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/col_lokey.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Lo-key
@@ -217,7 +222,7 @@
                     <div class="column colourpop">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/col_bus.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/col_bus.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Unfinished business
@@ -232,7 +237,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_mermaid.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_mermaid.jpg"></a>
 
                                 </div>
                                 <div class="product_info">
@@ -247,7 +252,7 @@
                         <div class="product-item">
                                 <div class="product_image">
 
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_money.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_money.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Your money maker
@@ -260,7 +265,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_paint.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_paint.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Paint pretty
@@ -273,7 +278,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_rainforest.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_rainforest.jpg"></a>
 
                                 </div>
                                 <div class="product_info">
@@ -290,7 +295,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_maneater.jpg"></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_maneater.jpg"></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Maneater vol. 2
@@ -303,7 +308,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_magic.jpg" ></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_magic.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Make magic happen
@@ -315,7 +320,7 @@
                     <div class="column tarte">
                         <div class="product-item">
                                 <div class="product_image">
-                                    <a href="product.html"><img alt="Product Image" src="images/tarte_clay.jpg" ></a>
+                                    <a href="product.php"><img alt="Product Image" src="images/tarte_clay.jpg" ></a>
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name">Tartellete in bloom clay

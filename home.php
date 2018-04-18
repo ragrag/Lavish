@@ -21,12 +21,93 @@ $conn = OpenCon();
 echo("Connection successful");
 CloseCon($conn);
 ?>
+<<<<<<< HEAD
 <?php 
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
 ?>
+=======
+
+	<div id="header">
+        <header class="header-two-bars">
+            <div class="header-first-bar">
+                <div class="header-limiter">
+                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <a href="#" id="login-btn" class="logout-button">Login</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
+                </div>
+            </div>
+            <div class="header-second-bar">
+                <div class="header-limiter">
+                    <nav class="navtop"><b>
+                        <a href="products.php">Face</a>
+                        <a href="products.php">&ensp; Lips</a>
+                        <a href="products.php">&ensp; Eyes</a>
+                        <a href="products.php">&ensp; Fragrances</a></b>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+		<script>
+		
+function do_login()
+{
+ var email=$("#emailid").val();
+ var pass=$("#password").val();
+ if(email!="" && pass!="")
+ {
+  $("#loading_spinner").css({"display":"block"});
+  $.ajax
+  ({
+  type:'post',
+  url:'login.php',
+  data:{
+   do_login:"login",
+   email:email,
+   password:pass
+  },
+  success:function(response) {
+  if(response=="success")
+  {
+      alert("Success");
+  }
+  else
+  {
+    $("#loading_spinner").css({"display":"none"});
+    alert("Wrong Details");
+  }
+  }
+  });
+ }
+
+ else
+ {
+  alert("Please Fill All The Details");
+ }
+
+ return false;
+}
+		</script>
+	
+
+
+		<div class="signIn">
+            <div class="form">
+                <form class="login-form" method="post" action="do_login.php" onsubmit="return do_login();" >
+                    <input type="text" name="emailid" id="emailid" placeholder="Username" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
+
+                    <button type="submit" name="login" value="DO LOGIN" id="login_button" >login</button>
+                    <p class="message">Not registered? <a href="register.php">Create an account</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+>>>>>>> ab198f83354823c299a4232a5db56ccebf21922c
 		<div id="home" class="main-body">
 				<div id="slider">
 					<div class="main_slider" style="background-image:url(images/slider_3.jpg)">
@@ -42,17 +123,17 @@ else include 'header_not_logged.php';
                     <div class="row">                        
                                 <div class="banner_item col" style="background-image:url(images/banner_1.jpg)">
                                     <div class="banner_category">
-                                        <a href="products.html">Face</a>
+                                        <a href="products.php">Face</a>
                                     </div>
                                 </div>
                             <div class="banner_item  col" style="background-image:url(images/banner_2.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.html">Eyes</a>
+                                    <a href="products.php">Eyes</a>
                                 </div>
                             </div>
                             <div class="banner_item col" style="background-image:url(images/banner_3.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.html">FRAGRANCE</a>
+                                    <a href="products.php">FRAGRANCE</a>
                                 </div>
                             </div>
                         </div>

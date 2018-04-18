@@ -20,23 +20,29 @@
 
 
 <body class="body" style="display:none;" onload="fade()">
-
+                <?php
+                    $user = 'root';
+                    $password = '';
+                    $db = 'lavishdb';
+                    $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                    
+                ?>
+        
 <div id="header">
         <header class="header-two-bars">
             <div class="header-first-bar">
                 <div class="header-limiter">
-                    <h1><a href="home.htm"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">
                 <div class="header-limiter">
                     <nav class="navtop"><b>
-                        <a href="products.html">Face</a>
-                        <a href="products.html">&ensp; Lips</a>
-                        <a href="products.html">&ensp; Eyes</a>
-                        <a href="products.html">&ensp; Fragrances</a></b>
+                        <a href="products.php">Face</a>
+                        <a href="products.php">&ensp; Lips</a>
+                        <a href="products.php">&ensp; Eyes</a>
+                        <a href="products.php">&ensp; Fragrances</a></b>
                     </nav>
                 </div>
             </div>
@@ -51,8 +57,8 @@
                 <div class="col">
                     <div class="breadcrumbs d-flex flex-row align-items-center">
                         <ul>
-                            <li><a href="home.htm">Home</a></li>
-                            <li><a href="product.html"><i class="fa fa-angle-right"  ></i>Fragrances</a></li>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="product.php"><i class="fa fa-angle-right"  ></i>Fragrances</a></li>
                             <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Victoria's Secret Night</a></li>
                         </ul>
                     </div>
@@ -67,6 +73,7 @@
                             <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
                                 <div class="single_product_thumbnails">
                                     <ul>
+                                        
                                         <li id="red"><img alt="Product Image" src="images/single_1_thumb.jpg"  data-image="images/single_1.jpg"></li>
                                         <li id="black" class="active"><img alt="Product Image" src="images/single_2_thumb.jpg"  data-image="images/single_2.jpg"></li>
                                         <li id="blue"><img alt="Product Image" src="images/single_3_thumb.jpg"  data-image="images/single_3.jpg"></li>
