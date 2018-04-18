@@ -20,37 +20,20 @@
 </head>
 
 <body >
-
-     <div id="header">
-        <header class="header-two-bars">
-            <div class="header-first-bar">
-                <div class="header-limiter">
-                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
-                    <a href="account_info.html" class="logout-button"><i class="fa fa-user-o">&nbsp;My Account</i></a>
-                    <a href="cart.html" class="logout-button"><i class="fa fa-shopping-cart">&nbsp;Cart</i></a>
-                </div>
-            </div>
-            <div class="header-second-bar">
-                <div class="header-limiter">
-                    <nav class="navtop"><b>
-				<a href="products.php">Face</a>
-				<a href="products.php">&ensp; Lips</a>
-				<a href="products.php">&ensp; Eyes</a>
-				<a href="products.php">&ensp; Fragrances</a></b>
-                    </nav>
-                </div>
-			</div>
-        </header>
-	</div>
-
+<?php 
+session_start();
+if(isset($_SESSION['user_login']))
+	include 'header_logged.php'; 
+else include 'header_not_logged.php'; 
+?>
             <div id="cart_order">
                 <div class="container">
                     <div class="row">
                         <div id="checkout" class="col-lg-9">
                             <div class="box border-bottom-0">
-                                <form method="post" action="order_review.html">
+                                <form method="post" action="order_review.php">
                                     <ul class="nav nav-pills nav-fill">
-                                        <li class="nav-item"><a href="order_address.html" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
+                                        <li class="nav-item"><a href="order_address.php" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
 
                                         <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-eye"></i><br>Order Review</a></li>
                                     </ul>
@@ -123,8 +106,8 @@
                                         </div>
                                     </div>
                                     <div class="box-footer d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="left-col"><a href="cart.html" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i>Back to cart</a></div>
-                                        <div class="left-col"><a href="account_info.html" class="btn btn-secondary mt-0">Edit Shipping Info</a></div>
+                                        <div class="left-col"><a href="cart.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i>Back to cart</a></div>
+                                        <div class="left-col"><a href="account_info.php" class="btn btn-secondary mt-0">Edit Shipping Info</a></div>
                                         <div class="right-col">
 
 
@@ -175,12 +158,12 @@
         </div>
         <div class="footer-center">
             <p class="footer-links">
-                <a href="about.html">About Us</a> &nbsp;
-                <a href="contact.html">Contact Us</a> &nbsp;
-                <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
-                <a href="returns.html">Returns & Exchange</a>
+                <a href="about.php">About Us</a> &nbsp;
+                <a href="contact.php">Contact Us</a> &nbsp;
+                <a href="shipping_billing.php">Shipping & Billing</a> &nbsp;
+                <a href="returns.php">Returns & Exchange</a>
             </p>
-            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.php"> Terms of Use</a> |<a href="policy.php"> Privacy Policy</a> </p>
         </div>
         <div class="footer-right">
             <div class="footer-icons">
@@ -189,7 +172,7 @@
                 <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
 			<div id="site-map">
-				<p><a href="sitemap.html">Site Map</a></p>
+				<p><a href="sitemap.php">Site Map</a></p>
 			</div>
         </div>
     </footer>

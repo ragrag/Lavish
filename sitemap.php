@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-    <link rel="icon" href="images/logo_black.ico">
-
-    <link rel="stylesheet" href="includes/styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-    <link href="includes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+	<title>Sitemap</title>
+	<link rel="icon" href="images/logo_black.ico">
+    <link rel="stylesheet" type="text/css" href="includes/styles.css">
+	<link href="includes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 </head>
 
-<body><?php 
+
+<body>
+
+
+
+
+<?php 
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
 ?>
-        <div class="main-body">
+	
+    <div id="sitemap">
+        <div class="rowspan">
+            <h1>CATEGORIES</h1>
+			<br>
+            <hr>
+			<br>
         </div>
-
-         <div class="signIn">
-            <div class="form">
-                <form class="login-form" action="account_info.php">
-                    <input type="text" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>login</button>
-                    <p class="message">Not registered? <a href="register.php">Create an account</a></p>
-                </form>
+        <div class="row">
+            <div class="column">
+                <h3><a href="products.php">LIPS</a></h3>
+            </div>
+            <div class="column">
+                <h3><a href="products.php">EYES</a></h3>
+            </div>
+            <div class="column">
+                <h3><a href="products.php">FACE</a></h3>
+            </div>
+            <div class="column">
+                <h3><a href="products.php">FRAGRANCE</a></h3>
             </div>
         </div>
     </div>
 
-
-    <footer class="footer-distributed">
+       <footer class="footer-distributed">
         <div class="footer-left">
             <img id="footer_logo" alt="Lavish Logo" src="images/logo_white.png" />
         </div>
@@ -63,7 +72,8 @@ else include 'header_not_logged.php';
 
     <script src="includes/scripts/jquery-3.2.1.min.js"></script>
     <script src="includes/scripts/scripts.js"></script>
-
 </body>
+
+
 
 </html>

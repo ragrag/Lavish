@@ -18,7 +18,6 @@
 <?php
 require 'db_connect.php';
 $conn = OpenCon();
-echo("Connection successful");
 CloseCon($conn);
 ?>
 
@@ -67,12 +66,12 @@ else include 'header_not_logged.php';
         </div>
         <div class="footer-center">
             <p class="footer-links">
-                <a href="about.html">About Us</a> &nbsp;
-                <a href="contact.html">Contact Us</a> &nbsp;
-                <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
-                <a href="returns.html">Returns & Exchange</a>
+                <a href="about.php">About Us</a> &nbsp;
+                <a href="contact.php">Contact Us</a> &nbsp;
+                <a href="shipping_billing.php">Shipping & Billing</a> &nbsp;
+                <a href="returns.php">Returns & Exchange</a>
             </p>
-            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.php"> Terms of Use</a> |<a href="policy.php"> Privacy Policy</a> </p>
         </div>
         <div class="footer-right">
             <div class="footer-icons">
@@ -81,7 +80,7 @@ else include 'header_not_logged.php';
                 <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
 			<div id="site-map">
-				<p><a href="sitemap.html">Site Map</a></p>
+				<p><a href="sitemap.php">Site Map</a></p>
 			</div>
         </div>
     </footer>

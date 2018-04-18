@@ -12,11 +12,11 @@ function check() {
 
     if (UserName != "NRBI" || Password != "0000") {
         window.alert("Invalid Username or Password");
-        document.getElementById("formaction").action = "adminlog.html";
+        document.getElementById("formaction").action = "adminlog.php";
     }
     else if (UserName == "NRBI" && Password == "0000") {
         window.alert("Welcome admin");
-        document.getElementById("formaction").action = "dashboard.html";
+        document.getElementById("formaction").action = "dashboard.php";
     }
 }
 

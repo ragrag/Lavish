@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shipping & Billing</title>
+    <title>Returns and Exchange</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
     <link rel="icon" href="images/logo_black.ico">
     <link rel="stylesheet" type="text/css" href="includes/styles.css">
     <link rel="stylesheet" type="text/css" href="includes/plugins/bootstrap4/bootstrap.min.css">
     <link href="includes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
@@ -17,32 +20,15 @@
 </head>
 
 <body>
-
-    <div id="header">
-        <header class="header-two-bars">
-            <div class="header-first-bar">
-                <div class="header-limiter">
-                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
-                    <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.php" class="logout-button">Sign Up</a>
-                </div>
-            </div>
-            <div class="header-second-bar">
-                <div class="header-limiter">
-                    <nav class="navtop"><b>
-                        <a href="products.php">Face</a>
-                        <a href="products.php">&ensp; Lips</a>
-                        <a href="products.php">&ensp; Eyes</a>
-                        <a href="products.php">&ensp; Fragrances</a></b>
-                    </nav>
-                </div>
-            </div>
-        </header>
-
-
-         <div class="signIn">
+<?php 
+session_start();
+if(isset($_SESSION['user_login']))
+	include 'header_logged.php'; 
+else include 'header_not_logged.php'; 
+?>
+        <div class="signIn">
             <div class="form">
-                <form class="login-form" action="account_info.html">
+                <form class="login-form" action="account_info.php">
                     <input type="text" placeholder="Email" />
                     <input type="password" placeholder="Password" />
                     <button>login</button>
@@ -53,25 +39,32 @@
     </div>
 
 
+
     <div id="about_contact" class="container contact_container main-body">
         <div class="row">
             <div class="col">
+
                 <div class="breadcrumbs d-flex flex-row align-items-center">
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Shipping & Billing</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Returns</a></li>
                     </ul>
                 </div>
+
             </div>
         </div>
+
+
+
+
 
         <div class="row">
             <div class="col-lg-6 contact_col">
                 <div class="contact_contents">
-                    <h1>Shipping & Billing</h1>
-                    <p><b>Delivery</b><br>Order will be delivered in 7 working days form the order confirmation date.</p>
+                    <h1>Returns & Exchange</h1>
+                    <p><b>Returns</b><br>Purchased items may be returned if in factory state after 14 days of the payment.</p>
                     <div>
-                        <p><b>Billing</b><br>All purchased are to be paid on delivery (COD).</p>
+                        <p><b>Exchange</b><br>Items with defects can be exchanged after 14 days of the payment</p>
                     </div>
                     <div class="follow_us_contents">
                         <h1>Follow Us</h1>
@@ -84,7 +77,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="newsletter">
             <div class="container">
@@ -107,19 +99,19 @@
             </div>
         </div>
     </div>
-	
+
      <footer class="footer-distributed">
         <div class="footer-left">
             <img id="footer_logo" alt="Lavish Logo" src="images/logo_white.png" />
         </div>
         <div class="footer-center">
             <p class="footer-links">
-                <a href="about.html">About Us</a> &nbsp;
-                <a href="contact.html">Contact Us</a> &nbsp;
-                <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
-                <a href="returns.html">Returns & Exchange</a>
+                <a href="about.php">About Us</a> &nbsp;
+                <a href="contact.php">Contact Us</a> &nbsp;
+                <a href="shipping_billing.php">Shipping & Billing</a> &nbsp;
+                <a href="returns.php">Returns & Exchange</a>
             </p>
-            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.php"> Terms of Use</a> |<a href="policy.php"> Privacy Policy</a> </p>
         </div>
         <div class="footer-right">
             <div class="footer-icons">
@@ -128,11 +120,11 @@
                 <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
 			<div id="site-map">
-				<p><a href="sitemap.html">Site Map</a></p>
+				<p><a href="sitemap.php">Site Map</a></p>
 			</div>
         </div>
     </footer>
-
+	
     <script src="includes/scripts/jquery-3.2.1.min.js"></script>
     <script src="includes/scripts/scripts.js"></script>
 </body>

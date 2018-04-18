@@ -11,30 +11,12 @@
 		<link rel="stylesheet" type="text/css" href="includes/styles.css">
     </head>
     <body>
-        <div id="header">
-            <header class="header-two-bars">
-                <div class="header-first-bar">
-                    <div class="header-limiter">
-                        <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
-                        <a href="account_info.html" class="logout-button"><i class="fa fa-user-o">&nbsp;My Account</i></a>
-                        <a href="cart.html" class="logout-button"><i class="fa fa-shopping-cart">&nbsp;Cart</i></a>
-                    </div>
-                </div>
-                <div class="header-second-bar">
-                    <div class="header-limiter">
-                        <nav class="navtop">
-                            <b>
-                                <a href="products.php">Face</a>
-                                <a href="products.php">&ensp; Lips</a>
-                                <a href="products.php">&ensp; Eyes</a>
-                                <a href="products.php">&ensp; Fragrances</a>
-                            </b>
-                        </nav>
-                    </div>
-                </div>
-            </header>
-        </div>
-		
+	<?php 
+session_start();
+if(isset($_SESSION['user_login']))
+	include 'header_logged.php'; 
+else include 'header_not_logged.php'; 
+?>
         <div id="register_account">
             <form name="accountInfoForm">
                 <table>
@@ -53,7 +35,7 @@
                             <input class="textbox" type="password" id="cpass">
                         </td>
                         <td class="listItem">
-                            <a href="account_info.html">Account Information</a>
+                            <a href="account_info.php">Account Information</a>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +48,7 @@
                             <input class="textbox" type="password" id="npass">
                         </td>
                         <td class="listItem">
-                            <a href="address_book.html">Address Book</a>
+                            <a href="address_book.php">Address Book</a>
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +61,7 @@
                             <input class="textbox" type="password" id="cnpass">
                         </td>
                         <td class="listItem">
-                            <a href="previous_orders.html">My Orders</a>
+                            <a href="previous_orders.php">My Orders</a>
                         </td>
                     </tr>
                 </table>
@@ -94,12 +76,12 @@
         </div>
         <div class="footer-center">
             <p class="footer-links">
-                <a href="about.html">About Us</a> &nbsp;
-                <a href="contact.html">Contact Us</a> &nbsp;
-                <a href="shipping_billing.html">Shipping & Billing</a> &nbsp;
-                <a href="returns.html">Returns & Exchange</a>
+                <a href="about.php">About Us</a> &nbsp;
+                <a href="contact.php">Contact Us</a> &nbsp;
+                <a href="shipping_billing.php">Shipping & Billing</a> &nbsp;
+                <a href="returns.php">Returns & Exchange</a>
             </p>
-            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.html"> Terms of Use</a> |<a href="policy.html"> Privacy Policy</a> </p>
+            <p class="footer-company-name">Copyright&copy; 2018 Lavish, <a href="terms.php"> Terms of Use</a> |<a href="policy.php"> Privacy Policy</a> </p>
         </div>
         <div class="footer-right">
             <div class="footer-icons">
@@ -108,7 +90,7 @@
                 <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
 			<div id="site-map">
-				<p><a href="sitemap.html">Site Map</a></p>
+				<p><a href="sitemap.php">Site Map</a></p>
 			</div>
         </div>
     </footer>

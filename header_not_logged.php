@@ -2,18 +2,18 @@
         <header class="header-two-bars">
             <div class="header-first-bar">
                 <div class="header-limiter">
-                    <h1><a href="home.htm"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
+                    <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">
                 <div class="header-limiter">
                     <nav class="navtop"><b>
-                        <a href="products.html">Face</a>
-                        <a href="products.html">&ensp; Lips</a>
-                        <a href="products.html">&ensp; Eyes</a>
-                        <a href="products.html">&ensp; Fragrances</a></b>
+                        <a href="products.php">Face</a>
+                        <a href="products.php">&ensp; Lips</a>
+                        <a href="products.php">&ensp; Eyes</a>
+                        <a href="products.php">&ensp; Fragrances</a></b>
                     </nav>
                 </div>
             </div>
@@ -67,7 +67,7 @@ function do_login()
                     <input type="password" name="password" id="password" placeholder="Password" />
 
                     <button type="submit" name="plogin" value="DO LOGIN" id="login_button" >login</button>
-                    <p class="message">Not registered? <a href="register.html">Create an account</a></p>
+                    <p class="message">Not registered? <a href="register.php">Create an account</a></p>
                 </form>
             </div>
         </div>

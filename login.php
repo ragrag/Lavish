@@ -27,7 +27,7 @@ $query = "SELECT * FROM user WHERE U_username= '".$email."' and U_password='".$p
 if ($count== 1)
  {
 	  
-session_start();
+
   $_SESSION['user_login']=$email;
   
   echo 1;
