@@ -17,7 +17,12 @@
 </head>
 
 <body>
-
+<?php
+        $user = 'root';
+        $password = '';
+        $db = 'lavishdb';
+        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                                        
+?>
         <div id="header">
             <header class="header-two-bars">
                 <div class="header-first-bar">
@@ -52,7 +57,7 @@
         </div>
 
         <div id="register_account" class="main-body">
-            <form name="registerForm">
+            <form name="registerForm" method="post" action="directRegistration.php">
                 <table>
                     <tr>
                         <td colspan="2">
@@ -62,39 +67,39 @@
                     <tr>
                         <td>
                             <div>First Name *</div>
-                            <input class="textbox" type="text" id="fname">
+                            <input class="textbox" type="text" id="fname" name="fname">
                         </td>
                         <td>
                             <div>Last Name *</div>
-                            <input class="textbox" type="text" id="lname">
+                            <input class="textbox" type="text" id="lname" name="lname">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div>Password *</div>
-                            <input class="textbox" type="password" id="pass">
+                            <input class="textbox" type="password" id="pass" name="pass">
                         </td>
                         <td>
                             <div>Confirm Password*</div>
-                            <input class="textbox" type="password" id="cpass">
+                            <input class="textbox" type="password" id="cpass" name="cpass">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <div>Email Address *</div>
-                            <input class="textbox" type="text" id="email">
+                            <input class="textbox" type="text" id="email" name="email">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <div>Delivery Address *</div>
-                            <input class="textbox" type="text" id="daddress">
+                            <input class="textbox" type="text" id="daddress" name="daddress">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div>Billing Address *</div>
-                            <input class="textbox" type="text" id="baddress">
+                            <input class="textbox" type="text" id="baddress" name="baddress">
                         </td>
                         <td>
                             <input class="checkbox" type="checkbox" id="asDelivery" onchange="deliveryAddress()">
@@ -104,11 +109,11 @@
                     <tr>
                         <td>
                             <div>Phone Number*</div>
-                            <input class="textbox" type="tel" id="phonenumber">
+                            <input class="textbox" type="tel" id="phonenumber" name="phonenumber">
                         </td>
                         <td>
                             <div>Birthdate *</div>
-                            <input class="textbox" type="date" id="bdate">
+                            <input class="textbox" type="date" id="bdate" name="bdate">
                         </td>
                     </tr>
                     <tr>
