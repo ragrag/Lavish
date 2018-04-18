@@ -36,7 +36,7 @@
                     </h1>
 
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">
@@ -61,7 +61,7 @@
                     <input type="password" placeholder="Password" />
                     <button>login</button>
                     <p class="message">Not registered?
-                        <a href="register.html">Create an account</a>
+                        <a href="register.php">Create an account</a>
                     </p>
                 </form>
             </div>

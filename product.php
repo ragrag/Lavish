@@ -33,7 +33,7 @@
                 <div class="header-limiter">
                     <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">

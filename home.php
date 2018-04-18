@@ -30,7 +30,7 @@ CloseCon($conn);
                 <div class="header-limiter">
                     <h1><a href="home.php"><img alt="Lavish Logo" id="header_logo" src="images/logo_black.png"/></a></h1>
                     <a href="#" id="login-btn" class="logout-button">Login</a>
-                    <a href="register.html" class="logout-button">Sign Up</a>
+                    <a href="register.php" class="logout-button">Sign Up</a>
                 </div>
             </div>
             <div class="header-second-bar">
@@ -95,7 +95,7 @@ function do_login()
                     <input type="password" name="password" id="password" placeholder="Password" />
 
                     <button type="submit" name="login" value="DO LOGIN" id="login_button" >login</button>
-                    <p class="message">Not registered? <a href="register.html">Create an account</a></p>
+                    <p class="message">Not registered? <a href="register.php">Create an account</a></p>
                 </form>
             </div>
         </div>
