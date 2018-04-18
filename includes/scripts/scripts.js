@@ -1,6 +1,5 @@
 
-
-
+	
 /* Fade */
 
 function fade() {

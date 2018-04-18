@@ -13,8 +13,16 @@
 
 </head>
 
+
+
 <body  class="body" style="display:none;" onload="fade()">
 
+<?php
+require 'db_connect.php';
+$conn = OpenCon();
+echo("Connection successful");
+CloseCon($conn);
+?>
 
 	<div id="header">
         <header class="header-two-bars">
@@ -37,13 +45,56 @@
             </div>
         </header>
 
-      
+		<script>
+		
+function do_login()
+{
+ var email=$("#emailid").val();
+ var pass=$("#password").val();
+ if(email!="" && pass!="")
+ {
+  $("#loading_spinner").css({"display":"block"});
+  $.ajax
+  ({
+  type:'post',
+  url:'login.php',
+  data:{
+   do_login:"login",
+   email:email,
+   password:pass
+  },
+  success:function(response) {
+  if(response=="success")
+  {
+      alert("Success");
+  }
+  else
+  {
+    $("#loading_spinner").css({"display":"none"});
+    alert("Wrong Details");
+  }
+  }
+  });
+ }
+
+ else
+ {
+  alert("Please Fill All The Details");
+ }
+
+ return false;
+}
+		</script>
+	
+
+
 		<div class="signIn">
             <div class="form">
-                <form class="login-form" action="account_info.html">
-                    <input type="text" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>login</button>
+                <form class="login-form" method="post" action="do_login.php" onsubmit="return do_login();" >
+                    <input type="text" name="emailid" id="emailid" placeholder="Username" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
+
+                    <button type="submit" name="login" value="DO LOGIN" id="login_button" >login</button>
                     <p class="message">Not registered? <a href="register.html">Create an account</a></p>
                 </form>
             </div>
