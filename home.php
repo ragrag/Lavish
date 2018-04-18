@@ -13,8 +13,16 @@
 
 </head>
 
+
+
 <body  class="body" style="display:none;" onload="fade()">
 
+<?php
+require 'db_connect.php';
+$conn = OpenCon();
+echo("Connection successful");
+CloseCon($conn);
+?>
 
 	<div id="header">
         <header class="header-two-bars">
@@ -40,10 +48,10 @@
       
 		<div class="signIn">
             <div class="form">
-                <form class="login-form" action="account_info.html">
-                    <input type="text" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>login</button>
+                <form class="login-form" method="post" action="login.php">
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password"  placeholder="Password" />
+                    <button type="submit" >login</button>
                     <p class="message">Not registered? <a href="register.html">Create an account</a></p>
                 </form>
             </div>
