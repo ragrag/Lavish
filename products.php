@@ -21,8 +21,7 @@
         $user = 'root';
         $password = '';
         $db = 'lavishdb';
-        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");
-                                            
+        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                                        
     ?>
 
     <div id="header">
