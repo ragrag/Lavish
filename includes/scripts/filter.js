@@ -13,7 +13,7 @@ function filterSelection(c) {
   }
 }
 
-// Show filtered elements
+
 function  AddClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
@@ -25,7 +25,6 @@ function  AddClass(element, name) {
   }
 }
 
-// Hide elements that are not selected
 function  RemoveClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
