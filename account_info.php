@@ -29,7 +29,7 @@
                                                                                         
     ?>
         <div id="register_account">
-            <form name="accountInfoForm">
+            <form name="accountInfoForm" action="changeAccountInfo.php" method="post">
                 <table>
                     <tr>
                         <td ><h3>Account information</h3></td>
@@ -39,11 +39,11 @@
                     <tr>
                         <td>
                             <div>First Name *</div>
-                            <input class="textbox" type="text" id="fname" value="<?php echo $row["Fname"];?>">
+                            <input class="textbox" type="text" id="fname" name="fname" value="<?php echo $row["Fname"];?>">
                         </td>
                         <td>
                             <div>Current Password *</div>
-                            <input class="textbox" type="password" id="cpass" value="<?php echo $row["U_password"];?>">
+                            <input class="textbox" type="password" id="cpass" name="cpass" value="<?php echo $row["U_password"];?>">
                         </td>
                         <td class="listItem">
                             <a href="account_info.php">Account Information</a>
@@ -52,11 +52,11 @@
                     <tr>
                         <td>
                             <div>Last Name *</div>
-                            <input class="textbox" type="text" id="lname" value="<?php echo $row["Lname"];?>">
+                            <input class="textbox" type="text" id="lname" name="lname" value="<?php echo $row["Lname"];?>">
                         </td>
                         <td>
                             <div>New Password *</div>
-                            <input class="textbox" type="password" id="npass">
+                            <input class="textbox" type="password" id="npass" name="npass">
                         </td>
                         <td class="listItem">
                             <a href="address_book.php">Address Book</a>
@@ -65,14 +65,24 @@
                     <tr>
                         <td>
                             <div>Email Address *</div>
-                            <input class="textbox" type="text" id="email" value="<?php echo $row["Email"];?>">
+                            <input class="textbox" type="text" id="email" name="email" value="<?php echo $row["Email"];?>">
                         </td>
                         <td>
                             <div>Confirm New Password *</div>
-                            <input class="textbox" type="password" id="cnpass">
+                            <input class="textbox" type="password" id="cnpass" name="cnpass">
                         </td>
                         <td class="listItem">
                             <a href="previous_orders.php">My Orders</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Phone number</div>
+                            <input class="textbox" type="number" id="phonenumber" name="phonenumber" value="<?php echo $row["Mobile_number"];?>">
+                        </td>
+                        <td>
+                            <div>Birthdate</div>
+                            <input class="textbox" type="date" id="bdate" name="bdate" value="<?php echo $row["DOB"];?>">
                         </td>
                     </tr>
                 </table>
