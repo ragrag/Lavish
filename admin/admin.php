@@ -26,6 +26,11 @@ exit();
         mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
          VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
     }
+    if (isset($_GET['del'])) {
+	   $id = $_GET['del'];
+	   mysqli_query($conn, "DELETE FROM product WHERE p_id='$id'");
+	   header('location: admin.php');
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +96,7 @@ exit();
                             <td>
                                 <a id="EditBTN" class='converttobtn GreenButton ebtn' role="button" href="#EditPOP">
                                     <i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='converttobtn RedButton'>
+                                <a href="admin.php?del=<?php echo $row['p_id']; ?>" class='converttobtn RedButton'>
                                     <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
                         </tr>
