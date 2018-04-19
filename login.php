@@ -19,16 +19,30 @@ $pass = mysql_real_escape_string($pass);
  
 
 
-$query = "SELECT * FROM user WHERE U_username= '".$email."' and U_password='".$pass."'";
-    
+if($_POST['plogin'] == 'admin')
+{
+	$query = "SELECT * FROM admin WHERE A_username= '".$email."' and A_password='".$pass."'";
+	
+}
+else 
+{
+	$query = "SELECT * FROM user WHERE U_username= '".$email."' and U_password='".$pass."'";
+
+}
     $result=mysqli_query($connect,$query);
     $count = mysqli_num_rows($result);
 
 if ($count== 1)
  {
-	  
 
-  $_SESSION['user_login']=$email;
+if($_POST['plogin'] == 'admin')
+{
+	 $_SESSION['admin_login']=$email;
+}
+else 
+{
+	 $_SESSION['user_login']=$email;
+}
   
   echo 1;
  

@@ -32,7 +32,7 @@ function do_login()
   type:'post',
   url:'login.php',
   data:{
-   plogin:"DO LOGIN",
+   plogin:"user",
    emailid:email,
    password:pass
   },
