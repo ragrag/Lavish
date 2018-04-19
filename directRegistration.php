@@ -26,9 +26,11 @@
 
     $sql1 = "SELECT U_id FROM user";
     $idTable = $db->query($sql1);
-    $row = mysqli_fetch_assoc($idTable);
+    $row = mysqli_fetch_row($idTable);
     $lastID = intval(end($row));
+    echo $lastID;
     $lastID = $lastID +1;
+    echo "<br>" . $lastID;
     
     $sql = "INSERT INTO user (U_id,U_username,U_password,Fname,Lname,DOB,Email,D_Address,B_Address,Mobile_Number) VALUES ('$lastID','$username','$pass','$fname','$lname','$bdate','$email','$daddress','$baddress','$phonenumber')";
     
