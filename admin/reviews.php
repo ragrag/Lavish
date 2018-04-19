@@ -9,6 +9,14 @@
 </head>
 
 <body>
+<?php
+session_start();
+if(!isset($_SESSION['admin_login']))
+{
+ header("Location: adminlog.php");
+exit();
+}
+?>
 	<div id="admin">
 		<div class="fbody">
 			<nav class="mnav">
@@ -23,6 +31,9 @@
 							</li>
 							<li>
 								<a href="admin.php">Products</a>
+							</li>
+							<li>
+								<a href="../logout.php" class="logout-button"><i class="fa fa-sign-out">&nbsp;Logout</i></a>    
 							</li>
 						</ul>
 					</div>
