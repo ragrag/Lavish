@@ -11,12 +11,23 @@
 		<link rel="stylesheet" type="text/css" href="includes/styles.css">
     </head>
     <body>
-	<?php 
-session_start();
-if(isset($_SESSION['user_login']))
-	include 'header_logged.php'; 
-else include 'header_not_logged.php'; 
-?>
+	<?php
+            
+        session_start();
+        if(isset($_SESSION['user_login']))
+            include 'header_logged.php'; 
+        else include 'header_not_logged.php';
+        
+        $user = 'root';
+        $password = '';
+        $db = 'lavishdb';
+        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!"); 
+        $user = $_SESSION['user_login'];
+        $sql = "SELECT * FROM user WHERE U_username = '$user'";
+        $result = $db->query($sql);
+        $row = mysqli_fetch_assoc($result);
+                                                                                        
+    ?>
         <div id="register_account">
             <form name="accountInfoForm">
                 <table>
@@ -28,11 +39,11 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>First Name *</div>
-                            <input class="textbox" type="text" id="fname">
+                            <input class="textbox" type="text" id="fname" value="<?php echo $row["Fname"];?>">
                         </td>
                         <td>
                             <div>Current Password *</div>
-                            <input class="textbox" type="password" id="cpass">
+                            <input class="textbox" type="password" id="cpass" value="<?php echo $row["U_password"];?>">
                         </td>
                         <td class="listItem">
                             <a href="account_info.php">Account Information</a>
@@ -41,7 +52,7 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>Last Name *</div>
-                            <input class="textbox" type="text" id="lname">
+                            <input class="textbox" type="text" id="lname" value="<?php echo $row["Lname"];?>">
                         </td>
                         <td>
                             <div>New Password *</div>
@@ -54,7 +65,7 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>Email Address *</div>
-                            <input class="textbox" type="text" id="email">
+                            <input class="textbox" type="text" id="email" value="<?php echo $row["Email"];?>">
                         </td>
                         <td>
                             <div>Confirm New Password *</div>
