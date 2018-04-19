@@ -39,12 +39,12 @@ else include 'header_not_logged.php';
                     </tr>
                     <tr>
                         <td>
-                            <div>First Name *</div>
-                            <input class="textbox" type="text" id="fname" name="fname">
+                            <div>Username *</div>
+                            <input class="textbox" type="text" id="uname" name="uname">
                         </td>
-                        <td>
-                            <div>Last Name *</div>
-                            <input class="textbox" type="text" id="lname" name="lname">
+                        <td colspan="2">
+                            <div>Email Address *</div>
+                            <input class="textbox" type="text" id="email" name="email">
                         </td>
                     </tr>
                     <tr>
@@ -58,9 +58,13 @@ else include 'header_not_logged.php';
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <div>Email Address *</div>
-                            <input class="textbox" type="text" id="email" name="email">
+                        <td>
+                            <div>First Name *</div>
+                            <input class="textbox" type="text" id="fname" name="fname">
+                        </td>
+                        <td>
+                            <div>Last Name *</div>
+                            <input class="textbox" type="text" id="lname" name="lname">
                         </td>
                     </tr>
                     <tr>
