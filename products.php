@@ -97,11 +97,11 @@ else include 'header_not_logged.php';
 							$pname = $row ['p_name'];
 							$price = $row ['price'];
 							$pid = $row ['p_id'];
-							
+							$brand = $row ['p_brand'];
 							$imgurl = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];
 							echo "
 							
-								<div class='column stila'>
+								<div class='column $brand'>
 									<div class='product-item'>
 										<div class='product_filter'>
 											<div class='product_image'>

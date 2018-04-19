@@ -1116,6 +1116,7 @@ h1, h4
 	width: 70px;
 	height: 70px;
 	background: #ebebeb;
+	background-image : url(images/silouette.png);
 	border-radius: 50%;
 }
 #product .user_rating .star_rating
