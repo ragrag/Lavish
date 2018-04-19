@@ -21,8 +21,10 @@
     $newEmail = $_POST["email"];
     $newPass = $_POST["npass"];
     $newPhonenumber = $_POST["phonenumber"];
+    $newBAddress = $_POST["baddress"];
+    $newDAddress = $_POST["daddress"];
 
-    $sql2 = "UPDATE user SET Fname = '$newFname', Lname ='$newLname', DOB='$newBdate', Email='$newEmail', U_password='$newPass', Mobile_number='$newPhonenumber' WHERE U_id='$id'";
+    $sql2 = "UPDATE user SET Fname = '$newFname', Lname ='$newLname', DOB='$newBdate', Email='$newEmail', U_password='$newPass', Mobile_number='$newPhonenumber', B_Address = '$newBAddress', D_Address = '$newDAddress' WHERE U_id='$id'";
     if($db->query($sql2) === TRUE)
     {
         session_start();

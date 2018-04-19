@@ -85,6 +85,16 @@
                             <input class="textbox" type="date" id="bdate" name="bdate" value="<?php echo $row["DOB"];?>">
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <div>Delivery Address*</div>
+                            <input  class="textbox" type="text" id="daddress" name="daddress" value="<?php echo $row["D_Address"];?>">
+                        </td>
+                        <td>
+                            <div>Billing Address*</div>
+                            <input  class="textbox" type="text" id="baddress" name="baddress" value="<?php echo $row["B_Address"];?>">
+                        </td>
+                    </tr>
                 </table>
                 <button class="saveButton regButton" type="submit" name="save" onclick="saveData()">Save</button>
                 <div id="req" class="align">* Required Field</div>
