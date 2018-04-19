@@ -17,12 +17,7 @@
 
 <body class="body" style="display:none;" onload="fade()">
 
-    <?php
-        $user = 'root';
-        $password = '';
-        $db = 'lavishdb';
-        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                                        
-    ?>
+
 	
 <?php 
 session_start();
@@ -82,234 +77,54 @@ else include 'header_not_logged.php';
 
             </div>
 
-            <div class="table">
-
-                <div class="row">
-                    <div class="column stila">
-                        <div class="product-item">
-                            <div class="product_filter">
-                                <div class="product_image">
-
-                                    <a href="product.php?id=12" name="id"><img alt="Product Image" src="images/metal_stila.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Matte n' metal
-                                    </h6>
-                                    <div class="product_price"> 890</div>
-                                </div>
+			
+			<?php
+				require 'db_connect.php';
+				$conn = OpenCon();
+				$type = $_GET['type'];
+		
+				$query = "SELECT * FROM product WHERE p_type='$type'";
+				$products= mysqli_query($conn,$query);
+	
+				echo "<div class='table'>";
+				for ($i =0 ; $i<(mysqli_num_rows($products)/2)+1;$i++)
+				{
+					echo "<div class='row'>";
+						for ($j = 0; $j<4;$j++)
+						{
+							if (!$row = mysqli_fetch_array($products))
+								break;
+							$pname = $row ['p_name'];
+							$price = $row ['price'];
+							$pid = $row ['p_id'];
+							$query = "SELECT * FROM product WHERE p_type='$type'";
+							$products= mysqli_query($conn,$query);
+							echo "
+							
+								<div class='column stila'>
+									<div class='product-item'>
+										<div class='product_filter'>
+											<div class='product_image'>
+												<a href='product.php?id=$pid' name='id'><img alt='Product Image' src='images/metal_stila.jpg' ></a>
+											</div>
+										<div class='product_info'>
+												<h6 class='product_name'>$pname
+												</h6>
+											<div class='product_price'> $price</div>
+										</div>
+									</div>
+                            <div class='add_to_cart_button'>
+                                <a href='#'>add to cart</a>
                             </div>
-                            <div class="add_to_cart_button">
-                                <a href="#">add to cart</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="column stila">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/perfect_stila.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Perfect me, perfect hue
-                                    </h6>
-                                    <div class="product_price">670</div>
-                                </div>
-                            <div class=" add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column stila">
-                        <div class="product-item">
-                                <div class="product_image">
-
-                                    <a href="product.php"><img alt="Product Image" src="images/window_stila.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Window shadow
-                                    </h6>
-                                    <div class="product_price">865</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column stila">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/vault_stila.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Stellar gaze vault 
-                                    </h6>
-                                    <div class="product_price">3450</div>
-                                </div>
-                            <div class="black_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column colourpop">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/col_atHello.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">You had me at hello
-                                    </h6>
-                                    <div class="product_price">317</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column colourpop">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/col_endo.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">In-nude-endo
-                                    </h6>
-                                    <div class="product_price">317</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column colourpop">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/col_lokey.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Lo-key
-                                    </h6>
-                                    <div class="product_price">212</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column colourpop">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/col_bus.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Unfinished business
-                                    </h6>
-                                    <div class="product_price">388</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_mermaid.jpg"></a>
-
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Be a mermaid
-                                    </h6>
-                                    <div class="product_price">1000</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_money.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Your money maker
-                                    </h6>
-                                    <div class="product_price">800</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_paint.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Paint pretty
-                                    </h6>
-                                    <div class="product_price">240</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_rainforest.jpg"></a>
-
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Rainforest of the sea
-                                    </h6>
-                                    <div class="product_price">900</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_maneater.jpg"></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Maneater vol. 2
-                                    </h6>
-                                    <div class="product_price">800</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_magic.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Make magic happen
-                                    </h6>
-                                    <div class="product_price">800</div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                    <a href="product.php"><img alt="Product Image" src="images/tarte_clay.jpg" ></a>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Tartellete in bloom clay
-                                    </h6>
-                                    <div class="product_price">1000</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                    <div class="column tarte">
-                        <div class="product-item">
-                                <div class="product_image">
-                                   <img alt="Product Image" src="images/tarte_flirt.jpg">
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name">Tartelette flirt
-                                    </h6>
-                                    <div class="product_price">600</div>
-                                </div>
-                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </div>";
+						}
+					echo "</div>";
+							
+				}
+				echo "</div>";
+				?>
+				
         </div>
     </div>
 	
