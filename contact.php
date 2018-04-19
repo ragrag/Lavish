@@ -18,7 +18,8 @@
 
 </head>
 
-<body><?php 
+<body>
+<?php 
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 

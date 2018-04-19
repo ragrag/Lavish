@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 16, 2018 at 10:14 PM
+-- Generation Time: Apr 19, 2018 at 01:58 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `p_id` varchar(20) NOT NULL,
   `quantity` int(2) NOT NULL,
   PRIMARY KEY (`c_user_id`,`p_id`),
-  KEY `p_id` (`p_id`)
+  KEY `cart_ibfk_2` (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -152,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `p_brand` varchar(15) NOT NULL,
   `p_quantity` int(11) NOT NULL,
   `p_description` varchar(700) NOT NULL,
+  `price` int(11) NOT NULL,
   PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,10 +160,10 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_brand`, `p_quantity`, `p_description`) VALUES
-('es_1', 'Matte n'' metal', ' Eye Shadow', 'Stila', 5, 'Create eye-catching color combos with just the right mix of matte and shimmer. Featuring six modern matte and six mega metallic shades in range of pink rose golds, cool-toned pewters and golden bronzes that flatter all skin tones, it''s the one color palette you need to design eyes that truly dazzle.'),
-('es_2', 'Window Shadow ', 'Eye Shadow', 'Stila', 1, 'This year, Stila celebrates 20 years of infinite style. Create endless looks with our new Eyes Are The Window™ shadow palettes. Inspired by the spiritual notion that true beauty is revealed from within, each palette is curated with 12 luxurious eye shadows to illuminate your inner beauty. Encased in exquisite, jewelry-inspired compacts-a precious mix of rose, yellow and white golds-the shadows will inspire intrigue and delight.'),
-('es_3', 'Perfect Me, Perfect Hue', 'Eye Shadow', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ');
+INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_brand`, `p_quantity`, `p_description`, `price`) VALUES
+('es_1', 'Matte n'' metal', 'Eyes', 'Stila', 5, 'Create eye-catching color combos with just the right mix of matte and shimmer. Featuring six modern matte and six mega metallic shades in range of pink rose golds, cool-toned pewters and golden bronzes that flatter all skin tones, it''s the one color palette you need to design eyes that truly dazzle.', 890),
+('es_2', 'Window Shadow ', 'Eyes', 'Stila', 1, 'This year, Stila celebrates 20 years of infinite style. Create endless looks with our new Eyes Are The Window™ shadow palettes. Inspired by the spiritual notion that true beauty is revealed from within, each palette is curated with 12 luxurious eye shadows to illuminate your inner beauty. Encased in exquisite, jewelry-inspired compacts-a precious mix of rose, yellow and white golds-the shadows will inspire intrigue and delight.', 670),
+('es_3', 'Perfect Me, Perfect Hue', 'Eyes', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ', 865);
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `product_order` (
   `fk_o_id` bigint(20) NOT NULL,
   `quantity` int(11) NOT NULL,
   PRIMARY KEY (`fk_p_id`,`fk_o_id`),
-  KEY `fk_o_id` (`fk_o_id`)
+  KEY `product_order_ibfk_1` (`fk_o_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -247,41 +248,41 @@ INSERT INTO `user` (`U_id`, `U_username`, `U_password`, `Fname`, `Lname`, `DOB`,
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`c_user_id`) REFERENCES `user` (`U_id`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`);
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`c_user_id`) REFERENCES `user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `colour`
 --
 ALTER TABLE `colour`
-  ADD CONSTRAINT `colour_ibfk_1` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`);
+  ADD CONSTRAINT `colour_ibfk_1` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `c_id` FOREIGN KEY (`fk_c_id`) REFERENCES `colour` (`c_id`),
-  ADD CONSTRAINT `pfk` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`);
+  ADD CONSTRAINT `c_id` FOREIGN KEY (`fk_c_id`) REFERENCES `colour` (`c_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `pfk` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `ufk` FOREIGN KEY (`fk_U_id`) REFERENCES `user` (`U_id`);
+  ADD CONSTRAINT `ufk` FOREIGN KEY (`fk_U_id`) REFERENCES `user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product_order`
 --
 ALTER TABLE `product_order`
-  ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`),
-  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`);
+  ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`fk_o_id`) REFERENCES `order` (`O_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`fk_u_id`) REFERENCES `user` (`U_id`),
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`);
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`fk_u_id`) REFERENCES `user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -97,15 +97,15 @@ else include 'header_not_logged.php';
 							$pname = $row ['p_name'];
 							$price = $row ['price'];
 							$pid = $row ['p_id'];
-							$query = "SELECT * FROM product WHERE p_type='$type'";
-							$products= mysqli_query($conn,$query);
+							
+							$imgurl = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];
 							echo "
 							
 								<div class='column stila'>
 									<div class='product-item'>
 										<div class='product_filter'>
 											<div class='product_image'>
-												<a href='product.php?id=$pid' name='id'><img alt='Product Image' src='images/metal_stila.jpg' ></a>
+												<a href='product.php?id=$pid' name='id'><img alt='Product Image' src='$imgurl' ></a>
 											</div>
 										<div class='product_info'>
 												<h6 class='product_name'>$pname
