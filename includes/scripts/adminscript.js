@@ -1,3 +1,6 @@
+function myFunction() {
+    alert("I am an alert box!");
+}
 function inpfocus(x) {
     x.placeholder = "";
 
@@ -70,6 +73,7 @@ function calling() {
 
 }
 
+
 $(document).ready(function () {
 
     $(function () {
@@ -95,7 +99,7 @@ $(document).ready(function () {
     });
     $(function () {
 
-        $("#EditBTN").click(function EditproductBTN() {
+        $(".EditBTN").click(function EditproductBTN() {
             $(".EditPOP").show();
             $(".pEdit").show();
             $('.fbody').css({
