@@ -27,27 +27,6 @@
 				if (mysqli_num_rows($ratingQ) )
 					$prating = $ratingSum/mysqli_num_rows($ratingQ);	
 
-				
-				
-				
-
-					if($_POST['cart_add'] && isset($_SESSION['user_login']) )
-					{
-						$query = "SELECT * FROM admin WHERE A_username= '".$email."' and A_password='".$pass."'";
-						$
-					}
-					else 
-					{
-						$query = "SELECT * FROM user WHERE U_username= '".$email."' and U_password='".$pass."'";
-
-					}
-					$result=mysqli_query($connect,$query);
-
-				
-				
-
-
-
 
 				
 			?>
@@ -159,8 +138,49 @@ else include 'header_not_logged.php';
 						}
 						      
                           ?>
+						  
+						 <script>
+
+function add_cart()
+{
+
+ var quantity= parseInt(document.getElementById('quantity_value').innerHTML);
+ var pid='<?php echo $pid; ?>';
+ 
+  $.ajax
+  ({
+  type:'post',
+  url:'addtocart.php',
+  data:{
+   cartadd:"cart add",
+   quantity:quantity,
+   pid:pid
+  },
+  success:function(response) {
+
+  if(response == 1)
+  {
+	  window.location.replace("cart.php?id=<?php echo $pid; ?>");
+  }
+  else if (response == 0)
+  {
+	  alert("Item Already In Cart");
+  }
+  else 
+  {
+    alert("Please Login");
+  }
+  }
+  });
+ 
+
+ 
+ return false;
+}	
+	</script>
+						  
+						  
                         </ul>
-						<form method="post">
                         <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                             <span>Quantity:</span>
                             <div class="quantity_selector">
@@ -168,8 +188,9 @@ else include 'header_not_logged.php';
                                 <span id="quantity_value">1</span>
                                 <span class="plus"><i class="fa fa-plus"  ></i></span>
                             </div>
-                         <div class="cart_button add_to_cart_button"><a href="#" name="cart_add" onclick="$(this).closest('form').submit()">add to cart</a></div>
-						</form>
+                         <div class="cart_button add_to_cart_button">
+						<a href="javascript:add_cart()">add to cart</a>
+						
                         </div>
                     </div>
                 </div>
