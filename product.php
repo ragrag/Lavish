@@ -25,7 +25,31 @@
 				}
 				
 				if (mysqli_num_rows($ratingQ) )
-					$prating = $ratingSum/mysqli_num_rows($ratingQ);							
+					$prating = $ratingSum/mysqli_num_rows($ratingQ);	
+
+				
+				
+				
+
+					if($_POST['cart_add'] && isset($_SESSION['user_login']) )
+					{
+						$query = "SELECT * FROM admin WHERE A_username= '".$email."' and A_password='".$pass."'";
+						$
+					}
+					else 
+					{
+						$query = "SELECT * FROM user WHERE U_username= '".$email."' and U_password='".$pass."'";
+
+					}
+					$result=mysqli_query($connect,$query);
+
+				
+				
+
+
+
+
+				
 			?>
 
 <!DOCTYPE html>
@@ -136,6 +160,7 @@ else include 'header_not_logged.php';
 						      
                           ?>
                         </ul>
+						<form method="post">
                         <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                             <span>Quantity:</span>
                             <div class="quantity_selector">
@@ -143,8 +168,8 @@ else include 'header_not_logged.php';
                                 <span id="quantity_value">1</span>
                                 <span class="plus"><i class="fa fa-plus"  ></i></span>
                             </div>
-                            <div class="cart_button add_to_cart_button"><a href="#">add to cart</a></div>
-
+                         <div class="cart_button add_to_cart_button"><a href="#" name="cart_add" onclick="$(this).closest('form').submit()">add to cart</a></div>
+						</form>
                         </div>
                     </div>
                 </div>
