@@ -1,8 +1,39 @@
+
+			<?php
+				require 'db_connect.php';
+				$conn = OpenCon();
+				$pid = $_GET['id'];
+		
+				$query = "SELECT * FROM product WHERE p_id='$pid'";
+	
+				$product = mysqli_fetch_array(mysqli_query($conn,$query));
+				$pname = $product ['p_name'];
+				$price = $product ['price'];
+				$brand = $product ['p_brand'];
+				$ptype = $product ['p_type'];
+				$pdesc = $product ['p_description'];
+				$pimages = mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'");
+				
+				
+				
+				$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid'");
+				$ratingSum =0;
+				$prating=0;
+				while ($review = mysqli_fetch_array($ratingQ))
+				{
+					$ratingSum += $review ['rating'];
+				}
+				
+				if (mysqli_num_rows($ratingQ) )
+					$prating = $ratingSum/mysqli_num_rows($ratingQ);							
+			?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Victoria's Secret Night</title>
+
+    <title><?php echo $pname; ?></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,12 +51,7 @@
 
 
 <body class="body" style="display:none;" onload="fade()">
-                <?php
-                    $user = 'root';
-                    $password = '';
-                    $db = 'lavishdb';
-                    $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                    
-                ?>
+
       <?php 
 session_start();
 if(isset($_SESSION['user_login']))
@@ -42,8 +68,8 @@ else include 'header_not_logged.php';
                     <div class="breadcrumbs d-flex flex-row align-items-center">
                         <ul>
                             <li><a href="home.php">Home</a></li>
-                            <li><a href="product.php"><i class="fa fa-angle-right"  ></i>Fragrances</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Victoria's Secret Night</a></li>
+                            <li><a href="products.php?type=<?php echo $ptype;?>"><i class="fa fa-angle-right"  ></i><?php echo $ptype;?></a></li>
+                            <li class="active"><a href="#"><i class="fa fa-angle-right"  ></i><?php echo $pname;?></a></li>
                         </ul>
                     </div>
 
@@ -58,15 +84,25 @@ else include 'header_not_logged.php';
                                 <div class="single_product_thumbnails">
                                     <ul>
                                         
-                                        <li id="red"><img alt="Product Image" src="images/single_1_thumb.jpg"  data-image="images/single_1.jpg"></li>
-                                        <li id="black" class="active"><img alt="Product Image" src="images/single_2_thumb.jpg"  data-image="images/single_2.jpg"></li>
-                                        <li id="blue"><img alt="Product Image" src="images/single_3_thumb.jpg"  data-image="images/single_3.jpg"></li>
+										
+										<?php
+										while ($img = mysqli_fetch_array($pimages))
+										{
+											$imgurl = $img ['i_url'];
+											echo "<li> <img alt='Product Image' src='$imgurl' data-image='$imgurl'></li>";
+											
+										}
+										
+											$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid'");
+										?>
+										
+                                        
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-9 image_col order-lg-2 order-1">
                                 <div class="single_product_image">
-                                    <div class="single_product_image_background" style="background-image:url(images/single_2.jpg)"></div>
+                                    <div class="single_product_image_background" style="background-image:url(<?php echo $imgurl; ?>)"></div>
                                 </div>
                             </div>
                         </div>
@@ -75,34 +111,31 @@ else include 'header_not_logged.php';
                 <div class="col-lg-5">
                     <div class="product_details">
                         <div class="product_details_title">
-                            <h2>Night by Victoria's Secret</h2>
+                            <h2><?php echo $pname;  ?></h2>
                             <ul>
-                                <li>100mL / 3.4 floz </li>
-                                <li>New in box with cellophane wrap</li>
-                                <li>Own the Night: this provocative eau de parfum is the perfect co-star, with a warm, sparkling fragrance inspired by midnight in Paris. </li>
-                                <li>Black plum, velvet woods, luscious apple</li>
+                                <li><?php echo $pdesc; ?></li>
+                                
                             </ul>
                         </div>
                         <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                             <span class="ti-truck"></span><span>free delivery</span>
                         </div>
-                        <div class="original_price">$629.99</div>
-                        <div class="product_price">$495.00</div>
+                        <div class="product_price">$<?php echo "$price" ?>.00</div>
                         <ul class="star_rating">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
+						<?php 
+						
+						for($i=0;$i<5;$i++)
+						{
+							if($prating)
+							{
+								echo "<li><i class='fa fa-star'></i></li>";
+								$prating--;
+							}
+							else echo "<li><i class='fa fa-star-o'></i></li>";
+						}
+						      
+                          ?>
                         </ul>
-                        <div class="product_color">
-                            <span>Select Color:</span>
-                            <ul>
-                                <li class="red" style="background: #e54e5d"></li>
-                                <li class="black" style="background: #252525"></li>
-                                <li class="blue" style="background: #60b3f3"></li>
-                            </ul>
-                        </div>
                         <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                             <span>Quantity:</span>
                             <div class="quantity_selector">
@@ -127,7 +160,7 @@ else include 'header_not_logged.php';
                         <div class="tabs_container">
                             <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
                                 <li class="tab" data-active-tab="tab_2"><span>Additional Information</span></li>
-                                <li class="tab" data-active-tab="tab_3"><span>Reviews (2)</span></li>
+                                <li class="tab" data-active-tab="tab_3"><span>Reviews ( <?php echo mysqli_num_rows($ratingQ); ?> )</span></li>
                             </ul>
                         </div>
                     </div>
@@ -141,8 +174,7 @@ else include 'header_not_logged.php';
                                     <div class="tab_title additional_info_title">
                                         <h4>Additional Information</h4>
                                     </div>
-                                    <p>COLOR:<span>Gold, Red</span></p>
-                                    <p>SIZE:<span>L,M,XL</span></p>
+                                    <p>Brand:<span><?php echo $brand; ?></span></p>
                                 </div>
                             </div>
                         </div>
@@ -153,51 +185,49 @@ else include 'header_not_logged.php';
 
                                 <div class="col-lg-6 reviews_col">
                                     <div class="tab_title reviews_title">
-                                        <h4>Reviews (2)</h4>
+                                        <h4>Reviews ( <?php echo mysqli_num_rows($ratingQ); ?> )</h4>
                                     </div>
 
-
-
-                                    <div class="user_review_container d-flex flex-column flex-sm-row">
-                                        <div class="user">
-                                            <div class="user_pic"></div>
-                                            <div class="user_rating">
-                                                <ul class="star_rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star-o"></i></li>
-                                                </ul>
+									<?php
+									
+									while ($review = mysqli_fetch_array($ratingQ))
+									{
+										$prating = $review ['rating'];
+										$uid = $review ['fk_u_id'];
+										$user_rev = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM user WHERE U_id='$uid'")) ['U_username'];
+										$date_rev = $review ['review_date'];
+										$desc_rev = $review ['description'];
+										echo " <div class='user_review_container d-flex flex-column flex-sm-row'>
+                                        <div class='user'>
+                                            <div class='user_pic'></div>
+                                            <div class='user_rating'>
+                                                <ul class='star_rating'>";
+                                                 for ($i=0;$i<5;$i++)
+												{
+													if($prating)
+												{
+														echo "<li><i class='fa fa-star'></i></li>";
+														$prating--;
+												}
+												else echo "<li><i class='fa fa-star-o'></i></li>";
+												}
+                                           echo     "</ul>
                                             </div>
                                         </div>
-                                        <div class="review">
-                                            <div class="review_date">13 March 2017</div>
-                                            <div class="user_name">Amira Mohamed</div>
-                                            <p>What's not to like? This fragrance is absolutely gorgeous and perfect, and much cheaper here than anywhere else. I got the 3.4 oz for the same price as the 1.7 oz is sold in stores. Plus I received the item way ahead of schedule, like, under a week. Awesome.</p>
+                                        <div class='review'>
+                                            <div class='review_date'>$date_rev</div>
+                                            <div class='user_name'>$user_rev</div>
+                                            <p>$desc_rev</p>
                                         </div>
-                                    </div>
-
-
-                                    <div class="user_review_container d-flex flex-column flex-sm-row">
-                                        <div class="user">
-                                            <div class="user_pic"></div>
-                                            <div class="user_rating">
-                                                <ul class="star_rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star-o"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="review">
-                                            <div class="review_date">27 Aug 2017</div>
-                                            <div class="user_name">Sarah Atef</div>
-                                            <p>This is my favorite perfume. As a JH teacher students often tell me I smell good. That is high praise indeed coming from teenagers. It was well packaged and came quickly. I think this is their largest sized bottle.</p>
-                                        </div>
-                                    </div>
+                                    </div>";
+									}
+									
+									
+									?>
+								
+									
+									
+									
                                 </div>
 
 
