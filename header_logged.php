@@ -13,10 +13,10 @@
             <div class="header-second-bar">
                 <div class="header-limiter">
                     <nav class="navtop"><b>
-				<a href="products.php">Face</a>
-				<a href="products.php">&ensp; Lips</a>
-				<a href="products.php">&ensp; Eyes</a>
-				<a href="products.php">&ensp; Fragrances</a></b>
+				<a href="products.php?type=Face">Face</a>
+				<a href="products.php?type=Lips">&ensp; Lips</a>
+				<a href="products.php?type=Eyes">&ensp; Eyes</a>
+				<a href="products.php?type=Fragrances">&ensp; Fragrances</a></b>
                     </nav>
                 </div>
             </div>

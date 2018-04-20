@@ -18,7 +18,7 @@
 <?php
 require 'db_connect.php';
 $conn = OpenCon();
-CloseCon($conn);
+
 ?>
 
 <?php 

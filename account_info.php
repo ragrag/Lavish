@@ -11,14 +11,25 @@
 		<link rel="stylesheet" type="text/css" href="includes/styles.css">
     </head>
     <body>
-	<?php 
-session_start();
-if(isset($_SESSION['user_login']))
-	include 'header_logged.php'; 
-else include 'header_not_logged.php'; 
-?>
+	<?php
+            
+        session_start();
+        if(isset($_SESSION['user_login']))
+            include 'header_logged.php'; 
+        else include 'header_not_logged.php';
+        
+        $user = 'root';
+        $password = '';
+        $db = 'lavishdb';
+        $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!"); 
+        $user = $_SESSION['user_login'];
+        $sql = "SELECT * FROM user WHERE U_username = '$user'";
+        $result = $db->query($sql);
+        $row = mysqli_fetch_assoc($result);
+                                                                                        
+    ?>
         <div id="register_account">
-            <form name="accountInfoForm">
+            <form name="accountInfoForm" action="changeAccountInfo.php" method="post">
                 <table>
                     <tr>
                         <td ><h3>Account information</h3></td>
@@ -28,11 +39,11 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>First Name *</div>
-                            <input class="textbox" type="text" id="fname">
+                            <input class="textbox" type="text" id="fname" name="fname" value="<?php echo $row["Fname"];?>">
                         </td>
                         <td>
                             <div>Current Password *</div>
-                            <input class="textbox" type="password" id="cpass">
+                            <input class="textbox" type="password" id="cpass" name="cpass" value="<?php echo $row["U_password"];?>">
                         </td>
                         <td class="listItem">
                             <a href="account_info.php">Account Information</a>
@@ -41,11 +52,11 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>Last Name *</div>
-                            <input class="textbox" type="text" id="lname">
+                            <input class="textbox" type="text" id="lname" name="lname" value="<?php echo $row["Lname"];?>">
                         </td>
                         <td>
                             <div>New Password *</div>
-                            <input class="textbox" type="password" id="npass">
+                            <input class="textbox" type="password" id="npass" name="npass">
                         </td>
                         <td class="listItem">
                             <a href="address_book.php">Address Book</a>
@@ -54,14 +65,34 @@ else include 'header_not_logged.php';
                     <tr>
                         <td>
                             <div>Email Address *</div>
-                            <input class="textbox" type="text" id="email">
+                            <input class="textbox" type="text" id="email" name="email" value="<?php echo $row["Email"];?>">
                         </td>
                         <td>
                             <div>Confirm New Password *</div>
-                            <input class="textbox" type="password" id="cnpass">
+                            <input class="textbox" type="password" id="cnpass" name="cnpass">
                         </td>
                         <td class="listItem">
                             <a href="previous_orders.php">My Orders</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Phone number</div>
+                            <input class="textbox" type="number" id="phonenumber" name="phonenumber" value="<?php echo $row["Mobile_number"];?>">
+                        </td>
+                        <td>
+                            <div>Birthdate</div>
+                            <input class="textbox" type="date" id="bdate" name="bdate" value="<?php echo $row["DOB"];?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Delivery Address*</div>
+                            <input  class="textbox" type="text" id="daddress" name="daddress" value="<?php echo $row["D_Address"];?>">
+                        </td>
+                        <td>
+                            <div>Billing Address*</div>
+                            <input  class="textbox" type="text" id="baddress" name="baddress" value="<?php echo $row["B_Address"];?>">
                         </td>
                     </tr>
                 </table>
