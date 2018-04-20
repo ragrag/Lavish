@@ -10,12 +10,32 @@
 
 <body>
 <?php
-session_start();
-if(!isset($_SESSION['admin_login']))
-{
- header("Location: adminlog.php");
-exit();
-}
+    session_start();
+    if(!isset($_SESSION['admin_login']))
+    {
+     header("Location: adminlog.php");
+    exit();
+    }
+    require '../db_connect.php';
+    $conn = OpenCon();
+    $query = "SELECT r.*, u.U_username, p.p_name FROM review r 
+            JOIN user u ON u.U_id = r.fk_u_id
+            JOIN product p ON r.fk_p_id = p.p_id
+            WHERE confirmed='N'";
+    $reviews= mysqli_query($conn,$query);
+     if (isset($_GET['del'])) {
+	   $id = $_GET['del'];
+	   mysqli_query($conn, "DELETE FROM review WHERE r_id='$id'");
+	   header('location: reviews.php');
+    }
+    if (isset($_GET['approve'])) {
+		$id = $_GET['approve'];
+		$record = mysqli_query($conn, "SELECT confirmed FROM review WHERE r_id=$id");
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			mysqli_query($conn, "UPDATE review SET confirmed=1 WHERE r_id=$id");
+		}
+	}
 ?>
 	<div id="admin">
 		<div class="fbody">
@@ -47,36 +67,25 @@ exit();
 				<table class="managetable">
 					<tr>
 					
-						<td>Review Title</td>
+						<td>Product</td>
 						<td>Description</td>
 						<td>User</td>
 						<td>Control</td>
 					</tr>
+                    <?php while ($row = mysqli_fetch_array($reviews)) { ?>
 					<tr>
 						
-						<td>What's not to like? </td>
-						<td>What's not to like? This fragrance is absolutely gorgeous and perfect, and much cheaper here than anywhere else. I got the 3.4 oz for the same price as the 1.7 oz is sold in stores. Plus I received the item way ahead of schedule, like, under a week. Awesome.</td>
-						<td>Lisa M.Davis</td>
+						<td><?php echo $row['p_name']; ?></td>
+						<td><?php echo $row['description']; ?></td>
+						<td><?php echo $row['U_username']; ?></td>
 						<td>
-							<a id="EditBTN2" class='converttobtn GreenButton ebtn' role="button" href="#EditPOP">
+							<a id="EditBTN2" class='converttobtn GreenButton ebtn' role="button" href="reviews.php?approve=<?php echo $row['r_id']; ?>">
 								<i class='fa fa-edit'></i> Approve</a>
-							<a href='#' class='converttobtn RedButton'>
+							<a href="reviews.php?del=<?php echo $row['r_id']; ?>" class='converttobtn RedButton'>
 								<i class="fas fa-trash-alt"></i> Delete</a>
 						</td>
 					</tr>
-					<tr>
-					
-						<td>This is my favorite perfume.</td>
-						<td>his is my favorite perfume. As a JH teacher students often tell me I smell good. That is high praise indeed coming from teenagers. It was well packaged and came quickly. I think this is their largest sized bottle.</td>
-						<td>Brianna Bowling/td>
-						<td>
-							<a href='#' class='converttobtn GreenButton'>
-								<i class='fa fa-edit'></i> Approve</a>
-
-							<a href='#' class='converttobtn RedButton'>
-								<i class="fas fa-trash-alt"></i> Delete</a>
-						</td>
-					</tr>
+                    <?php } ?>
 					
 				</table>
 			</div>
