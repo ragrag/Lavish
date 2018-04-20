@@ -2,7 +2,8 @@
     require '../db_connect.php';
 	$conn = OpenCon();
 	$totalProducts="SELECT * FROM product";
-	$totalComments="SELECT * FROM reviews";
+	$totalComments="SELECT * FROM review";
+	$totalOrders="SELECT * FROM `order`";
 ?>
 
 <!DOCTYPE html>
@@ -48,50 +49,53 @@ exit();
 		<div class="con">
 			<div id="HoldBodyContent">
 				<div class="clear">
-					<div class="quarter Number">
-						<div class="stat vilot">
-							<i class="fas fa-tag"></i>
-							<div>
-								<p>Total Products</p>
-								<a>
-									<div><?php $num=mysqli_query($conn,$totalProducts); echo mysqli_num_rows($num); ?></div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="quarter">
-						<div class="stat sky">
-							<i class="fas fa-tags"></i>
-							<div>
-								<p>Pending Products</p>
-								<a class="link" href="#">
-									<span>85</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="quarter Number">
-						<div class="stat org">
-							<i class="fas fa-comment"></i>
-							<div>
-								<p>Total Comments</p>
-								<a>
-									<div>89</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="quarter">
-						<div class="stat gray">
-							<i class="fas fa-comment-alt"></i>
-							<div>
-								<p>orders</p>
-								<a class="link" href="Orders.php">
-									<span>74</span>
-								</a>
-							</div>
-						</div>
-					</div>
+					<table>
+						<tr>
+							<td>
+								<div class="quarter Number">
+									<div class="stat vilot">
+										<i class="fas fa-tag"></i>
+										<div>
+											<p>Total Products</p>
+											<a href="admin.php">
+												<div><?php $num=mysqli_query($conn,$totalProducts); echo mysqli_num_rows($num); ?></div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>	
+							<td>
+								<div class="quarter1 Number">
+									<div class="stat org">
+										<i class="fas fa-comment"></i>
+										<div>
+											<p>Total Reviews</p>
+											<a href="Reviews.php">
+												<div><?php $comments=mysqli_query($conn,$totalComments); echo mysqli_num_rows($comments); ?></div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="quarter2">
+									<div class="stat gray">
+										<i class="fas fa-comment-alt"></i>
+										<div>
+											<p>orders</p>
+											<a class="link" href="Orders.php">
+												<span><div><?php $orders=mysqli_query($conn,$totalOrders); echo mysqli_num_rows($orders); ?></div></span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>	
+					</table>
 				</div>
 				
 			</div>
