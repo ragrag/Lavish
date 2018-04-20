@@ -65,21 +65,34 @@ exit();
                     $oid = $row['O_id'];
                         if($row ['O_status']== "Confirmed")
                             {
-                               echo "<a class='converttobtn GreenButton ebtn EditBTN' href='Orders.php?del=$oid >
-                                    <i class='fas fa-trash-alt'></i>Delivered</a>";
+                               echo "<a class='converttobtn GreenButton ebtn EditBTN' href='Orders.php?confirm=$oid'>
+                                    Delivered</a>";
+                            if(isset($_GET['confirm'])){
+                                    $id = $_GET['confirm'];
+                                mysqli_query($conn, "UPDATE `order` SET O_status='Delivered' WHERE O_id='$id'");}
                             }
                          else if($row ['O_status']=="Pending")
                             {
-                                echo "<a href='Orders.php?del=$oid' class='converttobtn GreenButton ebtn EditBTN'> Accept</a>";
-                                mysqli_query($conn, "UPDATE `order` SET O_status='Confirmed' WHERE O_id=oid");
+                              $oid = $row['O_id'];
+                                echo "<a href= 'Orders.php?accept=$oid' class='converttobtn GreenButton ebtn EditBTN'> Accept</a>";
+                             
+                                if(isset($_GET['accept'])){
+                                    $id = $_GET['accept'];
+                                mysqli_query($conn, "UPDATE `order` SET O_status='Confirmed' WHERE O_id='$id'");}
+                                
+                            }
+                  
+                  echo "<a href='Orders.php?del=$oid' class='converttobtn RedButton'>
+                        <i class='fas fa-trash-alt'></i>cancel</a>";
+                     if(isset($_GET['del'])){
+                                    $id = $_GET['del'];
+                                mysqli_query($conn, "UPDATE `order` SET O_status='Cancelled' WHERE O_id='$id'");}
                                 
                             }
                     ?>
-                    <a href="Orders.php?del=<?php echo $row['O_id']; ?>" class='converttobtn RedButton'>
-                        <i class="fas fa-trash-alt"></i>cancel</a>
                 </td>
             </tr>
-        <?php } ?>
+        
         </table>
     </div>
 </body>
