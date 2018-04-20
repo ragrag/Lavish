@@ -24,7 +24,7 @@
          $username . "<br>" .
          $pass . "<br>";
 
-    $sql1 = "SELECT U_id FROM user";
+    $sql1 = "SELECT U_id FROM user ORDER BY U_id DESC;";
     $idTable = $db->query($sql1);
     $row = mysqli_fetch_row($idTable);
     $lastID = intval(end($row));
