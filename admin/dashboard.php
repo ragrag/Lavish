@@ -78,7 +78,7 @@ exit();
 						<div class="stat gray">
 							<i class="fas fa-comment-alt"></i>
 							<div>
-								<p>Pending orders</p>
+								<p>orders</p>
 								<a class="link" href="#">
 									<span>74</span>
 								</a>

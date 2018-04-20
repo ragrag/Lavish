@@ -1671,19 +1671,21 @@ box-shadow: 0px 0px 3px  #337ab7;
 	height: 70%;
 }
 
+
 #admin .EditPOP{
 	top: 10%;
-	right: 7%;
+	right: 30%;
 	position: absolute;
 	padding: 0%;
 	width: 40%;
-	height: 80%;
+	height: 90%;
 	overflow: auto;
+	display: block;
 }
 
 #admin pEdit{
 	top: 10%;
-	display: none;
+	display: block;
 	height: 30%;
 }
 #admin .pEdit label{
@@ -2457,9 +2459,7 @@ footer p
 
 /*Site Map */
 
-#sitemap .row{
 
-}
 
 #sitemap .row{
     display:table;

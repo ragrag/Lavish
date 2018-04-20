@@ -25,12 +25,40 @@ exit();
         $pQuantity = $_POST['p_quantity'];
         mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
          VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
-    }
-    if (isset($_GET['del'])) {
-	   $id = $_GET['del'];
-	   mysqli_query($conn, "DELETE FROM product WHERE p_id='$id'");
-	   header('location: admin.php');
-}
+	}
+	if(isset($_GET['del'])){
+		$id=$_GET['del'];
+		mysqli_query($conn, "DELETE FROM product WHERE p_id='$id'");
+		header('location:admin.php');
+	}
+
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$record = mysqli_query($conn, "SELECT * FROM product WHERE p_id='$id'");
+
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$name = $n['p_name'];
+			$iD = $n['p_id'];
+			$description = $n['p_desc'];
+			$type = $n['p_type'];
+			$brand = $n['p_brand'];
+			$quantity = $n['p_quantity'];
+		}
+	}
+
+	if (isset($_POST['update'])) {
+		$pName= $_POST['p_name'];
+        $pID = $_POST['p_id'];
+        $pDescription = $_POST['p_desc'];
+        $pType = $_POST['p_type'];
+        $pBrand = $_POST['p_brand'];
+        $pQuantity = $_POST['p_quantity'];
+	
+		mysqli_query($db, "UPDATE info SET name='$name', address='$address' WHERE id=$id");
+		$_SESSION['message'] = "Address updated!"; 
+		header('location: index.php');
+	}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +67,8 @@ exit();
 	<title>Products | Admin</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 	<link rel="stylesheet" href="../includes/styles.css">
+	<script src="../includes/scripts/jquery-3.2.1.min.js"></script>
+	<script src="../includes/scripts/adminscript.js"></script>
 </head>
 
 <body>
@@ -94,7 +124,8 @@ exit();
                             <td><?php echo $row ['p_brand'] ?></td>
                             <td><?php echo $row ['p_quantity'] ?></td>
                             <td>
-                                <a id="EditBTN" class='converttobtn GreenButton ebtn' role="button" href="#EditPOP">
+							
+                                <a class='EditBTN converttobtn GreenButton ebtn' href="admin.php?edit=<?php echo $row['p_id']; ?>"  >
                                     <i class='fa fa-edit'></i> Edit</a>
                                 <a href="admin.php?del=<?php echo $row['p_id']; ?>" class='converttobtn RedButton'>
                                     <i class="fas fa-trash-alt"></i> Delete</a>
@@ -138,62 +169,17 @@ exit();
 
 					<div class="btnAction">
 						<div class="btnLeft">
-							<a href="#" class="btn btnBack">
+							<a href="admin.php" class="btn btnBack">
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
 						<div class="btnLeft btnRight" >
-							<button type="submit" name="add" class="btn" onclick="PopUpValidation()">Add Product</a>
+							<button type="submit" name="add" class="btn" onclick="PopUpValidation()">Add Product</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-		<!--edit popup form -->
-		<div class="EditPOP" style="display:none;">
-			<div class="pEdit">
-				<form>
-					<label>Product name</label>
-					<input id = "pEditname" type="text">
-					<br>
-					<label>description</label>
-					<input id = "pEditdescription" type="text">
-					<br>
-					<label>Type</label>
-					<input id = "pEdittype" type="text">
-					<br>
-					<label>Weight</label>
-					<input id = "pEditweight" type="text">
-					<br>
-					<label>Quantity</label>
-					<input id = "pEditquantity" type="text">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-
-					<div class="ebtnAction">
-						<div class="ebtnLeft">
-							<a href="#" class="ebtn ebtnBack">
-								<i class="fa fa-angle-double-left"></i>Cancel</a>
-						</div>
-						<div class="ebtnLeft ebtnRight">
-							<a href="#" class="ebtn" onclick="PopUpValidation()">Submit</a>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
 	</div>
-	<script src="../includes/scripts/jquery-3.2.1.min.js"></script>
-	<script src="../includes/scripts/adminscript.js"></script>
-
 </body>
 
 </html>

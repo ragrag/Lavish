@@ -1,3 +1,6 @@
+function myFunction() {
+    alert("I am an alert box!");
+}
 function inpfocus(x) {
     x.placeholder = "";
 
@@ -70,6 +73,7 @@ function calling() {
 
 }
 
+
 $(document).ready(function () {
 
     $(function () {
@@ -86,27 +90,6 @@ $(document).ready(function () {
         $(".btnBack").click(function CancelproductBTN() {
             $(".pAdd").hide();
             $(".popupBody").hide();
-            $('.fbody').css({
-                "filter": "blur(0px)"
-            });
-            return false;
-        });
-
-    });
-    $(function () {
-
-        $("#EditBTN").click(function EditproductBTN() {
-            $(".EditPOP").show();
-            $(".pEdit").show();
-            $('.fbody').css({
-                "filter": "blur(5px)"
-            });
-            return false;
-        });
-
-        $(".ebtnBack").click(function CancelEditBTN() {
-            $(".pEdit").hide();
-            $(".EditPOP").hide();
             $('.fbody').css({
                 "filter": "blur(0px)"
             });
