@@ -18,12 +18,13 @@ exit();
     if (isset($_POST['add'])){
         $pName= $_POST['p_name'];
         $pID = $_POST['p_id'];
-        $pDescription = $_POST['p_desc'];
+        $pDescription = $_POST['p_description'];
         $pType = $_POST['p_type'];
         $pBrand = $_POST['p_brand'];
         $pQuantity = $_POST['p_quantity'];
         mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
          VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
+      
 	}
 	if(isset($_GET['del'])){
 		$id=$_GET['del'];
@@ -118,7 +119,7 @@ exit();
 					<input id ="pAddname" type="text" name="p_name">
 					<br>
 					<label>description</label>
-					<input id ="pAdddescription" type="text" name ="p_desc">
+					<input id ="pAdddescription" type="text" name ="p_description">
 					<br>
 					<label>Type</label>
 					<input id ="pAddtype" type="text" name ="p_type">

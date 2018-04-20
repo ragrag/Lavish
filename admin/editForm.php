@@ -29,6 +29,7 @@
 			$n = mysqli_fetch_array($record);
 			$pName= $n['p_name'];
             $pType = $n['p_type'];
+            $pDescription = $n['p_description'];
             $pBrand = $n['p_brand'];
             $pQuantity = $n['p_quantity'];
 		}
@@ -37,10 +38,12 @@
         $id = $_POST['p_id'];
         $pName= $_POST['p_name'];
         $pType = $_POST['p_type'];
+        $pDescription = $n['p_description'];
         $pBrand = $_POST['p_brand'];
         $pQuantity = $_POST['p_quantity'];
+      
 
-	       mysqli_query($conn, "UPDATE product SET p_name='$pName', p_type='$pType', p_brand='$pBrand', p_quantity='$pQuantity' WHERE p_id='$id'");
+	       mysqli_query($conn, "UPDATE product SET p_name='$pName', p_type='$pType', p_brand='$pBrand', p_quantity='$pQuantity',  WHERE p_id='$id'");
     }
     ?>
     <nav class="mnav">
@@ -75,7 +78,7 @@
                         <input id="pEditname" name="p_name" type="text" value="<?php echo $pName; ?>">
                         <br>
                         <label>description</label>
-                        <input id="pEditdescription" type="textField">
+                        <input id="pEditdescription" type="textField" value="<?php echo $pDescription; ?>">
                         <br>
                         <label>Type</label>
                         <input id="pEdittype" type="text" name="p_type" value="<?php echo $pType; ?>">
