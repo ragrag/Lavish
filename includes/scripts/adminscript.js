@@ -97,27 +97,6 @@ $(document).ready(function () {
         });
 
     });
-    $(function () {
-
-        $(".EditBTN").click(function EditproductBTN() {
-            $(".EditPOP").show();
-            $(".pEdit").show();
-            $('.fbody').css({
-                "filter": "blur(5px)"
-            });
-            return false;
-        });
-
-        $(".ebtnBack").click(function CancelEditBTN() {
-            $(".pEdit").hide();
-            $(".EditPOP").hide();
-            $('.fbody').css({
-                "filter": "blur(0px)"
-            });
-            return false;
-        });
-
-    });
     $('.login h3').css("top", "0px");
     $('.in-left').css("left", "0px");
     $('.in-right').css("right", "0px");

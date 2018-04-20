@@ -179,51 +179,7 @@ exit();
 				</form>
 			</div>
 		</div>
-		<!--edit popup form -->
-		<div class="EditPOP" style="display:none;">
-			<div class="pEdit">
-				<form>
-					<label>Product name</label>
-					<input id = "pEditname" type="text">
-					<br>
-					<label>description</label>
-					<input id = "pEditdescription" type="text">
-					<br>
-					<label>Type</label>
-					<input id = "pEdittype" type="text">
-					<br>
-					<label>Weight</label>
-					<input id = "pEditweight" type="text">
-					<br>
-					<label>Quantity</label>
-					<input id = "pEditquantity" type="text">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-					<label>Image</label>
-					<input type="file">
-					<br>
-
-					<div class="ebtnAction">
-						<div class="ebtnLeft">
-							<a href="#" class="ebtn ebtnBack">
-								<i class="fa fa-angle-double-left"></i>Cancel</a>
-						</div>
-						<div class="ebtnLeft ebtnRight">
-							<a href="#" class="ebtn" onclick="PopUpValidation()" name="update">Submit</a>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
 	</div>
-
-
 </body>
 
 </html>
