@@ -18,6 +18,7 @@
             include 'header_logged.php'; 
         else include 'header_not_logged.php';
         
+		
         $user = 'root';
         $password = '';
         $db = 'lavishdb';
