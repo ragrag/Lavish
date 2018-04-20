@@ -71,7 +71,7 @@ exit();
                          else if($row ['O_status']=="Pending")
                             {
                                 echo "<a href='Orders.php?del=$oid' class='converttobtn GreenButton ebtn EditBTN'> Accept</a>";
-                                mysqli_query($conn,UPDATE `order` SET O_status='Confirmed' WHERE O_id=oid");
+                                mysqli_query($conn, "UPDATE `order` SET O_status='Confirmed' WHERE O_id=oid");
                                 
                             }
                     ?>
