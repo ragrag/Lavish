@@ -17,7 +17,8 @@ $uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_user
 $review = $_POST['review'];
 $pid = $_POST['pid'];
 $rating = $_POST['rating'];
-$query = "INSERT INTO `review`( `description`, `rating`, `confirmed`, `fk_p_id`, `fk_u_id`) VALUES ($review,$review,$confirmed,$pid,$uid)";
+
+$query = "INSERT INTO `review`( `description`, `rating`, `confirmed`, `fk_p_id`, `fk_u_id`) VALUES ('$review','$rating','0','$pid','$uid')";
 
 if (mysqli_query($connect,$query))
  {

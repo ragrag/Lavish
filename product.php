@@ -141,7 +141,7 @@ else include 'header_not_logged.php';
 function add_review()
 {
 
- var review= document.getElementById('review_message').val();
+ var review= document.getElementById('review_message').value;
  var pid = document.getElementById('pid').innerHTML;
  var rating = 4;
  
@@ -157,14 +157,14 @@ function add_review()
    pid:pid
   },
   success:function(response) {
-alert(response);
+
   if(response == 1)
   {
 	 alert('Review Added');
   }
   else if (response == 0)
   {
-	 alert('Review Already Submitted')'
+	 alert('Review Already Submitted');
   }
 
   }
@@ -315,7 +315,7 @@ function add_cart()
                                 <div class="col-lg-6 add_review_col">
 
                                     <div class="add_review">
-                                        <form id="review_form" action="post">
+                                       
                                             <div>
                                                 <h1>Add Review</h1>
                                                 
@@ -332,9 +332,10 @@ function add_cart()
                                                 <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
                                             </div>
                                             <div class="text-left text-sm-right">
-                                                <button onlick="add_review();" id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+											<input id="clickMe" type="button" value="Submit" onclick="add_review();" />
+                                                
                                             </div>
-                                        </form>
+                                      
                                     </div>
 
                                 </div>

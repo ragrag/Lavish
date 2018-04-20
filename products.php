@@ -76,7 +76,41 @@ else include 'header_not_logged.php';
                 <div class="filter_button" onclick="filter()"><span>filter</span></div>
 
             </div>
+<script>
+			function add_cart(pid)
+{
 
+ var quantity= 1;
+
+ 
+  $.ajax
+  ({
+  type:'post',
+  url:'addtocart.php',
+  data:{
+   cartadd:"cart add",
+   quantity:quantity,
+   pid:pid
+  },
+  success:function(response) {
+
+  if(response == 1)
+  {
+	  window.location.replace("cart.php");
+  }
+  else if (response == 0)
+  {
+	  alert("Item Already In Cart");
+  }
+  else 
+  {
+    alert("Please Login");
+  }
+  }
+  });
+  
+}
+ </script>
 			
 			<?php
 				require 'db_connect.php';
@@ -97,6 +131,7 @@ else include 'header_not_logged.php';
 							$pname = $row ['p_name'];
 							$price = $row ['price'];
 							$pid = $row ['p_id'];
+							$q = "'";
 							$brand = $row ['p_brand'];
 							$imgurl = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];
 							echo "
@@ -113,8 +148,8 @@ else include 'header_not_logged.php';
 											<div class='product_price'> $price</div>
 										</div>
 									</div>
-                            <div class='add_to_cart_button'>
-                                <a href='#'>add to cart</a>
+                            <div class='add_to_cart_button'>";?>
+                                <a href="javascript:add_cart('<?php echo $pid; ?>')"><?php echo "add to cart</a>
                             </div>
                         </div>
                     </div>";

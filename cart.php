@@ -84,7 +84,7 @@ else include 'header_not_logged.php';
                                                     <td><a href='#'><img alt='Product Image' src='$pimgurl' class='img-fluid'></a></td>
                                                     <td><a href='#'>$pname</a></td>
                                                     <td>
-                                                        <input type='number' value='$quantity' class='form-control'>
+                                                        $quantity
                                                     </td>
                                                     <td>$price.00</td>
                                                     <td>0.00</td>
@@ -119,7 +119,7 @@ else include 'header_not_logged.php';
                                     <div class="box-footer d-flex justify-content-between align-items-center">
                                         <div class="left-col"><a href="home.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                                         <div class="right-col">
-                                            <button class="btn btn-secondary"><i class="fa fa-refresh"></i> Update cart</button>
+       
                                             <button type="submit" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
                                         </div>
                                     </div>
