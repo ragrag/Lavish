@@ -1,3 +1,13 @@
+	<?php
+				require 'db_connect.php';
+				session_start();
+				$connect = OpenCon();
+				$user = $_SESSION['user_login'];
+				$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
+				$orderQ = mysqli_query( $connect,"SELECT * FROM `order` WHERE fk_U_id='$uid'");
+				
+			?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +23,6 @@
 
 <body>
 <?php 
-session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -25,14 +34,26 @@ else include 'header_not_logged.php';
                 <th>Order #</th>
                 <th>Status</th>
                 <th>Date</th>
-                <th>Order total</th>
             </tr>
+			<?php
+			while ($order = mysqli_fetch_array($orderQ))
+			{
+				$oid = $order['O_id'];
+				$odate = $order['O_date'];
+				$ost = $order['O_status'];
+				
+				
+				
+			echo "
+			
+			
             <tr>
-                <td> <a href="order_info.php">13372</a></td>
-                <td>Pending</td>
-                <td>27/08/2018</td>
-                <td>456</td>
-            </tr>
+                <td> <a href='order_info.php?order=$oid'>$oid</a></td>
+                <td>$odate</td>
+                <td>$ost</td>
+            </tr>";
+			}
+			?>
         </table>
 	
         <table id="account_panal">

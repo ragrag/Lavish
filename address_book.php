@@ -1,3 +1,13 @@
+	<?php
+				require 'db_connect.php';
+				session_start();
+				$connect = OpenCon();
+				$user = $_SESSION['user_login'];
+				$userinfo = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'"));  
+				
+			?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +24,7 @@
     </head>
     <body>
         <?php 
-session_start();
+
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -30,21 +40,17 @@ else include 'header_not_logged.php';
                 <tr>
                     <td>
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
+                            <label> <?php echo $userinfo['B_Address']; ?></label><br>
+						<form action="account_info.php">
                             <button type="submit" class ="saveButton">Change Billing Address</button>
+						</form>
                         </div>
                     <td>
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
-                            <button type="submit" class ="saveButton">Change Billing Address</button>
+                            <label> <?php echo $userinfo['D_Address']; ?></label><br>
+						<form action="account_info.php">
+                            <button type="submit" class ="saveButton">Change Delivery Address</button>
+						</form>	
                         </div>
                     </td>
                     <td class="listItem cellSize">
@@ -52,24 +58,14 @@ else include 'header_not_logged.php';
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px;">
+				  <td style="padding-top: 10px;">
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
-                            <button type="submit" class ="saveButton">Change Billing Address</button>
+
                         </div>
                     </td>
                     <td>
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
-                            <button type="submit" class ="saveButton">Change Billing Address</button>
+
                         </div>
                     </td>
                     <td class="listItem cellSize">
@@ -79,22 +75,12 @@ else include 'header_not_logged.php';
                 <tr>
                     <td style="padding-top: 10px;">
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
-                            <button type="submit" class ="saveButton">Change Billing Address</button>
+
                         </div>
                     </td>
                     <td>
                         <div class="pad">
-                            <label> Mr. Ahmed</label><br>
-                            <label> Address</label><br>
-                            <label> Zamalek,102</label><br>
-                            <label> Cairo</label><br>
-                            <label> T:01111147691</label><br>
-                            <button type="submit" class ="saveButton">Change Billing Address</button>
+
                         </div>
                     </td>
                     <td class="listItem cellSize">

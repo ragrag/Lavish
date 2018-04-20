@@ -92,7 +92,7 @@ else include 'header_not_logged.php';
                                                     <td>$price.00</td>
                                                     <td>0.00</td>
                                                     <td>$curprice.00</td>
-                                                    <td><a href='#'><i class='fa fa-trash-o'></i></a></td>
+                                                    
                                                 </tr>
 												";
 
@@ -108,6 +108,7 @@ else include 'header_not_logged.php';
 										<script>										
 									function make_order()
 									{
+									
 									  $.ajax
 									  ({
 									  type:'post',
@@ -116,24 +117,16 @@ else include 'header_not_logged.php';
 									   makeorder:"make order",
 									  },
 									  success:function(response) {
-
 									  if(response == 1)
 									  {
-										  window.location.replace("success.php?id=<?php echo $pid; ?>");
-									  }
-									  else if (response == 0)
-									  {
-										  alert("Item Already In Cart");
+										  window.location.replace("order_info.php");
 									  }
 									  else 
 									  {
-										alert("Please Login");
+										  alert("");
 									  }
 									  }
 									  });
-									 
-
-									 
 									 return false;
 									}	
 											</script>									
@@ -150,7 +143,7 @@ else include 'header_not_logged.php';
                                     <div class="box-footer d-flex flex-wrap align-items-center justify-content-between">
                                         <div class="left-col"><a href="order_address.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i>Back to address selection</a></div>
                                         <div class="right-col">
-                                            <button type="submit" class="btn btn-template-main">Place the order<i class="fa fa-chevron-right"></i></button>
+                                            <button onclick="make_order()" class="btn btn-template-main">Place the order<i class="fa fa-chevron-right"></i></button>
                                         </div>
                                     </div>
                             </div>

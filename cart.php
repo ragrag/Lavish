@@ -9,6 +9,19 @@
 				$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
 				$items = mysqli_query($connect,$query);
 				$count = mysqli_num_rows($items);
+				
+					
+				if(isset($_GET['del']))
+				{
+					
+					$dp_id = $_GET['del'];
+			
+					mysqli_query($connect,"DELETE FROM cart WHERE c_user_id='$uid' AND p_id='$dp_id'");
+					header('Location: cart.php');
+					
+				}
+				
+
 			?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +89,7 @@ else include 'header_not_logged.php';
                                                     <td>$price.00</td>
                                                     <td>0.00</td>
                                                     <td>$curprice.00</td>
-                                                    <td><a href='#'><i class='fa fa-trash-o'></i></a></td>
+                                                    <td><a href='cart.php?del=$pid'><i class='fa fa-trash-o'></i></a></td>
                                                 </tr>
 												";
 
