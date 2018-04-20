@@ -1787,6 +1787,32 @@ box-shadow: 0px 0px 3px  #337ab7;
 }
 
 
+#admin .OrdersTable{
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+#admin .OrdersTable td {
+	border: 1px solid #c1c1c1;
+	padding: 8px;
+	font-size: 17px;
+	font-weight: 400;
+	display: none;
+}
+#admin .OrdersTable tr{
+	background-color: white;
+}
+#admin .OrdersTable tr:first-child{
+	background-color: #000000; 
+	color: white;
+}
+#admin .OrdersTable td a {
+	width: 90px;
+}
+#admin .OrdersTable tr:nth-child(even){
+	background-color: #eee;
+}
 
 #admin .managetable{
 	border-collapse: collapse;
@@ -1811,7 +1837,6 @@ box-shadow: 0px 0px 3px  #337ab7;
 #admin .managetable td a {
 	width: 90px;
 }
-
 #admin .con {
     width: 1170px;
     margin: auto;
@@ -2059,7 +2084,6 @@ background-color: #449d44;
 #admin .lul li a:hover{/*left ul il a*/
 	color: white;
 }
-
 
 /* Header */
 

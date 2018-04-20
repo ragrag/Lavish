@@ -1,3 +1,10 @@
+<?php
+    require '../db_connect.php';
+	$conn = OpenCon();
+	$totalProducts="SELECT * FROM product";
+	$totalComments="SELECT * FROM reviews";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +54,7 @@ exit();
 							<div>
 								<p>Total Products</p>
 								<a>
-									<div>45</div>
+									<div><?php $num=mysqli_query($conn,$totalProducts); echo mysqli_num_rows($num); ?></div>
 								</a>
 							</div>
 						</div>
@@ -79,155 +86,14 @@ exit();
 							<i class="fas fa-comment-alt"></i>
 							<div>
 								<p>orders</p>
-								<a class="link" href="#">
+								<a class="link" href="Orders.php">
 									<span>74</span>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="clear">
-					<div class="half">
-						<div class="handling1">
-							<div class="headpan">
-								<i class="fa fa-users"></i> Latest Add Products
-							</div>
-							<div class="bodypan">
-								<ul class="latest-list">
-									<li>
-										<table class="latest-table ">
-											<tr>
-												<td>Name</td>
-												<td>Activation</td>
-												<td>Category</td>
-												<td>Type</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>Product Name</a>
-												</td>
-												<td>Active</td>
-												<td>Category</td>
-												<td>Type</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>Product Name</a>
-												</td>
-												<td>Pending</td>
-												<td>Category</td>
-												<td>Type</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>Product Name</a>
-												</td>
-												<td>Active</td>
-												<td>Category</td>
-												<td>Type</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>Product Name</a>
-												</td>
-												<td>Active</td>
-												<td>Category</td>
-												<td>Type</td>
-											</tr>
-										</table>
-									</li>								
-								</ul>
-								<hr>
-							</div>
-						</div>
-					</div>
-					<div class="half">
-						<div class="handling2">
-							<div class="headpan">
-								<i class="fa fa-users"></i> Latest Add Comments
-							</div>
-							<div class="bodypan">
-								<ul class="latest-list">
-									<li>
-										<table class="latest-table tb">
-											<tr>
-												<td>Name</td>
-												<td>Activation</td>
-												<td>Product</td>
-												<td>Comment</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>user Name</a>
-												</td>
-												<td>Active</td>
-												<td>Product</td>
-												<td>Comment</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>user Name</a>
-												</td>
-												<td>Pending</td>
-												<td>Product</td>
-												<td>Comment</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>user Name</a>
-												</td>
-												<td>Active</td>
-												<td>Product</td>
-												<td>Comment</td>
-											</tr>
-										</table>
-									</li>
-									<li>
-										<table class='latest-table'>
-											<tr>
-												<td>
-													<a href=''>user Name</a>
-												</td>
-												<td>Active</td>
-												<td>Product</td>
-												<td>Comment</td>
-											</tr>
-										</table>
-									</li>
-								</ul>
-								<hr>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
