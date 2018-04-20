@@ -22,8 +22,22 @@ exit();
         $pType = $_POST['p_type'];
         $pBrand = $_POST['p_brand'];
         $pQuantity = $_POST['p_quantity'];
+        $target_saveDir="../images/";
+        $target_retDir ="images/";
+        $target_file1 = $target_saveDir . basename($_FILES['image1']['name']);
+        $target_file2 = $target_saveDir . basename($_FILES['image2']['name']);
+        $target_file3 = $target_saveDir . basename($_FILES['image3']['name']);
+        move_uploaded_file($_FILES["image1"]["tmp_name"], $target_file1);
+        move_uploaded_file($_FILES["image2"]["tmp_name"], $target_file2);
+        move_uploaded_file($_FILES["image3"]["tmp_name"], $target_file3);
+        $target_file1 = $target_retDir . basename($_FILES['image1']['name']);
+        $target_file2 = $target_retDir . basename($_FILES['image2']['name']);
+        $target_file3 = $target_retDir . basename($_FILES['image3']['name']);
         mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
          VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
+        mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file1','$pID')");
+        mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file2','$pID')");
+        mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file3','$pID')");
 	}
 	if(isset($_GET['del'])){
 		$id=$_GET['del'];
@@ -110,7 +124,7 @@ exit();
 		<!--add product form form-->
 		<div class="popupBody" style="display:none;">
 			<div class="pAdd">
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
                     <label>ID</label>
                     <input id="pAddid" type="text" name="p_id">
                     <br>
@@ -130,13 +144,13 @@ exit();
 					<input id ="pAddquantity" type="text" name ="p_quantity">
 					<br>
 					<label>Image</label>
-					<input type="file" name ="p_image1">
+					<input type="file" name ="image1" id="image1">
 					<br>
 					<label>Image</label>
-					<input type="file">
+					<input type="file" name ="image2" id="image2">
 					<br>
 					<label>Image</label>
-					<input type="file">
+					<input type="file" name ="image3" id="image3">
 					<br>
 
 					<div class="btnAction">
