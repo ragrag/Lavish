@@ -15,6 +15,7 @@ exit();
     $pType="";
     $pBrand="";
     $pQuantity=0;
+    $price =0;
     if (isset($_POST['add'])){
         $pName= $_POST['p_name'];
         $pID = $_POST['p_id'];
@@ -22,6 +23,7 @@ exit();
         $pType = $_POST['p_type'];
         $pBrand = $_POST['p_brand'];
         $pQuantity = $_POST['p_quantity'];
+        $price = $_POST['p_price'];
         $target_saveDir="../images/";
         $target_retDir ="images/";
         $target_file1 = $target_saveDir . basename($_FILES['image1']['name']);
@@ -33,8 +35,8 @@ exit();
         $target_file1 = $target_retDir . basename($_FILES['image1']['name']);
         $target_file2 = $target_retDir . basename($_FILES['image2']['name']);
         $target_file3 = $target_retDir . basename($_FILES['image3']['name']);
-        mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
-         VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
+        mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description, price)
+         VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription','$price')");
 
         mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file1','$pID')");
         mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file2','$pID')");
@@ -101,6 +103,7 @@ exit();
 						<td>Type</td>
 						<td>Weight</td>
 						<td>Quantity</td>
+                        <td>Price</td>
 						<td>Control</td>
 					</tr>
 					<?php while($row = mysqli_fetch_array($products)) {?>
@@ -111,6 +114,7 @@ exit();
                             <td><?php echo $row ['p_type'] ?></td>
                             <td><?php echo $row ['p_brand'] ?></td>
                             <td><?php echo $row ['p_quantity'] ?></td>
+                            <td><?php echo $row ['price'] ?></td>
                             <td>
 							
                                 <a class='EditBTN converttobtn GreenButton ebtn' href="editForm.php?edit=<?php echo $row['p_id']; ?>"  >
@@ -144,6 +148,9 @@ exit();
 					<br>
 					<label>Quantity</label>
 					<input id ="pAddquantity" type="text" name ="p_quantity">
+					<br>
+                    <label>Price</label>
+					<input id ="p_price" type="text" name ="p_price">
 					<br>
 					<label>Image</label>
 					<input type="file" name ="image1" id="image1">
