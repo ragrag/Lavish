@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 20, 2018 at 03:13 PM
+-- Generation Time: Apr 20, 2018 at 08:47 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -42,7 +42,10 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 INSERT INTO `admin` (`A_id`, `A_username`, `A_password`) VALUES
 ('1', 'raggi', '123'),
-('2', 'ahmed', '123');
+('2', 'ahmed', '123'),
+('3', 'Maha.Riad', '123'),
+('4', 'Amira.Gamal', '123'),
+('5', 'Mohamed.Diab', '123');
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   PRIMARY KEY (`i_id`),
   UNIQUE KEY `i_id` (`i_id`),
   KEY `pfk` (`fk_p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `image`
@@ -84,7 +87,34 @@ INSERT INTO `image` (`i_id`, `i_url`, `fk_p_id`) VALUES
 (4, 'images/perfect_stila.jpg', 'es_3'),
 (5, 'images/window_stila.jpg', 'es_2'),
 (6, 'images/nars_vss.jpg', 'es_4'),
-(7, 'images/nars_eyepaint.jpg', 'es_5');
+(7, 'images/nars_eyepaint.jpg', 'es_5'),
+(8, 'images/chosen_stila.jpg', '2213'),
+(9, 'images/bg.jpg', '2213'),
+(10, 'images/aa2.jpg', '2213'),
+(11, 'images/chosen_stila.jpg', '2213'),
+(12, 'images/bg.jpg', '2213'),
+(13, 'images/aa2.jpg', '2213');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`email`) VALUES
+('ahmed@yahoo.com'),
+('ragy_desigdadn@ta.com'),
+('ragy_design@ta.com');
 
 -- --------------------------------------------------------
 
@@ -99,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `O_status` varchar(10) NOT NULL,
   PRIMARY KEY (`O_id`),
   KEY `fk_U_id` (`fk_U_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `order`
@@ -130,6 +160,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_brand`, `p_quantity`, `p_description`, `price`) VALUES
+('2213', '213', '312', '123', 123, '312', 0),
 ('es_1', 'Matte n'' metal', 'Eyes', 'Stila', 5, 'Create eye-catching color combos with just the right mix of matte and shimmer. Featuring six modern matte and six mega metallic shades in range of pink rose golds, cool-toned pewters and golden bronzes that flatter all skin tones, it''s the one color palette you need to design eyes that truly dazzle.', 890),
 ('es_2', 'Window Shadow ', 'Eyes', 'Stila', 1, 'This year, Stila celebrates 20 years of infinite style. Create endless looks with our new Eyes Are The Window™ shadow palettes. Inspired by the spiritual notion that true beauty is revealed from within, each palette is curated with 12 luxurious eye shadows to illuminate your inner beauty. Encased in exquisite, jewelry-inspired compacts-a precious mix of rose, yellow and white golds-the shadows will inspire intrigue and delight.', 670),
 ('es_3', 'Perfect Me, Perfect Hue', 'Eyes', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ', 865),
@@ -174,14 +205,14 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`r_id`),
   UNIQUE KEY `fk_u_id` (`fk_u_id`),
   KEY `fk_p_id` (`fk_p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `review`
 --
 
 INSERT INTO `review` (`r_id`, `description`, `rating`, `confirmed`, `fk_p_id`, `fk_u_id`, `review_date`) VALUES
-(3, 'A very good product!', 4, 1, 'es_1', '1', '2018-04-19 16:02:14');
+(5, 'asd', 4, 0, 'es_2', '1', '2018-04-20 15:31:31');
 
 -- --------------------------------------------------------
 
@@ -210,7 +241,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`U_id`, `U_username`, `U_password`, `Fname`, `Lname`, `DOB`, `Email`, `D_Address`, `B_Address`, `Mobile_number`) VALUES
 ('1', 'ragy96', '123', 'Raggi', 'Hosni', '1996-08-18', 'ragy_design@yahoo.com', '21 Ammar Ibn Yasser', '21 Ammar Ibn Yasser', 1001042218),
-('2', 'yasmine123', '123', 'Yasmine', 'Mohamed', '1994-04-03', 'yasmine53213@yahoo.com', 'ELHaram', 'ElHaram', 100213322);
+('2', 'yasmine123', '123', 'Yasmine', 'Mohamed', '1994-04-03', 'yasmine53213@yahoo.com', 'ELHaram', 'ElHaram', 100213322),
+('3', 'ahmedismail13', '123', 'Ahmed', 'Ismail', '1997-03-13', 'ahmed150842@bue.edu.eg', '34 Hegaz street', '34 Hegaz Street', 1111147691),
+('4', 'root', '', 'root', 'root', '1990-01-01', 'root@root.com', 'root', 'root', 114995678);
 
 --
 -- Constraints for dumped tables

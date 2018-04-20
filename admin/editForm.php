@@ -78,7 +78,7 @@
                         <input id="pEditname" name="p_name" type="text" value="<?php echo $pName; ?>">
                         <br>
                         <label>description</label>
-                        <input id="pEditdescription" type="textField" value="<?php echo $pDescription; ?>">
+                        <input id="pEditdescription" type="text" value="<?php echo $pDescription; ?>">
                         <br>
                         <label>Type</label>
                         <input id="pEdittype" type="text" name="p_type" value="<?php echo $pType; ?>">
