@@ -1,3 +1,28 @@
+
+	<?php
+				require 'db_connect.php';
+				session_start();
+				$connect = OpenCon();
+				$user = $_SESSION['user_login'];
+				$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
+				
+				$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
+				$items = mysqli_query($connect,$query);
+				$count = mysqli_num_rows($items);
+				
+					
+				if(isset($_GET['del']))
+				{
+					
+					$dp_id = $_GET['del'];
+			
+					mysqli_query($connect,"DELETE FROM cart WHERE c_user_id='$uid' AND p_id='$dp_id'");
+					header('Location: cart.php');
+					
+				}
+				
+
+			?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +42,6 @@
 
 <body >
 <?php 
-session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -26,7 +50,7 @@ else include 'header_not_logged.php';
                 <div class="container">
                     <div class="row bar">
                         <div class="col-lg-12">
-                            <p class="text-muted lead">You currently have 3 item(s) in your cart.</p>
+                            <p class="text-muted lead">You currently have <?php echo $count; ?> item(s) in your cart.</p>
                         </div>
                         <div id="basket" class="col-lg-9">
                             <div class="box mt-0 pb-0 no-horizontal-padding">
@@ -43,33 +67,51 @@ else include 'header_not_logged.php';
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><a href="#"><img alt="Product Image" src="images/mac1.jpg" class="img-fluid"></a></td>
-                                                    <td><a href="#">MAC Retro Matte Lipstick</a></td>
+											<?php
+											$total =0;
+											while ($item = mysqli_fetch_array($items))
+											{
+												$pid = $item ['p_id'];
+												$quantity = $item ['quantity'];
+												$product = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM product WHERE p_id='$pid'"));  
+												$pimgurl = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];  
+												$pname = $product ['p_name'];
+												$price = $product ['price'];
+												$curprice = ((int)$price*(int)$quantity);
+												$total += $curprice;
+												echo "
+												 <tr>
+                                                    <td><a href='#'><img alt='Product Image' src='$pimgurl' class='img-fluid'></a></td>
+                                                    <td><a href='#'>$pname</a></td>
                                                     <td>
-                                                        <input type="number" value="2" class="form-control">
+                                                        <input type='number' value='$quantity' class='form-control'>
                                                     </td>
-                                                    <td>$123.00</td>
-                                                    <td>$0.00</td>
-                                                    <td>$246.00</td>
-                                                    <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                                    <td>$price.00</td>
+                                                    <td>0.00</td>
+                                                    <td>$curprice.00</td>
+                                                    <td><a href='cart.php?del=$pid'><i class='fa fa-trash-o'></i></a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><a href="#"><img alt="Product Image" src="images/tresor1.jpg"  class="img-fluid"></a></td>
-                                                    <td><a href="#">Tresor Lancom Au De Toilet 104Oz</a></td>
-                                                    <td>
-                                                        <input type="number" value="1" class="form-control">
-                                                    </td>
-                                                    <td>$200.00</td>
-                                                    <td>$0.00</td>
-                                                    <td>$200.00</td>
-                                                    <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                                </tr>
+												";
+
+												
+											}
+											
+											
+											
+											
+											
+											?>
+											
+											
+											
+											
+											
+											
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <th colspan="5">Total</th>
-                                                    <th colspan="2">$446.00</th>
+                                                    <th colspan="2"><?php echo $total; ?> EGP</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -96,19 +138,19 @@ else include 'header_not_logged.php';
                                         <tbody>
                                             <tr>
                                                 <td>Order subtotal</td>
-                                                <th>$446.00</th>
+                                                <th><?php echo $total; ?>.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Shipping and handling</td>
-                                                <th>$10.00</th>
+                                                <th>10.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Tax</td>
-                                                <th>$0.00</th>
+                                                <th>0.00</th>
                                             </tr>
                                             <tr class="total">
                                                 <td>Total</td>
-                                                <th>$456.00</th>
+                                                <th><?php echo $total+10; ?>.00</th>
                                             </tr>
                                         </tbody>
                                     </table>

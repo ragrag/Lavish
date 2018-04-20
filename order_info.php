@@ -1,3 +1,24 @@
+
+
+	<?php
+				require 'db_connect.php';
+				session_start();
+				$connect = OpenCon();
+				$user = $_SESSION['user_login'];
+				$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
+				$order_id = $_GET['order'];
+
+				$order = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM `order` WHERE O_id='$order_id'"));
+				$query = "SELECT * FROM product_order WHERE fk_o_id='$order_id'";
+				$items = mysqli_query($connect,$query);
+				
+				
+					
+			
+				
+
+			?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +43,7 @@
 
 <body>
 <?php 
-session_start();
+
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -31,7 +52,7 @@ else include 'header_not_logged.php';
                 <div class="container">
                     <div class="row bar">
                         <div class="col-lg-12">
-                            <p class="text-muted lead">Order number #13372</p>
+                            <p class="text-muted lead">Order Number #<?php echo $_GET['order']; ?></p>
                         </div>
                         <div id="basket" class="col-lg-9">
                             <div class="box mt-0 pb-0 no-horizontal-padding">
@@ -48,37 +69,57 @@ else include 'header_not_logged.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="#"><img alt="Product Image" src="images/mac1.jpg" class="img-fluid"></a></td>
-                                                <td><a href="#">MAC Retro Matte Lipstick</a></td>
-                                                <td>
-                                                    <input type="number" value="2" class="form-control">
-                                                </td>
-                                                <td>$123.00</td>
-                                                <td>$0.00</td>
-                                                <td>$246.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="#"><img alt="Product Image" src="images/tresor1.jpg"  class="img-fluid"></a></td>
-                                                <td><a href="#">Tresor Lancom Au De Toilet 104Oz</a></td>
-                                                <td>
-                                                    <input type="number" value="1" class="form-control">
-                                                </td>
-                                                <td>$200.00</td>
-                                                <td>$0.00</td>
-                                                <td>$200.00</td>
-                                            </tr>
+										
+										
+										
+										<?php
+											$total =0;
+											while ($item = mysqli_fetch_array($items))
+											{
+												$pid = $item ['fk_p_id'];
+												$quantity = $item ['quantity'];
+												$product = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM product WHERE p_id='$pid'"));  
+												$pimgurl = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];  
+												$pname = $product ['p_name'];
+												$price = $product ['price'];
+												$curprice = ((int)$price*(int)$quantity);
+												$total += $curprice;
+												echo "
+												 <tr>
+                                                    <td><a href='#'><img alt='Product Image' src='$pimgurl' class='img-fluid'></a></td>
+                                                    <td><a href='#'>$pname</a></td>
+                                                    <td>
+                                                        $quantity
+                                                    </td>
+                                                    <td>$price.00</td>
+                                                    <td>0.00</td>
+                                                    <td>$curprice.00</td>
+                                              
+                                                </tr>
+												";
+
+												
+											}
+											
+											
+											
+											
+											
+											?>
+										
+										
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th colspan="5">Status</th>
-                                                <th colspan="1">Pending</th>
+                                              <br>
+												<th colspan="5">Status</th><br>
+												<th colspan="1"><?php echo $order['O_status']; ?></th>
                                             </tr>
                                         </tfoot>
                                     </table>
                                 </div>
                                 <div class="box-footer d-flex justify-content-between align-items-center">
-                                    <div class="left-col"><a href="orders.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i>Back to orders</a></div>
+                                    <div class="left-col"><a href="previous_orders.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i>Back to orders</a></div>
                                     <div class="right-col">
 
                                     </div>
@@ -97,23 +138,23 @@ else include 'header_not_logged.php';
                                         <tbody>
                                             <tr>
                                                 <td>Order date</td>
-                                                <th>27 Aug <br>2018</th>
+                                                <th><?php echo $order['O_date']; ?></th>
                                             </tr>
                                             <tr>
                                                 <td>Order subtotal</td>
-                                                <th>$446.00</th>
+                                                <th><?php echo $total; ?>.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Shipping and handling</td>
-                                                <th>$10.00</th>
+                                                <th>10.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Tax</td>
-                                                <th>$0.00</th>
+                                                <th>0.00</th>
                                             </tr>
                                             <tr class="total">
                                                 <td>Total</td>
-                                                <th>$456.00</th>
+                                                <th><?php echo $total+10; ?></th>
                                             </tr>
 
                                         </tbody>

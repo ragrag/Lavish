@@ -1,3 +1,27 @@
+
+	<?php
+				require 'db_connect.php';
+				session_start();
+				$connect = OpenCon();
+				$username = $_SESSION['user_login'];
+				$user = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$username'"));  
+				$uid = $user ['U_id'];
+				$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
+				$items = mysqli_query($connect,$query);
+				
+				
+				$total =0;
+				while ($item = mysqli_fetch_array($items))
+				{
+					$pid = $item ['p_id'];
+					$quantity = $item ['quantity'];
+					$product = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM product WHERE p_id='$pid'"));  
+					$price = $product ['price'];
+					$curprice = ((int)$price*(int)$quantity);
+					$total += $curprice;
+				}
+			?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +45,6 @@
 
 <body >
 <?php 
-session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -42,65 +65,41 @@ else include 'header_not_logged.php';
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="firstname">Firstname</label>
-                                                    <input id="firstname" type="text" class="form-control">
+                                                    <input id="firstname" type="text" class="form-control" value="<?php echo $user['Fname']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="lastname">Lastname</label>
-                                                    <input id="lastname" type="text" class="form-control">
+                                                    <input id="lastname" type="text" class="form-control" value="<?php echo $user['Lname']; ?>">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="company">Company</label>
-                                                    <input id="company" type="text" class="form-control">
+                                                    <label for="street">Shipping Address</label>
+                                                    <input id="street" type="text" class="form-control" value="<?php echo $user['D_Address']; ?>">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+											 <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="street">Street</label>
-                                                    <input id="street" type="text" class="form-control">
+                                                    <label for="street">Billing Address</label>
+                                                    <input id="street" type="text" class="form-control" value="<?php echo $user['B_Address']; ?>">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="city">City</label>
-                                                    <input id="city" type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="zip">ZIP</label>
-                                                    <input id="zip" type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="state">State</label>
-                                                    <select id="state" class="form-control"></select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="country">Country</label>
-                                                    <select id="country" class="form-control"></select>
-                                                </div>
-                                            </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="phone">Telephone</label>
-                                                    <input id="phone" type="text" class="form-control">
+                                                    <label for="phone">Mobile</label>
+                                                    <input id="phone" type="text" class="form-control" value="0<?php echo $user['Mobile_number']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input id="email" type="text" class="form-control">
+                                                    <input id="email" type="text" class="form-control" value="<?php echo $user['Email']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -129,19 +128,19 @@ else include 'header_not_logged.php';
                                         <tbody>
                                             <tr>
                                                 <td>Order subtotal</td>
-                                                <th>$446.00</th>
+                                                <th><?php echo $total; ?>.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Shipping and handling</td>
-                                                <th>$10.00</th>
+                                                <th>10.00</th>
                                             </tr>
                                             <tr>
                                                 <td>Tax</td>
-                                                <th>$0.00</th>
+                                                <th>0.00</th>
                                             </tr>
                                             <tr class="total">
                                                 <td>Total</td>
-                                                <th>$456.00</th>
+                                                <th><?php echo $total+10; ?>.00</th>
                                             </tr>
                                         </tbody>
                                     </table>
