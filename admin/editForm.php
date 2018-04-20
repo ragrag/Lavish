@@ -32,6 +32,7 @@
             $pDescription = $n['p_description'];
             $pBrand = $n['p_brand'];
             $pQuantity = $n['p_quantity'];
+            $price = $n['price'];
 		}
 	}
     if (isset($_POST['update'])) {
@@ -41,9 +42,9 @@
         $pDescription = $n['p_description'];
         $pBrand = $_POST['p_brand'];
         $pQuantity = $_POST['p_quantity'];
-      
+        $price = $n['price'];
 
-	       mysqli_query($conn, "UPDATE product SET p_name='$pName', p_type='$pType', p_brand='$pBrand', p_quantity='$pQuantity',  WHERE p_id='$id'");
+	       mysqli_query($conn, "UPDATE product SET p_name='$pName', p_type='$pType', p_brand='$pBrand', p_quantity='$pQuantity', price='$price',  WHERE p_id='$id'");
     }
     ?>
     <nav class="mnav">
@@ -88,6 +89,8 @@
                         <br>
                         <label>Quantity</label>
                         <input id="pEditquantity" type="text" name="p_quantity" value="<?php echo $pQuantity; ?>">
+                        <label>Price</label>
+                        <input id="pEditquantity" type="text" name="price" value="<?php echo $price; ?>">
                         <br>    
                 <div class="ebtnAction">
                     <div class="ebtnLeft">
