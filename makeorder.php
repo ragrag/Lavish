@@ -18,7 +18,7 @@ $uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_user
 
 $products =  mysqli_query($connect,"SELECT * FROM cart WHERE c_user_id='$uid'");    
 
-$orderquery = "INSERT INTO `order`( `fk_U_id`,  `O_status`) VALUES ('$uid','Places')";
+$orderquery = "INSERT INTO `order`( `fk_U_id`,  `O_status`) VALUES ('$uid','Placed')";
 mysqli_query($connect,$orderquery);
 $order_id = mysqli_insert_id($connect);
 

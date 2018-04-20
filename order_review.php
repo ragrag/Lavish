@@ -119,7 +119,7 @@ else include 'header_not_logged.php';
 									  success:function(response) {
 									  if(response == 1)
 									  {
-										  window.location.replace("order_info.php");
+										  window.location.replace("previous_orders.php");
 									  }
 									  else 
 									  {
