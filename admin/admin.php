@@ -1,5 +1,6 @@
 <?php
 session_start();
+$edit = 0;
 if(!isset($_SESSION['admin_login']))
 {
  header("Location: adminlog.php");
@@ -15,7 +16,6 @@ exit();
     $pType="";
     $pBrand="";
     $pQuantity=0;
-    $update = false;
     if (isset($_POST['add'])){
         $pName= $_POST['p_name'];
         $pID = $_POST['p_id'];
@@ -26,11 +26,28 @@ exit();
         mysqli_query($conn,"INSERT INTO product(p_id, p_name, p_type, p_brand, p_quantity ,p_description)
          VALUES ('$pID', '$pName', '$pType', '$pBrand', '$pQuantity', '$pDescription')");
     }
+
     if (isset($_GET['del'])) {
 	   $id = $_GET['del'];
 	   mysqli_query($conn, "DELETE FROM product WHERE p_id='$id'");
 	   header('location: admin.php');
-}
+    }
+    if (isset($_POST['edit']) ) {
+        $id->getAttribute('id');
+        $record = mysqli_query($conn, "SELECT * FROM product WHERE p_id='$id'");
+            
+            if (count($record) == 1 ) {
+                $n = mysqli_fetch_array($record);
+                $pName= $n['p_name'];
+                $pID = $n['p_id'];
+               
+                $pType = $n['p_type'];
+                $pBrand = $n['p_brand'];
+                $pQuantity = $n['p_quantity'];
+            }
+    }
+
+ 
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +56,19 @@ exit();
 	<title>Products | Admin</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 	<link rel="stylesheet" href="../includes/styles.css">
+    <script>
+    function myFunction(var s){
+    window.alert("hi");
+         
+            $(".EditPOP").show();
+            $(".pEdit").show();
+            $('.fbody').css({
+                "filter": "blur(5px)"
+            });
+}
+    </script>
+    <script src="../includes/scripts/jquery-3.2.1.min.js"></script>
+	<script src="../includes/scripts/adminscript.js"></script>
 </head>
 
 <body>
@@ -94,8 +124,8 @@ exit();
                             <td><?php echo $row ['p_brand'] ?></td>
                             <td><?php echo $row ['p_quantity'] ?></td>
                             <td>
-                                <a id="EditBTN" class='converttobtn GreenButton ebtn' role="button" href="#EditPOP">
-                                    <i class='fa fa-edit'></i> Edit</a>
+                                <button name="edit" class='EditBTN converttobtn GreenButton ebtn' id="<?php echo $row['p_id']; ?>" onclick=myFunction() >
+                                    <i class='fa fa-edit'></i> Edit</button>
                                 <a href="admin.php?del=<?php echo $row['p_id']; ?>" class='converttobtn RedButton'>
                                     <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
@@ -142,7 +172,7 @@ exit();
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
 						<div class="btnLeft btnRight" >
-							<button type="submit" name="add" class="btn" onclick="PopUpValidation()">Add Product</a>
+							<button type="submit" name="add" class="btn" onclick="PopUpValidation()">Add Product</button>
 						</div>
 					</div>
 				</form>
@@ -153,19 +183,19 @@ exit();
 			<div class="pEdit">
 				<form>
 					<label>Product name</label>
-					<input id = "pEditname" type="text">
+					<input id = "pEditname" type="text" value="<?php echo $pName; ?>">
 					<br>
 					<label>description</label>
-					<input id = "pEditdescription" type="text">
+					<input id = "pEditdescription" type="text" value="<?php echo $pDescription; ?>">
 					<br>
 					<label>Type</label>
-					<input id = "pEdittype" type="text">
+					<input id = "pEdittype" type="text" value="<?php echo $pType; ?>">
 					<br>
-					<label>Weight</label>
-					<input id = "pEditweight" type="text">
+					<label>Brand</label>
+					<input id = "pEditweight" type="text" value="<?php echo $pBrand; ?>">
 					<br>
 					<label>Quantity</label>
-					<input id = "pEditquantity" type="text">
+					<input id = "pEditquantity" type="text" value="<?php echo $pQuantity; ?>">
 					<br>
 					<label>Image</label>
 					<input type="file">
@@ -183,7 +213,7 @@ exit();
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
 						<div class="ebtnLeft ebtnRight">
-							<a href="#" class="ebtn" onclick="PopUpValidation()">Submit</a>
+							<a href="#" class="ebtn" onclick="PopUpValidation()" name="subEdit">Submit</a>
 						</div>
 					</div>
 				</form>
@@ -191,8 +221,7 @@ exit();
 		</div>
 
 	</div>
-	<script src="../includes/scripts/jquery-3.2.1.min.js"></script>
-	<script src="../includes/scripts/adminscript.js"></script>
+	
 
 </body>
 
