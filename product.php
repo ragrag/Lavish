@@ -14,9 +14,7 @@
 				$pdesc = $product ['p_description'];
 				$pimages = mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'");
 				
-				
-				
-				$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid'");
+				$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid' AND confirmed='1'");
 				$ratingSum =0;
 				$prating=0;
 				while ($review = mysqli_fetch_array($ratingQ))
@@ -26,7 +24,6 @@
 				
 				if (mysqli_num_rows($ratingQ) )
 					$prating = $ratingSum/mysqli_num_rows($ratingQ);	
-
 
 				
 			?>
@@ -42,7 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="includes/plugins/bootstrap4/bootstrap.min.css">
     <link href="includes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <script src="includes/scripts/jquery-3.2.1.min.js"></script>
     <link rel="icon" href="images/logo_black.ico">
     <link rel="stylesheet" type="text/css" href="includes/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
@@ -61,7 +58,7 @@ if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
 ?>
-
+<p style="display:none;" id="pid"><?php echo $pid; ?></p>
 <div class="body" style="display:none;" onload="fade()">
     <div id="product" class="main-body">
         <a id="backtotop"></a>
@@ -96,7 +93,7 @@ else include 'header_not_logged.php';
 											
 										}
 										
-											$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid'");
+											$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid' AND confirmed='1'");
 										?>
 										
                                         
@@ -140,7 +137,44 @@ else include 'header_not_logged.php';
                           ?>
 						  
 						 <script>
+	 
+function add_review()
+{
 
+ var review= document.getElementById('review_message').val();
+ var pid = document.getElementById('pid').innerHTML;
+ var rating = 4;
+ 
+
+  $.ajax
+  ({
+  type:'post',
+  url:'addreview.php',
+  data:{
+   addreview:"add review",
+   review:review,
+   rating:rating,
+   pid:pid
+  },
+  success:function(response) {
+alert(response);
+  if(response == 1)
+  {
+	 alert('Review Added');
+  }
+  else if (response == 0)
+  {
+	 alert('Review Already Submitted')'
+  }
+
+  }
+  });
+ 
+
+ 
+ return false;
+}	
+						 
 function add_cart()
 {
 
@@ -284,22 +318,21 @@ function add_cart()
                                         <form id="review_form" action="post">
                                             <div>
                                                 <h1>Add Review</h1>
-                                                <input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-                                                <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+                                                
                                             </div>
-                                            <div>
+                                            <div >
                                                 <h1>Your Rating:</h1>
-                                                <ul class="user_star_rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star-o"></i></li>
+                                                <ul id="rating" class="user_star_rating">
+                                                    <li><i id="star" class="fa fa-star"></i></li>
+                                                    <li><i id="star" class="fa fa-star"></i></li>
+                                                    <li><i id="star" class="fa fa-star"></i></li>
+                                                    <li><i id="star" class="fa fa-star"></i></li>
+                                                    <li><i id="star" class="fa fa-star-o"></i></li>
                                                 </ul>
                                                 <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
                                             </div>
                                             <div class="text-left text-sm-right">
-                                                <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+                                                <button onlick="add_review();" id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
                                             </div>
                                         </form>
                                     </div>

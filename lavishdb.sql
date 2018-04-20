@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2018 at 01:58 PM
+-- Generation Time: Apr 20, 2018 at 03:13 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -58,37 +58,6 @@ CREATE TABLE IF NOT EXISTS `cart` (
   KEY `cart_ibfk_2` (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`c_user_id`, `p_id`, `quantity`) VALUES
-('1', 'es_2', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `colour`
---
-
-CREATE TABLE IF NOT EXISTS `colour` (
-  `c_id` varchar(30) NOT NULL,
-  `fk_p_id` varchar(20) NOT NULL,
-  `c_name` varchar(20) NOT NULL,
-  PRIMARY KEY (`c_id`),
-  KEY `fk_p_id` (`fk_p_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `colour`
---
-
-INSERT INTO `colour` (`c_id`, `fk_p_id`, `c_name`) VALUES
-('p1', 'es_3', ' Alluring '),
-('p2', 'es_1', 'Vintage'),
-('p3', 'es_1', 'Velvet'),
-('w1', 'es_3', 'Breathtaking ');
-
 -- --------------------------------------------------------
 
 --
@@ -99,23 +68,23 @@ CREATE TABLE IF NOT EXISTS `image` (
   `i_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `i_url` varchar(200) NOT NULL,
   `fk_p_id` varchar(11) NOT NULL,
-  `fk_c_id` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`i_id`),
   UNIQUE KEY `i_id` (`i_id`),
-  KEY `pfk` (`fk_p_id`),
-  KEY `fk_col` (`fk_c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  KEY `pfk` (`fk_p_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `image`
 --
 
-INSERT INTO `image` (`i_id`, `i_url`, `fk_p_id`, `fk_c_id`) VALUES
-(1, 'images/metal_stila.jpg', 'es_1', 'p2'),
-(2, 'images/metal_stila.jpg', 'es_1', 'p3'),
-(3, 'images/perfect_stila.jpg', 'es_3', 'p1'),
-(4, 'images/perfect_stila.jpg', 'es_3', 'w1'),
-(5, 'images/window_stila.jpg', 'es_2', NULL);
+INSERT INTO `image` (`i_id`, `i_url`, `fk_p_id`) VALUES
+(1, 'images/metal_stila.jpg', 'es_1'),
+(2, 'images/metal_stila.jpg', 'es_1'),
+(3, 'images/perfect_stila.jpg', 'es_3'),
+(4, 'images/perfect_stila.jpg', 'es_3'),
+(5, 'images/window_stila.jpg', 'es_2'),
+(6, 'images/nars_vss.jpg', 'es_4'),
+(7, 'images/nars_eyepaint.jpg', 'es_5');
 
 -- --------------------------------------------------------
 
@@ -126,18 +95,18 @@ INSERT INTO `image` (`i_id`, `i_url`, `fk_p_id`, `fk_c_id`) VALUES
 CREATE TABLE IF NOT EXISTS `order` (
   `O_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `fk_U_id` varchar(20) NOT NULL,
-  `O_date` date NOT NULL,
+  `O_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `O_status` varchar(10) NOT NULL,
   PRIMARY KEY (`O_id`),
   KEY `fk_U_id` (`fk_U_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`O_id`, `fk_U_id`, `O_date`, `O_status`) VALUES
-(1, '1', '2018-04-10', 'Confirmed');
+(1, '1', '2018-04-09 22:00:00', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -163,7 +132,9 @@ CREATE TABLE IF NOT EXISTS `product` (
 INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_brand`, `p_quantity`, `p_description`, `price`) VALUES
 ('es_1', 'Matte n'' metal', 'Eyes', 'Stila', 5, 'Create eye-catching color combos with just the right mix of matte and shimmer. Featuring six modern matte and six mega metallic shades in range of pink rose golds, cool-toned pewters and golden bronzes that flatter all skin tones, it''s the one color palette you need to design eyes that truly dazzle.', 890),
 ('es_2', 'Window Shadow ', 'Eyes', 'Stila', 1, 'This year, Stila celebrates 20 years of infinite style. Create endless looks with our new Eyes Are The Window™ shadow palettes. Inspired by the spiritual notion that true beauty is revealed from within, each palette is curated with 12 luxurious eye shadows to illuminate your inner beauty. Encased in exquisite, jewelry-inspired compacts-a precious mix of rose, yellow and white golds-the shadows will inspire intrigue and delight.', 670),
-('es_3', 'Perfect Me, Perfect Hue', 'Eyes', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ', 865);
+('es_3', 'Perfect Me, Perfect Hue', 'Eyes', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ', 865),
+('es_4', 'Velvet Shadow Stick', 'Eyes', 'Nars', 2, 'A CREAMY, BLENDABLE EYESHADOW IN A CONVENIENT, PORTABLE STICK.', 525),
+('es_5', 'Eye Paint', 'Eyes', 'Nars', 5, 'HIGH-IMPACT PIGMENTS IN AN INNOVATIVE SILKY, WEIGHTLESS GEL FORMULA. CAN BE USED AS AN EYELINER OR EYESHADOW. ', 500);
 
 -- --------------------------------------------------------
 
@@ -199,17 +170,18 @@ CREATE TABLE IF NOT EXISTS `review` (
   `confirmed` tinyint(1) NOT NULL,
   `fk_p_id` varchar(20) NOT NULL,
   `fk_u_id` varchar(20) NOT NULL,
+  `review_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`r_id`),
   UNIQUE KEY `fk_u_id` (`fk_u_id`),
   KEY `fk_p_id` (`fk_p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`r_id`, `description`, `rating`, `confirmed`, `fk_p_id`, `fk_u_id`) VALUES
-(1, 'Very good product!', 4, 1, 'es_1', '1');
+INSERT INTO `review` (`r_id`, `description`, `rating`, `confirmed`, `fk_p_id`, `fk_u_id`, `review_date`) VALUES
+(3, 'A very good product!', 4, 1, 'es_1', '1', '2018-04-19 16:02:14');
 
 -- --------------------------------------------------------
 
@@ -248,20 +220,13 @@ INSERT INTO `user` (`U_id`, `U_username`, `U_password`, `Fname`, `Lname`, `DOB`,
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`c_user_id`) REFERENCES `user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `colour`
---
-ALTER TABLE `colour`
-  ADD CONSTRAINT `colour_ibfk_1` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`c_user_id`) REFERENCES `user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `c_id` FOREIGN KEY (`fk_c_id`) REFERENCES `colour` (`c_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `pfk` FOREIGN KEY (`fk_p_id`) REFERENCES `product` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
