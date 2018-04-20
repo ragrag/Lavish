@@ -15,7 +15,6 @@ exit();
     $pType="";
     $pBrand="";
     $pQuantity=0;
-    $update = false;
     if (isset($_POST['add'])){
         $pName= $_POST['p_name'];
         $pID = $_POST['p_id'];
@@ -32,33 +31,6 @@ exit();
 		header('location:admin.php');
 	}
 
-	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
-		$record = mysqli_query($conn, "SELECT * FROM product WHERE p_id='$id'");
-
-		if (count($record) == 1 ) {
-			$n = mysqli_fetch_array($record);
-			$name = $n['p_name'];
-			$iD = $n['p_id'];
-			$description = $n['p_desc'];
-			$type = $n['p_type'];
-			$brand = $n['p_brand'];
-			$quantity = $n['p_quantity'];
-		}
-	}
-
-	if (isset($_POST['update'])) {
-		$pName= $_POST['p_name'];
-        $pID = $_POST['p_id'];
-        $pDescription = $_POST['p_desc'];
-        $pType = $_POST['p_type'];
-        $pBrand = $_POST['p_brand'];
-        $pQuantity = $_POST['p_quantity'];
-	
-		mysqli_query($db, "UPDATE info SET name='$name', address='$address' WHERE id=$id");
-		$_SESSION['message'] = "Address updated!"; 
-		header('location: index.php');
-	}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,7 +97,7 @@ exit();
                             <td><?php echo $row ['p_quantity'] ?></td>
                             <td>
 							
-                                <a class='EditBTN converttobtn GreenButton ebtn' href="admin.php?edit=<?php echo $row['p_id']; ?>"  >
+                                <a class='EditBTN converttobtn GreenButton ebtn' href="editForm.php?edit=<?php echo $row['p_id']; ?>"  >
                                     <i class='fa fa-edit'></i> Edit</a>
                                 <a href="admin.php?del=<?php echo $row['p_id']; ?>" class='converttobtn RedButton'>
                                     <i class="fas fa-trash-alt"></i> Delete</a>
