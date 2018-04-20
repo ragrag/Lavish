@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +21,10 @@
 <body class="body" style="display:none;" onload="fade()">
 
 
-	
+	<p id="type" style="display:none"><?php echo $_GET['type'] ?></p>
 <?php 
+require 'db_connect.php';
+$conn = OpenCon();
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
@@ -27,7 +32,16 @@ else include 'header_not_logged.php';
 ?>
 
        
+<script>
+function filter_brand()
+{
+var brand = $("input:radio[name='brand']:checked").val();
+var type = document.getElementById("type").innerHTML;
+var url = "products.php?type="+type+"&filter="+brand;
+window.location.href = url;
 
+}
+</script>
 	<div  style="position:absolute;padding-top:1%;	" class="breadcrumbs d-flex flex-row align-items-center">
 		<ul>
 			<li><a href="home.php">Home</a></li>
@@ -40,13 +54,15 @@ else include 'header_not_logged.php';
         <div class="dropdown">
             <button class="drop-button">Sort by</button>
             <ul class="dropdown-menu">
-                <li>
-                    <button id="byPrice">Price</button>
-                </li>
-                <li>
-                    <button id="byName">Name</button>
-                </li>
-
+                <form method="post">
+					<li>
+						<button id="byPrice" type="submit" name="price">Price</button>
+					
+					</li>
+					<li>
+						<button id="byName" type="submit" name="name">Name</button>
+					</li>
+				</form>	
             </ul>
         </div>
 
@@ -54,26 +70,30 @@ else include 'header_not_logged.php';
             <div class="rtcolumn">
 
                 <h4>Brand</h4><br>
+<?php 
 
+$type = $_GET['type'];
+	$query = "SELECT DISTINCT p_brand FROM product WHERE p_type='$type' ";
+					$products= mysqli_query($conn,$query);
+				while ($prod = mysqli_fetch_array($products))
+				{
+					$b = $prod ['p_brand'];
+					
+					echo" <h5 class='check_tag'> 
+				<input type='radio' name='brand' value='$b'>$b<br>
+			</h5>";
+					
+				}
+
+
+
+?>
 
             <h5 class="check_tag"> 
-				<input type="radio" name="brand" value="stila">Stila<br>
-			</h5>				
-
-
-            <h5 class="check_tag"> 
-				<input type="radio" name="brand" value="tarte"> Tarte<br>	
-			</h5>
-
-            <h5 class="check_tag"> 
-					<input type="radio" name="brand" value="colourpop"> Colourpop<br>
-			</h5>
-          
-            <h5 class="check_tag"> 
-					<input type="radio" name="brand" value="all"> None<br>
+					<input type="radio" name="brand" value="none"> None<br>
 			</h5>
 			
-                <div class="filter_button" onclick="filter()"><span>filter</span></div>
+                <div class="filter_button" onclick="filter_brand()"><span>filter</span></div>
 
             </div>
 <script>
@@ -113,13 +133,32 @@ else include 'header_not_logged.php';
  </script>
 			
 			<?php
-				require 'db_connect.php';
-				$conn = OpenCon();
+
 				$type = $_GET['type'];
 		
-				$query = "SELECT * FROM product WHERE p_type='$type'";
-				$products= mysqli_query($conn,$query);
-	
+				
+				
+				
+				
+				if(isset($_POST['price'])){
+					$byPrice = "SELECT * FROM product WHERE p_type='$type' ORDER BY price";
+					$products= mysqli_query($conn,$byPrice);
+				}
+				else if(isset($_POST['name'])){
+					$byName= "SELECT * FROM product WHERE p_type='$type' ORDER BY p_name";
+					$products= mysqli_query($conn,$byName);
+				}
+				else if(isset($_GET['filter']) && $_GET['filter'] != 'none' )
+				{
+					$brand = $_GET['filter'];
+					$byName= "SELECT * FROM product WHERE p_type='$type' AND p_brand='$brand'";
+					$products= mysqli_query($conn,$byName);
+					
+				}
+				else{
+					$query = "SELECT * FROM product WHERE p_type='$type'";
+					$products= mysqli_query($conn,$query);
+				}
 				echo "<div class='table'>";
 				for ($i =0 ; $i<(mysqli_num_rows($products)/2)+1;$i++)
 				{
