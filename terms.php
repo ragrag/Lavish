@@ -90,7 +90,32 @@ else include 'header_not_logged.php';
             </div>
         </div>
     </div>
-
+	<script>
+									function newsletter()
+									{
+									var email = document.getElementById('newsletter_email').value;
+									  $.ajax
+									  ({
+									  type:'post',
+									  url:'newsletter.php',
+									  data:{
+									   newsletter:"newletter",
+									   email:email
+									  },
+									  success:function(response) {
+									  if(response == 1)
+									  {
+										  alert("Subscribed to newsletter");
+									  }
+									  else 
+									  {
+										  alert("Already Subscribed");
+									  }
+									  }
+									  });
+									 return false;
+									}	
+									</script>
 
     <div class="newsletter">
         <div class="container">
@@ -102,10 +127,10 @@ else include 'header_not_logged.php';
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form action="post">
+                    <form >
                         <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
                             <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+                            <button id="newsletter_submit" onclick="newsletter()" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
                         </div>
                     </form>
                 </div>

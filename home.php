@@ -42,17 +42,17 @@ else include 'header_not_logged.php';
                     <div class="row">                        
                                 <div class="banner_item col" style="background-image:url(images/banner_1.jpg)">
                                     <div class="banner_category">
-                                        <a href="products.php">Face</a>
+                                        <a href="products.php?type=Face">Face</a>
                                     </div>
                                 </div>
                             <div class="banner_item  col" style="background-image:url(images/banner_2.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.php">Eyes</a>
+                                    <a href="products.php?type=Eyes">Eyes</a>
                                 </div>
                             </div>
                             <div class="banner_item col" style="background-image:url(images/banner_3.jpg)">
                                 <div class="banner_category">
-                                    <a href="products.php">FRAGRANCE</a>
+                                    <a href="products.php?type=Eyes">FRAGRANCE</a>
                                 </div>
                             </div>
                         </div>

@@ -119,45 +119,18 @@ else include 'header_not_logged.php';
                                     <div class="box-footer d-flex justify-content-between align-items-center">
                                         <div class="left-col"><a href="home.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                                         <div class="right-col">
-       
-                                            <button type="submit" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
+											<?php
+											
+											if ($count != 0 )
+                                            echo "<button type='submit' class='btn btn-template-outlined'>Proceed to checkout <i class='fa fa-chevron-right'></i></button>";
+										?>
                                         </div>
                                     </div>
                                 </form>
                             </div>
 
                         </div>
-                        <div class="col-lg-3">
-                            <div id="order-summary" class="box mt-0 mb-4 p-0">
-                                <div class="box-header mt-0">
-                                    <h3>Order summary</h3>
-                                </div>
-                                <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                                <td>Order subtotal</td>
-                                                <th><?php echo $total; ?>.00</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Shipping and handling</td>
-                                                <th>10.00</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Tax</td>
-                                                <th>0.00</th>
-                                            </tr>
-                                            <tr class="total">
-                                                <td>Total</td>
-                                                <th><?php echo $total+10; ?>.00</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                        </div>
+                       
                     </div>
                 </div>
             </div>
