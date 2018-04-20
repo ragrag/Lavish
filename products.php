@@ -45,7 +45,7 @@ window.location.href = url;
 	<div  style="position:absolute;padding-top:1%;	" class="breadcrumbs d-flex flex-row align-items-center">
 		<ul>
 			<li><a href="home.php">Home</a></li>
-			<li class="active"><a href="#"><i class="fa fa-angle-right"  ></i>Eyes</a></li>
+			<li class="active"><a href="#"><i class="fa fa-angle-right"  ></i><?php echo $_GET['type']; ?></a></li>
 		</ul>
 	</div>
 	
