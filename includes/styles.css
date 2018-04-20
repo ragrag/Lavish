@@ -379,6 +379,7 @@ h1, h4
 
 #cart_order table input[type="number"] {
   max-width: 50px;
+  max-height: 20%;
 }
 
 #cart_order .btn {
@@ -1915,11 +1916,29 @@ background-color: #449d44;
 	transition: all 3s ease-in-out;
 }
 #admin .quarter{
-	width: 25%;
+	width: 50%;
 	box-sizing: border-box;
 	float: left;
 	padding: 0px 0px;
-	position: relative;
+	position: absolute;
+
+}
+#admin .quarter1{
+	width: 50%;
+	box-sizing: border-box;
+	float: left;
+	padding: 0px 0px;
+	position: absolute;
+	margin-top: 15%;
+	
+}
+#admin .quarter2{
+	width: 50%;
+	box-sizing: border-box;
+	float: left;
+	padding: 0px 0px;
+	position: absolute;
+	margin-top: 30%;
 }
 
 #admin .quarter p{
@@ -1950,7 +1969,10 @@ background-color: #449d44;
 }
 /*  Dashboard*/
 #admin  #HoldBodyContent{
-	margin-top: 7%;
+	margin-top: 10%;
+	padding-left: 30%;
+	width:100%;
+	height: 100%;
 }
 
 #admin  .stat{
