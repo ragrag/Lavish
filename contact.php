@@ -26,6 +26,32 @@ if(isset($_SESSION['user_login']))
 else include 'header_not_logged.php'; 
 ?>
 
+		<script>
+									function newsletter()
+									{
+									var email = document.getElementById('newsletter_email').value;
+									  $.ajax
+									  ({
+									  type:'post',
+									  url:'newsletter.php',
+									  data:{
+									   newsletter:"newletter",
+									   email:email
+									  },
+									  success:function(response) {
+									  if(response == 1)
+									  {
+										  alert("Subscribed to newsletter");
+									  }
+									  else 
+									  {
+										  alert("Already Subscribed");
+									  }
+									  }
+									  });
+									 return false;
+									}	
+									</script>
     <div id="about_contact" class="container contact_container main-body">
         <div class="row">
             <div class="col">
@@ -66,7 +92,7 @@ else include 'header_not_logged.php';
                 <div class="get_in_touch_contents">
                     <h1>Get In Touch With Us!</h1>
                     <p>Fill out the form below to send us a message.</p>
-                    <form action="#">
+                    <form action="mailto:contact@lavish.com">
                         <div>
                             <input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name">
                             <input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email">
@@ -95,7 +121,7 @@ else include 'header_not_logged.php';
                     <form>
                         <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
                             <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+                            <button id="newsletter_submit" onclick="newsletter()" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
                         </div>
                     </form>
                 </div>
