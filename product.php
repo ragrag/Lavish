@@ -137,13 +137,13 @@ else include 'header_not_logged.php';
                           ?>
 						  
 						 <script>
-	 
+
 function add_review()
 {
-
+ var rating = $("input:radio[name='rating']:checked").val();
  var review= document.getElementById('review_message').value;
  var pid = document.getElementById('pid').innerHTML;
- var rating = 4;
+
  
 
   $.ajax
@@ -323,11 +323,14 @@ function add_cart()
                                             <div >
                                                 <h1>Your Rating:</h1>
                                                 <ul id="rating" class="user_star_rating">
-                                                    <li><i id="star" class="fa fa-star"></i></li>
-                                                    <li><i id="star" class="fa fa-star"></i></li>
-                                                    <li><i id="star" class="fa fa-star"></i></li>
-                                                    <li><i id="star" class="fa fa-star"></i></li>
-                                                    <li><i id="star" class="fa fa-star-o"></i></li>
+                                                  <div class="dropdown">
+													<form>
+													  <input type="radio" name="rating" value="1" > 1<br>
+													  <input type="radio" name="rating" value="2" checked> 2<br>
+													  <input type="radio" name="rating" value="3"> 3<br>  
+													  <input type="radio" name="rating" value="4"> 4<br>
+													  <input type="radio" name="rating" value="5"> 5  
+													</form> 
                                                 </ul>
                                                 <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
                                             </div>
