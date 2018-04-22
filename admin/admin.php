@@ -41,7 +41,7 @@ exit();
         mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file1','$pID')");
         mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file2','$pID')");
         mysqli_query($conn,"INSERT INTO image (i_url,fk_p_id) VALUES ('$target_file3','$pID')");
-
+        header ('Location admin.php');
 	}
 	if(isset($_GET['del'])){
 		$id=$_GET['del'];

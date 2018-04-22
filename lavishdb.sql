@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 20, 2018 at 08:47 PM
+-- Generation Time: Apr 20, 2018 at 09:45 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   PRIMARY KEY (`i_id`),
   UNIQUE KEY `i_id` (`i_id`),
   KEY `pfk` (`fk_p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
 
 --
 -- Dumping data for table `image`
@@ -88,12 +88,21 @@ INSERT INTO `image` (`i_id`, `i_url`, `fk_p_id`) VALUES
 (5, 'images/window_stila.jpg', 'es_2'),
 (6, 'images/nars_vss.jpg', 'es_4'),
 (7, 'images/nars_eyepaint.jpg', 'es_5'),
-(8, 'images/chosen_stila.jpg', '2213'),
-(9, 'images/bg.jpg', '2213'),
-(10, 'images/aa2.jpg', '2213'),
-(11, 'images/chosen_stila.jpg', '2213'),
-(12, 'images/bg.jpg', '2213'),
-(13, 'images/aa2.jpg', '2213');
+(47, 'images/aa4.jpg', 'stila_2'),
+(48, 'images/aa5.jpg', 'stila_2'),
+(49, 'images/aa6.jpg', 'stila_2'),
+(104, 'images/aa1.jpg', 'stila_1'),
+(105, 'images/aa2.jpg', 'stila_1'),
+(106, 'images/aa3.jpg', 'stila_1'),
+(134, 'images/ab4.jpg', 'stila_4'),
+(135, 'images/ab5.jpg', 'stila_4'),
+(136, 'images/ab6.jpg', 'stila_4'),
+(137, 'images/ab1.jpg', 'stila_3'),
+(138, 'images/ab2.jpg', 'stila_3'),
+(139, 'images/ab3.jpg', 'stila_3'),
+(140, 'images/ab1.jpg', 'stila_3'),
+(141, 'images/ab2.jpg', 'stila_3'),
+(142, 'images/ab3.jpg', 'stila_3');
 
 -- --------------------------------------------------------
 
@@ -160,12 +169,15 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_brand`, `p_quantity`, `p_description`, `price`) VALUES
-('2213', '213', '312', '123', 123, '312', 0),
 ('es_1', 'Matte n'' metal', 'Eyes', 'Stila', 5, 'Create eye-catching color combos with just the right mix of matte and shimmer. Featuring six modern matte and six mega metallic shades in range of pink rose golds, cool-toned pewters and golden bronzes that flatter all skin tones, it''s the one color palette you need to design eyes that truly dazzle.', 890),
 ('es_2', 'Window Shadow ', 'Eyes', 'Stila', 1, 'This year, Stila celebrates 20 years of infinite style. Create endless looks with our new Eyes Are The Window™ shadow palettes. Inspired by the spiritual notion that true beauty is revealed from within, each palette is curated with 12 luxurious eye shadows to illuminate your inner beauty. Encased in exquisite, jewelry-inspired compacts-a precious mix of rose, yellow and white golds-the shadows will inspire intrigue and delight.', 670),
 ('es_3', 'Perfect Me, Perfect Hue', 'Eyes', 'Stila', 3, 'The Perfect Hue for the Perfect You!\r\n\r\nEasy to use eye and cheek palettes filled with neutral hues that are just perfect…for you!  Long-wearing, one swipe eye and cheek colors expertly curated to work with your skin tone to create the perfect neutral look.  Choose from four distinct palettes that house five eyeshadows and two blushes in matte, shimmer and pearl finishes; customizable to create the look or looks you want. ', 865),
 ('es_4', 'Velvet Shadow Stick', 'Eyes', 'Nars', 2, 'A CREAMY, BLENDABLE EYESHADOW IN A CONVENIENT, PORTABLE STICK.', 525),
-('es_5', 'Eye Paint', 'Eyes', 'Nars', 5, 'HIGH-IMPACT PIGMENTS IN AN INNOVATIVE SILKY, WEIGHTLESS GEL FORMULA. CAN BE USED AS AN EYELINER OR EYESHADOW. ', 500);
+('es_5', 'Eye Paint', 'Eyes', 'Nars', 5, 'HIGH-IMPACT PIGMENTS IN AN INNOVATIVE SILKY, WEIGHTLESS GEL FORMULA. CAN BE USED AS AN EYELINER OR EYESHADOW. ', 500),
+('stila_1', 'Shimmer - Stay All DayÂ® Liquid Lipstick', 'Lips', 'Stila', 10, 'Stilaâ€™s iconic Stay All DayÂ® Liquid Lipstick gets a makeover! NEW Stay All DayÂ® Shimmer Liquid Lipstick has the same comfortable, all day staying power as the original matte formula, but now in a subtle metallic, shimmering finish! ', 390),
+('stila_2', 'Stay All DayÂ® Lip Liner', 'Lips', 'Stila', 20, 'Contour your most kissable lip. Stilaâ€™s new long-lasting, color-full lip liner shapes, lines and defines to perfection. The creamy formula glides on to deliver a semi-matte finish that wonâ€™t transfer or budge. The perfect companion to our STAY ALL DAYÂ® LIQUID LIPSTICK and MATTEâ€™IFICENT LIPSTICK. In a range of wine-inspired shades. ', 160),
+('stila_3', 'Heaven''s Hue Highlighting Kit', 'Face', 'Stila', 10, 'Get the Glitter & Glow Highlighting Kit featuring all 5 shades of water-infused, glittering highlighters. This limited-edition kit is exclusive to Stila''s official site.', 2566),
+('stila_4', 'One Step Prime', 'Face', 'Stila', 50, 'Our innovative, swirled, helix serum primer combines a crystal clear base with the perfect balance of skin-conditioning silicones. It fills in pores and fine lines, creating a smooth canvas that allows your foundation to apply effortlessly and enhances the wear time.  ', 640);
 
 -- --------------------------------------------------------
 
