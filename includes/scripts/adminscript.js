@@ -37,35 +37,7 @@ function LoginFormValidation() {
    
 }
 
-function PopUpValidation() {
-    var checking = /[A-Za-z]/;
 
-    var Pname = document.getElementById("pAddname").value;
-    var Pdescription = document.getElementById("pAdddescription").value;
-    var Ptype = document.getElementById("pAddtype").value;
-    var Pweight = document.getElementById("pAddweight").value;
-    var Pquantity = document.getElementById("pAddquantity").value;
-
-
-   
-    if(!Pname.match(checking) || !Pname.match(" ")){
-        window.alert("Product name should not be empty");
-    }
-    if(!Pdescription.match(checking) || !Pdescription.match(" ")){
-        window.alert("Product description should not be empty");
-    }
-    if(!Ptype.match(checking) || !Ptype.match(" ")){
-        window.alert("Product type not be empty");
-    }
-    if(!Pweight.match(checking) || !Pweight.match(" ")){
-        window.alert("Product weight not be empty");
-    }
-    if(!Pquantity.match(checking) || !Pquantity.match(" ")){
-        window.alert("Product quantity should not be empty");
-    }
-
-
-}
 
 function calling() {
     LoginFormValidation();

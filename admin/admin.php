@@ -168,7 +168,7 @@ exit();
 								<i class="fa fa-angle-double-left"></i>Cancel</a>
 						</div>
 						<div class="btnLeft btnRight" >
-							<button type="submit" name="add" class="btn" onclick="PopUpValidation()">Add Product</button>
+							<button type="submit" name="add" class="btn" ">Add Product</button>
 						</div>
 					</div>
 				</form>
