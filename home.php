@@ -15,13 +15,10 @@
 
 <body  class="body" style="display:none;" onload="fade()">
 
-<?php
+
+<?php //Check user session and select proper header
 require 'db_connect.php';
 $conn = OpenCon();
-
-?>
-
-<?php 
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 

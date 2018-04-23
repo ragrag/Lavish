@@ -1,26 +1,25 @@
 
-	<?php
-				require 'db_connect.php';
-				session_start();
-				$connect = OpenCon();
-				$username = $_SESSION['user_login'];
-				$user = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$username'"));  
-				$uid = $user ['U_id'];
-				$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
-				$items = mysqli_query($connect,$query);
-				
-				
-				$total =0;
-				while ($item = mysqli_fetch_array($items))
-				{
-					$pid = $item ['p_id'];
-					$quantity = $item ['quantity'];
-					$product = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM product WHERE p_id='$pid'"));  
-					$price = $product ['price'];
-					$curprice = ((int)$price*(int)$quantity);
-					$total += $curprice;
-				}
-			?>
+	<?php  //Fetch user address info and count order total
+		require 'db_connect.php';
+		session_start();
+		$connect = OpenCon();
+		$username = $_SESSION['user_login'];
+		$user = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$username'"));  
+		$uid = $user ['U_id'];
+		$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
+		$items = mysqli_query($connect,$query);
+		
+		$total =0;
+		while ($item = mysqli_fetch_array($items))	
+		{
+			$pid = $item ['p_id'];
+			$quantity = $item ['quantity'];
+			$product = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM product WHERE p_id='$pid'"));  
+			$price = $product ['price'];
+			$curprice = ((int)$price*(int)$quantity);
+			$total += $curprice;
+		}
+	?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +43,7 @@
 </head>
 
 <body >
-<?php 
+<?php //Check user session and select proper header
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 

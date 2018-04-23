@@ -1,4 +1,4 @@
-<?php
+<?php  //Add user info to db (Registration)
     $user = 'root';
     $password = '';
     $db = 'lavishdb';

@@ -1,4 +1,4 @@
-	<?php
+	<?php //db connection and getting user address info from db
 				require 'db_connect.php';
 				session_start();
 				$connect = OpenCon();
@@ -23,8 +23,7 @@
 
     </head>
     <body>
-        <?php 
-
+<?php //Check user session to select proper header
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 

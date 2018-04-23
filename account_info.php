@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="includes/styles.css">
     </head>
     <body>
-	<?php
+	<?php   //Check user session to select proper header And fetch user Info
             
         session_start();
         if(isset($_SESSION['user_login']))

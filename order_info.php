@@ -1,23 +1,16 @@
 
 
 	<?php
-				require 'db_connect.php';
-				session_start();
-				$connect = OpenCon();
-				$user = $_SESSION['user_login'];
-				$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
-				$order_id = $_GET['order'];
-
-				$order = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM `order` WHERE O_id='$order_id'"));
-				$query = "SELECT * FROM product_order WHERE fk_o_id='$order_id'";
-				$items = mysqli_query($connect,$query);
-				
-				
-					
-			
-				
-
-			?>
+		require 'db_connect.php';
+		session_start();
+		$connect = OpenCon();
+		$user = $_SESSION['user_login'];
+		$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
+		$order_id = $_GET['order'];
+		$order = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM `order` WHERE O_id='$order_id'"));
+		$query = "SELECT * FROM product_order WHERE fk_o_id='$order_id'";
+		$items = mysqli_query($connect,$query);
+	?>
 
 <!DOCTYPE html>
 <html lang="en">

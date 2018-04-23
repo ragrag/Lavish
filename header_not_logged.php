@@ -19,44 +19,43 @@
             </div>
         </header>
 
-	<script>
-			
-function do_login()
-{
- var email=$("#emailid").val();
- var pass=$("#password").val();
- if(email!="" && pass!="")
- {
-  $.ajax
-  ({
-  type:'post',
-  url:'login.php',
-  data:{
-   plogin:"user",
-   emailid:email,
-   password:pass
-  },
-  success:function(response) {
+	<script>			
+		function do_login()
+		{
+		 var email=$("#emailid").val();
+		 var pass=$("#password").val();
+		 if(email!="" && pass!="")
+		 {
+		  $.ajax
+		  ({
+		  type:'post',
+		  url:'login.php',
+		  data:{
+		   plogin:"user",
+		   emailid:email,
+		   password:pass
+		  },
+		  success:function(response) {
 
-  if(response == 1)
-  {
-	  location.reload();
-  }
-  else
-  {
-    alert("Wrong Username/Password combination");
-  }
-  }
-  });
- }
+		  if(response == 1)
+		  {
+			  location.reload();
+		  }
+		  else
+		  {
+			alert("Wrong Username/Password combination");
+		  }
+		  }
+		  });
+		 }
 
- else
- {
-  alert("Please Fill All The Details");
- }
+		 else
+		 {
+		  alert("Please Fill All The Details");
+		 }
 
- return false;
-}	
+		 return false;
+		}	
 	</script>
 	
 	

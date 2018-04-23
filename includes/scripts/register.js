@@ -16,11 +16,6 @@ function validateRegisterForm() {
     var birthdate = document.getElementById("bdate").value;
     var termsAndConditions = document.getElementById("t&c");
     var flag = true;
-    if(!username.match(letters) || !username.match(number))
-    {
-        window.alert("Please enter you username!");
-        flag = false;
-    }
     if(!termsAndConditions.checked)
     {
         window.alert("You must agree to terms and conditions"); 

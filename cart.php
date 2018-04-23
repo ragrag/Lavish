@@ -1,28 +1,22 @@
 
-	<?php
-				require 'db_connect.php';
-				session_start();
-				$connect = OpenCon();
-				$user = $_SESSION['user_login'];
-				$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
-				
-				$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
-				$items = mysqli_query($connect,$query);
-				$count = mysqli_num_rows($items);
-				
-					
-				if(isset($_GET['del']))
-				{
-					
-					$dp_id = $_GET['del'];
+	<?php //Get user products from cart 
+		require 'db_connect.php';
+		session_start();
+		$connect = OpenCon();
+		$user = $_SESSION['user_login'];
+		$uid = mysqli_fetch_array(mysqli_query($connect,"SELECT * FROM user WHERE U_username='$user'")) ['U_id'];  
+		$query = "SELECT * FROM cart WHERE c_user_id='$uid'";
+		$items = mysqli_query($connect,$query);
+		$count = mysqli_num_rows($items);
+		
 			
-					mysqli_query($connect,"DELETE FROM cart WHERE c_user_id='$uid' AND p_id='$dp_id'");
-					header('Location: cart.php');
-					
-				}
-				
-
-			?>
+		if(isset($_GET['del']))
+		{
+			$dp_id = $_GET['del'];
+			mysqli_query($connect,"DELETE FROM cart WHERE c_user_id='$uid' AND p_id='$dp_id'");
+			header('Location: cart.php');	
+		}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +35,7 @@
 </head>
 
 <body >
-<?php 
+<?php //Check user session to select proper header
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 
@@ -67,9 +61,9 @@ else include 'header_not_logged.php';
                                                 </tr>
                                             </thead>
                                             <tbody>
-											<?php
+											<?php //Iterate over products and display them
 											$total =0;
-											while ($item = mysqli_fetch_array($items))
+											while ($item = mysqli_fetch_array($items)) 
 											{
 												$pid = $item ['p_id'];
 												$quantity = $item ['quantity'];
@@ -92,21 +86,8 @@ else include 'header_not_logged.php';
                                                     <td><a href='cart.php?del=$pid'><i class='fa fa-trash-o'></i></a></td>
                                                 </tr>
 												";
-
-												
 											}
-											
-											
-											
-											
-											
 											?>
-											
-											
-											
-											
-											
-											
                                             </tbody>
                                             <tfoot>
                                                 <tr>

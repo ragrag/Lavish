@@ -19,7 +19,7 @@
 
 <body>
 
-<?php 
+<?php 			//Check user session for header display
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 

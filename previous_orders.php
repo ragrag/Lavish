@@ -1,4 +1,4 @@
-	<?php
+	<?php		//Fetch user orders from db
 				require 'db_connect.php';
 				session_start();
 				$connect = OpenCon();
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<?php 
+<?php //Check user session for header display
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
 else include 'header_not_logged.php'; 

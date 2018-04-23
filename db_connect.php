@@ -1,4 +1,4 @@
-<?php
+<?php  //Connect to db and add connection
 
 function OpenCon()
  {

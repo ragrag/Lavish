@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register</title>
-
-
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="icon" href="images/logo_black.ico">
@@ -17,13 +15,13 @@
 </head>
 
 <body>
-<?php
+<?php  //db Connection
         $user = 'root';
         $password = '';
         $db = 'lavishdb';
         $db = new mysqli('localhost',$user, $password,$db) or die("Unable to connect!");                                        
 ?>
-<?php 
+<?php //Checcking user session to display the correct header
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
@@ -77,10 +75,6 @@ else include 'header_not_logged.php';
                         <td>
                             <div>Billing Address *</div>
                             <input class="textbox" type="text" id="baddress" name="baddress">
-                        </td>
-                        <td>
-                            <input class="checkbox" type="checkbox" id="asDelivery" onchange="deliveryAddress()">
-                            <div class="align">Same as the Delivery Address.</div>
                         </td>
                     </tr>
                     <tr>

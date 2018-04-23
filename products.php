@@ -22,7 +22,7 @@
 
 
 	<p id="type" style="display:none"><?php echo $_GET['type'] ?></p>
-<?php 
+<?php //db connection and user session check to display correct header
 require 'db_connect.php';
 $conn = OpenCon();
 session_start();
@@ -70,23 +70,16 @@ window.location.href = url;
             <div class="rtcolumn">
 
                 <h4>Brand</h4><br>
-<?php 
-
-$type = $_GET['type'];
+				
+<?php //Filter distinct brands to display in the filter side bar
+	$type = $_GET['type'];  
 	$query = "SELECT DISTINCT p_brand FROM product WHERE p_type='$type' ";
-					$products= mysqli_query($conn,$query);
-				while ($prod = mysqli_fetch_array($products))
-				{
-					$b = $prod ['p_brand'];
-					
-					echo" <h5 class='check_tag'> 
-				<input type='radio' name='brand' value='$b'>$b<br>
-			</h5>";
-					
-				}
-
-
-
+	$products= mysqli_query($conn,$query);
+	while ($prod = mysqli_fetch_array($products))
+		{
+		$b = $prod ['p_brand'];
+		echo" <h5 class='check_tag'><input type='radio' name='brand' value='$b'>$b<br></h5>";		
+		}
 ?>
 
             <h5 class="check_tag"> 
@@ -132,14 +125,9 @@ $type = $_GET['type'];
 }
  </script>
 			
-			<?php
+			<?php    //Fetch Products and display as per selected filter
 
 				$type = $_GET['type'];
-		
-				
-				
-				
-				
 				if(isset($_POST['price'])){
 					$byPrice = "SELECT * FROM product WHERE p_type='$type' ORDER BY price";
 					$products= mysqli_query($conn,$byPrice);
@@ -153,7 +141,6 @@ $type = $_GET['type'];
 					$brand = $_GET['filter'];
 					$byName= "SELECT * FROM product WHERE p_type='$type' AND p_brand='$brand'";
 					$products= mysqli_query($conn,$byName);
-					
 				}
 				else{
 					$query = "SELECT * FROM product WHERE p_type='$type'";
@@ -163,36 +150,36 @@ $type = $_GET['type'];
 				for ($i =0 ; $i<(mysqli_num_rows($products)/2)+1;$i++)
 				{
 					echo "<div class='row'>";
-						for ($j = 0; $j<4;$j++)
-						{
-							if (!$row = mysqli_fetch_array($products))
-								break;
-							$pname = $row ['p_name'];
-							$price = $row ['price'];
-							$pid = $row ['p_id'];
-							$q = "'";
-							$brand = $row ['p_brand'];
-							$imgurl = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];
-							echo "
-							
-								<div class='column $brand'>
-									<div class='product-item'>
-										<div class='product_filter'>
-											<div class='product_image'>
-												<a href='product.php?id=$pid' name='id'><img alt='Product Image' src='$imgurl' ></a>
-											</div>
-										<div class='product_info'>
-												<h6 class='product_name'>$pname
-												</h6>
-											<div class='product_price'> $price</div>
+					for ($j = 0; $j<4;$j++)
+					{
+						if (!$row = mysqli_fetch_array($products))
+							break;
+						$pname = $row ['p_name'];
+						$price = $row ['price'];
+						$pid = $row ['p_id'];
+						$q = "'";
+						$brand = $row ['p_brand'];
+						$imgurl = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM image WHERE fk_p_id='$pid'")) ['i_url'];
+						echo "
+						
+							<div class='column $brand'>
+								<div class='product-item'>
+									<div class='product_filter'>
+										<div class='product_image'>
+											<a href='product.php?id=$pid' name='id'><img alt='Product Image' src='$imgurl' ></a>
 										</div>
+									<div class='product_info'>
+											<h6 class='product_name'>$pname
+											</h6>
+										<div class='product_price'> $price</div>
 									</div>
-                            <div class='add_to_cart_button'>";?>
-                                <a href="javascript:add_cart('<?php echo $pid; ?>')"><?php echo "add to cart</a>
-                            </div>
-                        </div>
-                    </div>";
-						}
+								</div>
+						<div class='add_to_cart_button'>";?>
+							<a href="javascript:add_cart('<?php echo $pid; ?>')"><?php echo "add to cart</a>
+						</div>
+					</div>
+				</div>";
+					}
 					echo "</div>";
 							
 				}

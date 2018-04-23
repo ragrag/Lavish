@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<?php 
+<?php //Check user session to select proper header
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
@@ -91,31 +91,31 @@ else include 'header_not_logged.php';
         </div>
     </div>
 	<script>
-									function newsletter()
-									{
-									var email = document.getElementById('newsletter_email').value;
-									  $.ajax
-									  ({
-									  type:'post',
-									  url:'newsletter.php',
-									  data:{
-									   newsletter:"newletter",
-									   email:email
-									  },
-									  success:function(response) {
-									  if(response == 1)
-									  {
-										  alert("Subscribed to newsletter");
-									  }
-									  else 
-									  {
-										  alert("Already Subscribed");
-									  }
-									  }
-									  });
-									 return false;
-									}	
-									</script>
+		function newsletter()
+		{
+		  var email = document.getElementById('newsletter_email').value;
+		  $.ajax
+		  ({
+		  type:'post',
+		  url:'newsletter.php',
+		  data:{
+		   newsletter:"newletter",
+		   email:email
+		  },
+		  success:function(response) {
+		  if(response == 1)
+		  {
+			  alert("Subscribed to newsletter");
+		  }
+		  else 
+		  {
+			  alert("Already Subscribed");
+		  }
+		  }
+		  });
+		 return false;
+		}	
+	</script>
 
     <div class="newsletter">
         <div class="container">

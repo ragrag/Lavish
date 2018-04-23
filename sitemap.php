@@ -15,7 +15,7 @@
 
 
 
-<?php 
+<?php //Check user session to select proper header
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 

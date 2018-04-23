@@ -1,4 +1,4 @@
-<?php       
+<?php       //Update user account info 
     session_start();
     if(isset($_SESSION['user_login']))
         include 'header_logged.php'; 

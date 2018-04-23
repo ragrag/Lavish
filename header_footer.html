@@ -4,21 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
     <link rel="icon" href="images/logo_black.ico">
-
     <link rel="stylesheet" href="includes/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <link href="includes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body><?php 
-session_start();
-if(isset($_SESSION['user_login']))
-	include 'header_logged.php'; 
-else include 'header_not_logged.php'; 
+<body>
+<?php //Check user session to select proper header
+	session_start();
+	if(isset($_SESSION['user_login']))
+		include 'header_logged.php'; 
+	else include 'header_not_logged.php'; 
 ?>
         <div class="main-body">
         </div>

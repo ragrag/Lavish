@@ -1,5 +1,5 @@
 
-			<?php
+			<?php			//Fetch Product Info from db
 				require 'db_connect.php';
 				$conn = OpenCon();
 				$pid = $_GET['id'];
@@ -17,7 +17,7 @@
 				$ratingQ =  mysqli_query($conn,"SELECT * FROM review WHERE fk_p_id='$pid' AND confirmed='1'");
 				$ratingSum =0;
 				$prating=0;
-				while ($review = mysqli_fetch_array($ratingQ))
+				while ($review = mysqli_fetch_array($ratingQ))		//Calculate rating avarage 
 				{
 					$ratingSum += $review ['rating'];
 				}
@@ -52,7 +52,7 @@
 
 <body class="body" style="display:none;" onload="fade()">
 
-      <?php 
+      <?php 		//Check user session for header display
 session_start();
 if(isset($_SESSION['user_login']))
 	include 'header_logged.php'; 
@@ -120,9 +120,9 @@ else include 'header_not_logged.php';
                         <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                             <span class="ti-truck"></span><span>free delivery</span>
                         </div>
-                        <div class="product_price">$<?php echo "$price" ?>.00</div>
+                        <div class="product_price">EGP <?php echo "$price" ?>.00</div>
                         <ul class="star_rating">
-						<?php 
+						<?php //Display rating preview (stars)
 						
 						for($i=0;$i<5;$i++)
 						{
@@ -188,7 +188,7 @@ function add_review()
 
   if(response == 1)
   {
-	 alert('Review Added');
+	 alert('Submitted for reviewing ');
   }
   else if (response == 0)
   {
@@ -197,11 +197,11 @@ function add_review()
 
   }
   });
- 
+}
 
  
- return false;
-}	
+
+
 						 
 function add_cart()
 {
@@ -297,8 +297,7 @@ function add_cart()
                                     </div>
 
 									<?php
-									
-									while ($review = mysqli_fetch_array($ratingQ))
+									while ($review = mysqli_fetch_array($ratingQ)) //Fetch and display user reviews
 									{
 										$prating = $review ['rating'];
 										$uid = $review ['fk_u_id'];
@@ -363,6 +362,7 @@ function add_cart()
                                                 <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
                                             </div>
                                             <div class="text-left text-sm-right">
+											
 											<input id="clickMe" type="button" value="Submit" onclick="add_review();" />
                                                 
                                             </div>
